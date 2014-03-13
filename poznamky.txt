@@ -1,0 +1,23 @@
+
+================= Slnko =================
+
+http://answers.unity3d.com/questions/331448/realistic-sun.html
+
+
+================Textury=====================
+
+
+http://gotothessc.tistory.com/category/SPACE!/downlaod
+
+
+
+===============Shadery =====================
+
+http://forum.unity3d.com/threads/12296-Atmospheric-Scattering-help
+http://cgcookie.com/unity/cgc-courses/noob-to-pro-shader-writing-for-unity-4-beginner/
+http://forum.unity3d.com/threads/180750-Planet-Atmosphere-shader-help
+
+
+
+http://mathforum.org/library/drmath/view/63373.html
+http://mathforum.org/library/drmath/view/63373.html

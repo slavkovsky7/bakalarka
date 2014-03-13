@@ -1,0 +1,40 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Math2f.cs">
+    <Files>
+      <File FileName="Assets\Planet.cs" Line="32" Column="27" />
+      <File FileName="Assets\Sun.cs" Line="17" Column="3" />
+      <File FileName="Assets\SolarSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Tests.cs" Line="50" Column="5" />
+      <File FileName="Assets\Math2f.cs" Line="153" Column="52" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Math2f.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>s / (v*3600)</Value>
+          <Value>s</Value>
+          <Value>(float)s / ( v*3600.0f)</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="G:\WORKSPACE\bakalarka\solar_system\Assets\Planet.cs" line="227" />
+      <Breakpoint file="G:\WORKSPACE\bakalarka\solar_system\Assets\Math2f.cs" line="160" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\Planet.cs" line="96" offsetX="460" offsetY="1615" expression="this.gameObject.transform.localToWorldMatrix" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
