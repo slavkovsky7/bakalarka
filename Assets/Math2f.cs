@@ -35,6 +35,9 @@ namespace Bakalarka
 			float n2 = BinomialCoefficient( 2*n - 2 , n -1 );
 			return n1*n2;
 		}
+
+		public const float MIN_TO_HOUR = 0.0166666667f;
+		public const float SEC_TO_HOUR = 0.000277777778f;
 	}
 
 	public class Ellipse
