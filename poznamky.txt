@@ -21,3 +21,14 @@ http://forum.unity3d.com/threads/180750-Planet-Atmosphere-shader-help
 
 http://mathforum.org/library/drmath/view/63373.html
 http://mathforum.org/library/drmath/view/63373.html
+
+TODO:
+
+Planeta + DirectionalLight svetlo
+Datum Den aby sa zvysoval mesiac
+
+
+
+http://www.stjarnhimlen.se/comp/ppcomp.html#7
+http://mathworld.wolfram.com/KeplersEquation.html
+http://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html

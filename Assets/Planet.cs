@@ -129,6 +129,7 @@ public class Planet : MonoBehaviour {
 
 		if (DayLength > 0)
 		{
+			//TOTO JE TIEZ ZLE
 			float f =  (float)hourPositions.positions.Length / ( Period / DayLength ) ;
 			RotateSpeed =   360.0f  / f ; 
 		}
@@ -168,15 +169,29 @@ public class Planet : MonoBehaviour {
 	void Start () {
 		InitPlanet();
 		SetDate(CurrentHour, CurrentMinute , 0);
+		Debug.Log( " SemiMajor "  + ellipse.semi_major + this.gameObject.name );
+		Debug.Log( hourPositions.positions.Length + " "  + this.gameObject.name );
+		Debug.Log( hourPositions.getTicksPerHour() + " "  + this.gameObject.name );
+		Debug.Log( hourPositions.positions.Length * Time.deltaTime + " "  + this.gameObject.name );
 	}
 
 	/*private Vector3 lastPost = new Vector3();
 	bool lastPosSet = false;*/
 
-	private int CurrentTick = 0;
+	public int CurrentTick = 0;
+	public float VelocitySum = 0;
+	public float VelocityAverage = 0;
+
+
+	public float SweepedArea = 0;
 
 	public void Advance()
 	{
+
+		SweepedArea = ellipse.getAreaVelocity(OrbitalAngle, OrbitalSpeed); 
+
+
+		CurrentTick++;
 		if (RotateSpeed > 0)
 		{
 			float speed =  RotateSpeed * Sun.TimeConstant;
@@ -195,7 +210,9 @@ public class Planet : MonoBehaviour {
 		this.gameObject.transform.position = pos;
 
 		Velocity = ellipse.toVelocity(OrbitalSpeed);
-		
+		VelocitySum += Velocity;
+		VelocityAverage = VelocitySum / (float)CurrentTick;
+
 		/*if (lastPosSet) Debug.DrawLine(pos ,lastPost, Color.red, 1000 );
 		lastPosSet = true;
 		lastPost = pos;

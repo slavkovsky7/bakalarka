@@ -111,7 +111,7 @@ namespace Bakalarka
 			float area = (mr*mr*Mathf.Deg2Rad*angularSpeed)/2;
 			return area;
 		}
-		
+
 		public float getAngularSpeed(float angle,  float area )
 		{
 			Vector3 r = getPosition( angle ) - getF1();
@@ -145,16 +145,27 @@ namespace Bakalarka
 
 		public float getPerimeter(){ return getPerimeter(10);}
 
-		public float getPerimeter( int accuracy )
+		/*public float getPerimeter( int accuracy )
 		{
 			float h = Mathf.Pow( semi_major - semi_minor , 2 ) /  Mathf.Pow( semi_major + semi_minor , 2 );
-			float accuratePart = 0;
+			double accuratePart = 0;
 			for ( int i = 0 ; i < accuracy; i++)
 			{
-				accuratePart += Mathf.Pow( Math2f.HalfBinomialCoefficient(i),2)*Mathf.Pow(h,i);	 
+				double secondPart = Mathf.Pow(h,i);
+				double firstPart = Mathf.Pow( Math2f.HalfBinomialCoefficient(i),2);
+				accuratePart += firstPart*secondPart;	 
 			}
 			return Mathf.PI * ( semi_major + semi_minor) *accuratePart;
+		}*/
+
+		public float getPerimeter( int accuracy )
+		{
+			float a = semi_major;
+			float b = semi_minor;
+			float result = Mathf.PI *( 3.0f*( a + b) - Mathf.Sqrt( (3.0f*a + b )*( a + 3.0f*b) ) );
+			return result;
 		}
+
 
 		public float getPeriod(float gravitParam)
 		{

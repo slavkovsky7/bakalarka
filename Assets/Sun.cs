@@ -35,7 +35,7 @@ public class Sun : MonoBehaviour {
 		minusButton.action += delegate { addTime(-0.001f); } ;
 		minusButton.releaseAction += delegate{ timeAccelaration = 0; };
 
-		picker = new DatePicker(new Rect(100,100, 150, 100 ) );
+		picker = new DatePicker(new Rect(100,100, 300, 100 ) );
 	}
 	
 	void Update () 

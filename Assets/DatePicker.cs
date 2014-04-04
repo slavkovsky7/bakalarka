@@ -15,42 +15,85 @@ public class DatePicker
 		return false;
 	}
 
-	private static int GetCorrectDay(int day , string month, int year )
+	private static void SetCorrectDay( SinglePicker dayPicker , SinglePicker monthPicker, SinglePicker yearPicker , int monthDiff)
 	{
+		int day = dayPicker.getCurrentIndex();
 		if (day < 1){
-			return 1;
+			dayPicker.setCurrentIndex( GetMaxDay( months[monthPicker.getCurrentIndex()] , yearPicker.getCurrentIndex() ) );
 		}
-		int maxDay = (month == "feb") ? (year % 4 == 0 ? 29 : 28) : containsValue(longerMonths, month ) ? 31 : 30;
-		if ( day > maxDay )
-			return maxDay;
-		return day;
+		int maxDay = GetMaxDay( months[monthPicker.getCurrentIndex()] , yearPicker.getCurrentIndex() );
+		if ( day > maxDay ){
+			if (monthDiff == 0)
+			{
+				dayPicker.setCurrentIndex(1);
+			}else{
+				dayPicker.setCurrentIndex(maxDay);
+			}
+		}
 	}
 
+	public static int GetMaxDay( string month, int year ){
+		return (month == "feb") ? (year % 4 == 0 ? 29 : 28) : containsValue(longerMonths, month ) ? 31 : 30;
+	}
 
 	private Rect rectangle;
 	private SinglePicker monthPicker;
 	private SinglePicker dayPicker;
 	private SinglePicker yearPicker;
 
+	private SinglePicker hourPicker;
+	private SinglePicker minutePicker;
+
 	public DatePicker( Rect rectangle )
 	{
-		float w3 = rectangle.width / 3; 
+		float w6 = rectangle.width / 6; 
 		this.rectangle = rectangle;
-		this.monthPicker	= new SinglePicker( new Rect( 0		,0 ,w3 ,rectangle.height), months );
-		this.dayPicker 		= new SinglePicker( new Rect( w3 	,0 ,w3 ,rectangle.height), null   );
-		this.yearPicker 	= new SinglePicker( new Rect( 2*w3 	,0 ,w3 ,rectangle.height), null	  );
+		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(1970, 2500);
+		this.monthPicker	= new SinglePicker( new Rect( 0		,0 ,w6 ,rectangle.height), months, null ).withInterval(0,months.Length);
+		this.dayPicker 		= new SinglePicker( new Rect( w6 	,0 ,w6 ,rectangle.height), null  , null );
 
-		this.monthPicker.setCurrentIndex(0);
+		this.hourPicker = new SinglePicker(	  new Rect( 4*w6 ,0 ,w6 ,rectangle.height), null , null).withInterval(0,24);
+		this.minutePicker = new SinglePicker( new Rect( 5*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
+
+		/*this.monthPicker.setCurrentIndex(0);
 		this.dayPicker.setCurrentIndex(1);
 		this.yearPicker.setCurrentIndex(1970);
+		this.hourPicker.setCurrentIndex(0);
+		this.minutePicker.setCurrentIndex(0);*/
+		setDate( DateTime.Now );
+	}
+
+	public void setDate( DateTime date){
+		this.monthPicker.setCurrentIndex(date.Month - 1);
+		this.dayPicker.setCurrentIndex(date.Day);
+		this.yearPicker.setCurrentIndex(date.Year);
+		this.hourPicker.setCurrentIndex(date.Hour);
+		this.minutePicker.setCurrentIndex(date.Minute);
+	}
+
+	public DateTime getDate()
+	{
+		DateTime time = new DateTime(yearPicker.getCurrentIndex(), 
+		                             monthPicker.getCurrentIndex() + 1,
+		                             dayPicker.getCurrentIndex(),
+		                             hourPicker.getCurrentIndex(),
+		                             minutePicker.getCurrentIndex() , 0);
+		return time;
 	}
 
 	public void onGui(){
 		GUI.BeginGroup( rectangle );
-			monthPicker.onGui();
-			dayPicker.onGui();
-			dayPicker.setCurrentIndex( GetCorrectDay( dayPicker.getCurrentIndex() ,months[monthPicker.getCurrentIndex()],yearPicker.getCurrentIndex() ) );
-			yearPicker.onGui();
+		GUI.Box ( new Rect(0,0, rectangle.width, rectangle.height) , "");
+
+		int startMonth = monthPicker.getCurrentIndex();
+		monthPicker.onGui();
+		int diff = monthPicker.getCurrentIndex() - startMonth;
+		dayPicker.onGui();
+		SetCorrectDay( dayPicker ,monthPicker ,yearPicker, diff );
+		yearPicker.onGui();
+		hourPicker.onGui();
+		minutePicker.onGui();
+
 		GUI.EndGroup();
 	}
 
@@ -69,7 +112,13 @@ public class DatePicker
 		private float clickInterval = DEFAULT_INTERVAL;
 		private const float DEFAULT_INTERVAL = 0.2f;
 
-		public SinglePicker( Rect rectangle , string[] content)
+		private int intervalBegin;
+		private int intervalEnd;
+		private bool intervalSpecified = false;
+
+		private SinglePicker parentPicker = null;
+
+		public SinglePicker( Rect rectangle , string[] content, SinglePicker parentPicker)
 		{
 			this.rectangle = rectangle;
 			this.currentIndex = 0;
@@ -86,24 +135,59 @@ public class DatePicker
 			this.minusButton.action += delegate { addCurrentIndex(-1); };
 			this.minusButton.releaseAction += delegate {resetInterval(); };
 
+			this.parentPicker = parentPicker;
+
+		}
+
+		public SinglePicker withInterval( int begin , int end ){
+			this.intervalEnd = end;
+			this.intervalBegin = begin;
+			intervalSpecified = true;
+			return this;
 		}
 
 		public void setCurrentIndex( int index ) { 
+			bool doReturn = false;
+			if (parentPicker != null ){
+
+				if ( index == intervalEnd ){
+					currentIndex = intervalBegin;
+					parentPicker.addCurrentIndex(1);
+					doReturn = true;
+				}
+
+				if ( index < intervalBegin ){
+					currentIndex = intervalEnd - 1;
+					parentPicker.addCurrentIndex(-1);
+					doReturn = true;
+				}
+				if (doReturn){
+					return;
+				}
+			}
+
+			if (intervalSpecified )
+			{
+				if (index < intervalBegin) {
+					currentIndex = intervalEnd - 1;
+					return;
+				}else if (index == intervalEnd ){
+					currentIndex = intervalBegin;
+					return;
+				}
+			}
 			currentIndex = index;
+			/*
+			if ( ( intervalSpecified && index >= intervalBegin && index < intervalEnd ) || !intervalSpecified ){
+				currentIndex = index;
+			}*/
 		}
 
 		public int getCurrentIndex( ) { return currentIndex; }
 
 		private void addCurrentIndex( int n ){
 			if (Time.time - lastClick > clickInterval){
-				if ( content != null ) {
-					int tmpCurrentIndex = currentIndex + n;
-					if (tmpCurrentIndex >= 0 && tmpCurrentIndex < content.Length  ){
-						currentIndex = tmpCurrentIndex;
-					}
-				}else{
-					currentIndex += n;
-				}
+				setCurrentIndex( currentIndex + n);
 				lastClick = Time.time;
 				clickCount++;
 				if (clickCount/5 > 0){
