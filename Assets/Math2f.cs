@@ -96,6 +96,7 @@ namespace Bakalarka
 		
 		public Vector3 getVelocityDirection( float angle )
 		{
+			angle = Mathf.Deg2Rad * angle;
 			Vector3 v = new Vector3();
 			v.x = -semi_major * Mathf.Sin(angle)*U.x + semi_minor * Mathf.Cos(angle)*V.x;
 			v.y = -semi_major * Mathf.Sin(angle)*U.y + semi_minor * Mathf.Cos(angle)*V.y;
@@ -104,31 +105,42 @@ namespace Bakalarka
 			return v;
 		}
 		
-		public float getAreaVelocity(float angle,  float angularSpeed )
+		public float getAreaVelocity(float gravitParam)
 		{
-			Vector3 r = getPosition( angle ) - getF1();
-			float mr = r.magnitude;
-			float area = (mr*mr*Mathf.Deg2Rad*angularSpeed)/2;
+			Vector3 aphelion = getPosition(0) - getF1();
+			float minimumSpeed = getMinimumSpeed(gravitParam);
+			float area = ( aphelion.magnitude * minimumSpeed ) / 2;
 			return area;
 		}
 
-		public float getAngularSpeed(float angle,  float area )
-		{
-			Vector3 r = getPosition( angle ) - getF1();
-			float mr = r.magnitude;
-			float angularSpeed = (2*area) / (mr*mr);
-			return Mathf.Rad2Deg*angularSpeed;
+		public float getAngularVelocity(float angle , float area)
+		{ 
+			Vector3 v = getVelocity(angle, area);
+			Vector3 r = getPosition(angle);
+			float theta = Vector3.Angle(r, v)*Mathf.Deg2Rad;
+			float w = (v.magnitude * Mathf.Sin(theta) )  / r.magnitude;
+			return w;
 		}
-		
+
+		public Vector3 getVelocity(float angle  , float area)
+		{
+			Vector3 r = getPosition(angle) - getF1();
+			float vAnsSinTheta = (2*area) / r.magnitude;
+			Vector3 velocityDir = getVelocityDirection(angle);
+			float theta = Vector3.Angle(r, velocityDir)*Mathf.Deg2Rad;
+			float velocity =vAnsSinTheta / Mathf.Sin(theta);
+			return velocityDir*velocity;
+		}
+
 		public float getMinimumSpeed(float gravitParameter)
 		{
 			float velocity =  Mathf.Sqrt( ((1 - e)*gravitParameter) / ( (1+e)*semi_major ) ); 
-			float angularVelocity = velocity / semi_major ;
-			return angularVelocity;
+			return velocity;
+			//float angularVelocity = velocity / semi_major ;
+			//return angularVelocity;
 		}
-		
-		public float toVelocity(float angularVelocity){ return angularVelocity * semi_major; }
-		
+
+
 		public float getArea() {return Mathf.PI*semi_major*semi_minor;}
 		
 		public void drawAroundPoint( Vector3 point )
@@ -143,22 +155,7 @@ namespace Bakalarka
 		
 		public float getAverageOrbitalSpeed( float gravitParam ){return Mathf.Sqrt(gravitParam / semi_major);}
 
-		public float getPerimeter(){ return getPerimeter(10);}
-
-		/*public float getPerimeter( int accuracy )
-		{
-			float h = Mathf.Pow( semi_major - semi_minor , 2 ) /  Mathf.Pow( semi_major + semi_minor , 2 );
-			double accuratePart = 0;
-			for ( int i = 0 ; i < accuracy; i++)
-			{
-				double secondPart = Mathf.Pow(h,i);
-				double firstPart = Mathf.Pow( Math2f.HalfBinomialCoefficient(i),2);
-				accuratePart += firstPart*secondPart;	 
-			}
-			return Mathf.PI * ( semi_major + semi_minor) *accuratePart;
-		}*/
-
-		public float getPerimeter( int accuracy )
+		public float getPerimeter()
 		{
 			float a = semi_major;
 			float b = semi_minor;

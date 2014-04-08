@@ -6,7 +6,7 @@ using System;
 
 public class Sun : MonoBehaviour {
 
-	public static float TimeConstant = 1.0f  ;
+	public static float TimeConstant = 0  ;
 	public float TimeConstantCurrent = TimeConstant;
 	private float timeAccelaration = 0;
 
@@ -14,7 +14,8 @@ public class Sun : MonoBehaviour {
 
 	public void addTime(float n){
 		timeAccelaration += n;
-		TimeConstantCurrent += timeAccelaration;
+		//TimeConstantCurrent += timeAccelaration;
+		TimeConstantCurrent +=timeAccelaration;
 	}
 
 
@@ -23,9 +24,8 @@ public class Sun : MonoBehaviour {
 	private KeyButton minusButton = new KeyButton(new Rect(10,10,50,50), "-", KeyCode.KeypadMinus );
 
 	string[] pole = new string[]{"jan", "feb", "march"};
-	private DatePicker picker = null;
-
-
+	public static DatePicker DatePicker = null;
+	
 	void Start () 
 	{
 		TimeConstant = TimeConstantCurrent;
@@ -35,7 +35,7 @@ public class Sun : MonoBehaviour {
 		minusButton.action += delegate { addTime(-0.001f); } ;
 		minusButton.releaseAction += delegate{ timeAccelaration = 0; };
 
-		picker = new DatePicker(new Rect(100,100, 300, 100 ) );
+		DatePicker = new DatePicker(new Rect(100,100, 300, 100 ) );
 	}
 	
 	void Update () 
@@ -48,6 +48,6 @@ public class Sun : MonoBehaviour {
 	void OnGUI(){
 		plusButton.Perform();
 		minusButton.Perform();
-		picker.onGui();
+		DatePicker.onGui();
 	}
 }

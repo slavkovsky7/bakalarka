@@ -44,6 +44,11 @@ public class DatePicker
 	private SinglePicker hourPicker;
 	private SinglePicker minutePicker;
 
+	public static DateTime getEpoch()
+	{ 
+		return new DateTime(1970,1,1);
+	}
+
 	public DatePicker( Rect rectangle )
 	{
 		float w6 = rectangle.width / 6; 
@@ -69,6 +74,19 @@ public class DatePicker
 		this.yearPicker.setCurrentIndex(date.Year);
 		this.hourPicker.setCurrentIndex(date.Hour);
 		this.minutePicker.setCurrentIndex(date.Minute);
+	}
+
+	public void setDate(float hours )
+	{
+		TimeSpan t = TimeSpan.FromHours( (double) hours);
+		setDate( getEpoch().AddSeconds(t.TotalSeconds) );
+	}
+
+	public float dateToHours()
+	{
+		DateTime date = getDate();
+		TimeSpan span= date.Subtract( getEpoch() ) ;
+		return (float)span.TotalHours;
 	}
 
 	public DateTime getDate()

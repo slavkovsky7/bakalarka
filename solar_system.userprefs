@@ -1,19 +1,34 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Math2f.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Planet.cs">
     <Files>
-      <File FileName="Assets\Planet.cs" Line="163" Column="39" />
-      <File FileName="Assets\Sun.cs" Line="45" Column="31" />
-      <File FileName="Assets\Math2f.cs" Line="121" Column="4" />
-      <File FileName="Assets\DatePicker.cs" Line="1" Column="1" />
-      <File FileName="Assets\KeyButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\SolarSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Planet.cs" Line="39" Column="6" />
+      <File FileName="Assets\Sun.cs" Line="1" Column="1" />
+      <File FileName="Assets\Math2f.cs" Line="1" Column="1" />
+      <File FileName="Assets\Tests.cs" Line="1" Column="1" />
+      <File FileName="g:\WORKSPACE\bakalarka\solar_system\Assets\Planet.cs" Line="139" Column="35" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="test-results" expanded="True" />
+            <Node name="Planet.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>distance</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="G:\WORKSPACE\bakalarka\solar_system\Assets\Math2f.cs" line="120" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

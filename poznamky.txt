@@ -32,3 +32,13 @@ Datum Den aby sa zvysoval mesiac
 http://www.stjarnhimlen.se/comp/ppcomp.html#7
 http://mathworld.wolfram.com/KeplersEquation.html
 http://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html
+
+
+http://forum.processing.org/one/topic/moving-on-ellipse-with-areal-velocity.html
+http://curricula2.mit.edu/pivot/book/ph0903.html?acode=0x0200
+http://astro.unl.edu/naap/pos/animations/kepler.swf
+http://galileo.phys.virginia.edu/classes/152.mf1i.spring02/KeplersLaws.htm
+
+
+//THIS IS IT
+http://en.wikipedia.org/wiki/Angular_velocity

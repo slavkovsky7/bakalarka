@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>H:/Programs/Unity Pro/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>h:/Programs/Unity Pro/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>H:/Programs/Unity Pro/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>h:/Programs/Unity Pro/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -57,8 +57,10 @@
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-03-09.xml" />
+     <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-04-06.xml" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-04-05.xml" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>

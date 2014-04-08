@@ -16,26 +16,27 @@ public class Planet : MonoBehaviour {
 			this.speed = speed;
 		}
 	}
-	
+
 	class PlanetPositions
 	{
 		public PlanetPosition[] positions = null;
-		Ellipse ellipse = null;
-		float area = 0;
-		float period = 0;
-		
+		private Ellipse ellipse = null;
+		private float area = 0;
+		private float period = 0;
 		public PlanetPositions(Ellipse ellipse , float gravityParam )
 		{
 			this.ellipse = ellipse;
-			period = (int)ellipse.getPeriod( gravityParam );
-			float minSpeed = ellipse.getMinimumSpeed( gravityParam );
-			area = ellipse.getAreaVelocity(0, minSpeed);
-			positions = getPositionsArray( 0 , minSpeed, 360.0f, 1.0f );
+			this.period = (int)ellipse.getPeriod( gravityParam );
+			this.area = ellipse.getAreaVelocity(gravityParam);
+			float minSpeed = ellipse.getAngularVelocity( 0, area );
+			this.positions = getPositionsArray( 0 , minSpeed, 360.0f, 1.0f );
 		}
 
 		public float getTicksPerHour()
 		{
-			return (float)positions.Length / period;
+			//TOTO JE HODNOTA PRE ZEM, NEJAKE BLBOSTI TAM VYCHADZAJU KED JE to pre kazdu planetu 
+			return 2.062894f;
+			//return ((float)positions.Length )  / period;
 		}
 
 		private PlanetPosition[] getPositionsArray( float startAngle , float startSpeed, float endAngle , float timeModifier)
@@ -43,11 +44,12 @@ public class Planet : MonoBehaviour {
 			List<PlanetPosition> positionsList = new List<PlanetPosition>();
 			float totalAngle = startAngle;
 			float currentSpeed = startSpeed;
+			positionsList.Add( new PlanetPosition(totalAngle, currentSpeed ) );
 			while (totalAngle < endAngle)
 			{
 				totalAngle += currentSpeed*timeModifier;
 				positionsList.Add( new PlanetPosition(totalAngle, currentSpeed ) );
-				currentSpeed = ellipse.getAngularSpeed(totalAngle, area); 
+				currentSpeed = ellipse.getAngularVelocity(totalAngle, area); 
 			}
 			return positionsList.ToArray ();
 		}
@@ -73,7 +75,6 @@ public class Planet : MonoBehaviour {
 
 
 
-
 	public float RotateSpeed = 0;
 	public float RotateAngle = 0;
 	public float DayLength  = 0;
@@ -94,16 +95,16 @@ public class Planet : MonoBehaviour {
 	public int CurrentHour = 0;
 	public int CurrentMinute = 0;
 	public GameObject parentObject = null;
+	public float Area;
 
 	public Vector3 U = new Vector3(1,0,0);
 	public Vector3 V = new Vector3(0,0,1);
-
-
 	
-	private float area;
 	private Ellipse ellipse = null;
 	private PlanetPositions hourPositions;
 	private Quaternion originalRotation;
+
+	public bool isGlobalTime = false;
 
 	void InitPlanet()
 	{
@@ -120,8 +121,11 @@ public class Planet : MonoBehaviour {
 			Period = ellipse.getPeriod(GravitParam);
 		}
 		Perimeter = ellipse.getPerimeter();
-		OrbitalSpeed = ellipse.getMinimumSpeed(GravitParam);
-		area = ellipse.getAreaVelocity(0, OrbitalSpeed);
+		Area =  ellipse.getAreaVelocity(GravitParam);
+
+		OrbitalSpeed = ellipse.getAngularVelocity(0, Area);
+		Velocity = ellipse.getVelocity(0,Area).magnitude;
+	
 		AverageVelocity = ellipse.getAverageOrbitalSpeed(GravitParam);
 		
 	
@@ -130,21 +134,19 @@ public class Planet : MonoBehaviour {
 		if (DayLength > 0)
 		{
 			//TOTO JE TIEZ ZLE
-			float f =  (float)hourPositions.positions.Length / ( Period / DayLength ) ;
+			//float f =  (float)hourPositions.positions.Length / ( Period / DayLength ) ;
+			float f =  hourPositions.getTicksPerHour() * DayLength;
 			RotateSpeed =   360.0f  / f ; 
 		}
 
 		Quaternion quat = Quaternion.AngleAxis( Tilt, Vector3.forward);
 		TiltVector = quat * TiltVector;
 		this.transform.Rotate( new Vector3(0,0, Tilt));
-
 	}
 
 
 	public void SetDate(int hour , int minute, int second )
 	{   
-
-
 		//PlanetPosition position = hourPositions.getPlanetaryPosition (hour);	
 		//OrbitalSpeed = position.speed;
 		int years = (int) ( (float)hour / Period );
@@ -169,37 +171,25 @@ public class Planet : MonoBehaviour {
 	void Start () {
 		InitPlanet();
 		SetDate(CurrentHour, CurrentMinute , 0);
-		Debug.Log( " SemiMajor "  + ellipse.semi_major + this.gameObject.name );
 		Debug.Log( hourPositions.positions.Length + " "  + this.gameObject.name );
 		Debug.Log( hourPositions.getTicksPerHour() + " "  + this.gameObject.name );
-		Debug.Log( hourPositions.positions.Length * Time.deltaTime + " "  + this.gameObject.name );
 	}
+	
 
-	/*private Vector3 lastPost = new Vector3();
-	bool lastPosSet = false;*/
-
-	public int CurrentTick = 0;
-	public float VelocitySum = 0;
-	public float VelocityAverage = 0;
-
-
-	public float SweepedArea = 0;
+	public float CurrentTick = 0;
+	public float CurrentTime = 0;
 
 	public void Advance()
 	{
-
-		SweepedArea = ellipse.getAreaVelocity(OrbitalAngle, OrbitalSpeed); 
-
-
-		CurrentTick++;
 		if (RotateSpeed > 0)
 		{
 			float speed =  RotateSpeed * Sun.TimeConstant;
 			RotateAngle += speed ;
 			DayCounter  =  ( int) ( RotateAngle / 360.0f );
 			this.transform.Rotate( new Vector3(0,speed, 0));
-			Debug.DrawLine(this.transform.position - TiltVector*50, this.transform.position + TiltVector*50, Color.green);
+			//Debug.DrawLine(this.transform.position - TiltVector*50, this.transform.position + TiltVector*50, Color.green);
 		}
+
 
 
 		OrbitalAngle += (OrbitalSpeed  * Sun.TimeConstant);
@@ -209,19 +199,20 @@ public class Planet : MonoBehaviour {
 		Vector3 pos =  ( center - ellipse.getF1() )  + ellipse.getPosition(OrbitalAngle);
 		this.gameObject.transform.position = pos;
 
-		Velocity = ellipse.toVelocity(OrbitalSpeed);
-		VelocitySum += Velocity;
-		VelocityAverage = VelocitySum / (float)CurrentTick;
+		Velocity = ellipse.getVelocity(OrbitalAngle, Area).magnitude;
 
-		/*if (lastPosSet) Debug.DrawLine(pos ,lastPost, Color.red, 1000 );
-		lastPosSet = true;
-		lastPost = pos;
-		*/
-		OrbitalSpeed = ellipse.getAngularSpeed(OrbitalAngle, area );
+		OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area );
 		ellipse.drawAroundPoint(  ( center - ellipse.getF1() ) );
+		CurrentTick += Sun.TimeConstant * 1;
+		CurrentTime = CurrentTick / hourPositions.getTicksPerHour();
+
+		if ( isGlobalTime ){
+			Sun.DatePicker.setDate(CurrentTime);
+		}
 	}
 
 	void FixedUpdate () {
+
 		if ( Inclination > 0 )
 		{
 			Debug.DrawLine(Vector3.zero,  U * 1000 , Color.red);
