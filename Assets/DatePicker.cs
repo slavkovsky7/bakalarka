@@ -44,21 +44,22 @@ public class DatePicker
 	private SinglePicker hourPicker;
 	private SinglePicker minutePicker;
 
+
 	public static DateTime getEpoch()
 	{ 
-		return new DateTime(1970,1,1);
+		return new DateTime(1904,1,1);
 	}
 
 	public DatePicker( Rect rectangle )
 	{
 		float w6 = rectangle.width / 6; 
 		this.rectangle = rectangle;
-		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(1970, 2500);
+		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(1904, 2101);
 		this.monthPicker	= new SinglePicker( new Rect( 0		,0 ,w6 ,rectangle.height), months, null ).withInterval(0,months.Length);
 		this.dayPicker 		= new SinglePicker( new Rect( w6 	,0 ,w6 ,rectangle.height), null  , null );
 
-		this.hourPicker = new SinglePicker(	  new Rect( 4*w6 ,0 ,w6 ,rectangle.height), null , null).withInterval(0,24);
-		this.minutePicker = new SinglePicker( new Rect( 5*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
+		this.hourPicker = new SinglePicker(	  new Rect( 3*w6 ,0 ,w6 ,rectangle.height), null , null).withInterval(0,24);
+		this.minutePicker = new SinglePicker( new Rect( 4*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
 
 		/*this.monthPicker.setCurrentIndex(0);
 		this.dayPicker.setCurrentIndex(1);
@@ -82,7 +83,7 @@ public class DatePicker
 		setDate( getEpoch().AddSeconds(t.TotalSeconds) );
 	}
 
-	public float dateToHours()
+	public double getDateInHours()
 	{
 		DateTime date = getDate();
 		TimeSpan span= date.Subtract( getEpoch() ) ;
@@ -95,9 +96,11 @@ public class DatePicker
 		                             monthPicker.getCurrentIndex() + 1,
 		                             dayPicker.getCurrentIndex(),
 		                             hourPicker.getCurrentIndex(),
-		                             minutePicker.getCurrentIndex() , 0);
+		                             minutePicker.getCurrentIndex() , 0, DateTimeKind.Utc);
 		return time;
 	}
+
+	private float lastDateHours = -1;
 
 	public void onGui(){
 		GUI.BeginGroup( rectangle );
@@ -111,6 +114,18 @@ public class DatePicker
 		yearPicker.onGui();
 		hourPicker.onGui();
 		minutePicker.onGui();
+		if (Sun.TimeConstant == 0){
+			double dateHours = Sun.DatePicker.getDateInHours();
+			if (dateHours != lastDateHours)
+			{
+				Debug.Log("Date set");
+				foreach ( Planet planet in Sun.Planets ){
+					planet.CurrentTime = dateHours;
+					planet.SetDate(dateHours);
+				}
+			}
+			lastDateHours = dateHours;
+		}
 
 		GUI.EndGroup();
 	}

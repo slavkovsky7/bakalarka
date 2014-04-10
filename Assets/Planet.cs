@@ -54,14 +54,14 @@ public class Planet : MonoBehaviour {
 			return positionsList.ToArray ();
 		}
 		
-		public PlanetPosition getPlanetaryPosition(int hour , int second )
+		public PlanetPosition getPlanetaryPosition(int hour , int second , float interval )
 		{
 			int start_hour = hour % (int)period;
 			int end_hour =  ( hour + 1 )% (int)period;
 			PlanetPosition start = getPlanetaryPosition(start_hour);
 			PlanetPosition end = getPlanetaryPosition(end_hour);
-			PlanetPosition[] positionsPerSecond = getPositionsArray (start.angle, start.speed, end.angle, 1.0f / 3600.0f);
-			int index = (int)((float)second * ((float)positionsPerSecond.Length / 3600.0f ));
+			PlanetPosition[] positionsPerSecond = getPositionsArray (start.angle, start.speed, end.angle, 1.0f / interval );
+			int index = (int)((float)second * ((float)positionsPerSecond.Length / interval ));
 			return positionsPerSecond[index];
 		}
 		
@@ -92,8 +92,6 @@ public class Planet : MonoBehaviour {
 	public int YearCounter = 0;
 	public float Period = 0; 
 	public float Perimeter = 0;
-	public int CurrentHour = 0;
-	public int CurrentMinute = 0;
 	public GameObject parentObject = null;
 	public float Area;
 
@@ -142,35 +140,39 @@ public class Planet : MonoBehaviour {
 		Quaternion quat = Quaternion.AngleAxis( Tilt, Vector3.forward);
 		TiltVector = quat * TiltVector;
 		this.transform.Rotate( new Vector3(0,0, Tilt));
+
+		Sun.Planets.Add(this);
 	}
 
+	public void SetDate( float hours ){
 
-	public void SetDate(int hour , int minute, int second )
+		int years = (int) ( hours / Period );
+		int hour = (int)hours;  
+		int minute = (int)((hours - (float)hour) * 60.0f ) ;
+		SetDate(years, hour, minute);
+		CurrentTime = hours + 30*Math2f.SEC_TO_HOUR;
+		CurrentTick = CurrentTime * hourPositions.getTicksPerHour();
+	}
+
+	public void SetDate( int years , int hour , int minute )
 	{   
 		//PlanetPosition position = hourPositions.getPlanetaryPosition (hour);	
 		//OrbitalSpeed = position.speed;
-		int years = (int) ( (float)hour / Period );
+
 		//OrbitalAngle = ( 360.0f* (float)years) +position.angle;
-
-		minute = minute + second / 60;
-		second = second % 60;
-		int hours = hour + minute/60;
-		minute = minute % 60;
-		int seconds = minute*60 + second;
-
-		PlanetPosition pos = (seconds > 0) ? hourPositions.getPlanetaryPosition( hours, seconds ) : hourPositions.getPlanetaryPosition (hours);
+		PlanetPosition pos = (minute > 0) ? hourPositions.getPlanetaryPosition( hour, minute, 60.0f ) : hourPositions.getPlanetaryPosition (hour);
 		OrbitalAngle = ( 360.0f* (float)years) + pos.angle;
 		OrbitalSpeed = pos.speed;
 
 		transform.rotation = originalRotation;
 
-		RotateAngle = RotateSpeed * ( ( hours + seconds * Math2f.SEC_TO_HOUR ) * hourPositions.getTicksPerHour() ); 
+		RotateAngle = RotateSpeed * ( ( hour + minute * Math2f.MIN_TO_HOUR ) * hourPositions.getTicksPerHour() ); 
 		this.transform.Rotate( new Vector3(0, RotateAngle, 0));
 	}
 
 	void Start () {
 		InitPlanet();
-		SetDate(CurrentHour, CurrentMinute , 0);
+		//SetDate(CurrentHour, CurrentMinute );
 		Debug.Log( hourPositions.positions.Length + " "  + this.gameObject.name );
 		Debug.Log( hourPositions.getTicksPerHour() + " "  + this.gameObject.name );
 	}
@@ -206,7 +208,7 @@ public class Planet : MonoBehaviour {
 		CurrentTick += Sun.TimeConstant * 1;
 		CurrentTime = CurrentTick / hourPositions.getTicksPerHour();
 
-		if ( isGlobalTime ){
+		if ( isGlobalTime && Sun.TimeConstant != 0){
 			Sun.DatePicker.setDate(CurrentTime);
 		}
 	}

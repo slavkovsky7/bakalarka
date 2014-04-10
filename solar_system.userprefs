@@ -2,11 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Planet.cs">
     <Files>
-      <File FileName="Assets\Planet.cs" Line="39" Column="6" />
-      <File FileName="Assets\Sun.cs" Line="1" Column="1" />
+      <File FileName="Assets\Planet.cs" Line="205" Column="3" />
+      <File FileName="Assets\DatePicker.cs" Line="124" Column="15" />
+      <File FileName="Assets\FlyingCam.cs" Line="1" Column="1" />
       <File FileName="Assets\Math2f.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tests.cs" Line="1" Column="1" />
-      <File FileName="g:\WORKSPACE\bakalarka\solar_system\Assets\Planet.cs" Line="139" Column="35" />
+      <File FileName="Assets\SolarSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Sun.cs" Line="34" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +23,12 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>distance</Value>
+          <Value>planet</Value>
+          <Value>hour - (32*Period)</Value>
+          <Value>this</Value>
+          <Value>hours/4.0f </Value>
+          <Value>hours/Period</Value>
+          <Value>(hours/24)/365</Value>
         </State>
       </Pad>
     </Pads>

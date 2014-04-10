@@ -42,3 +42,10 @@ http://galileo.phys.virginia.edu/classes/152.mf1i.spring02/KeplersLaws.htm
 
 //THIS IS IT
 http://en.wikipedia.org/wiki/Angular_velocity
+
+
+
+
+
+
+maximalny cas = 1165872
