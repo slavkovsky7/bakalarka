@@ -14,6 +14,8 @@ namespace Bakalarka
 {
 	public class Math2f
 	{
+		public static double EULER =2.71828;
+
 		public static int Factorial(int n)
 		{
 			int result = 1;

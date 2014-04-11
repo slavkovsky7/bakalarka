@@ -1,21 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Planet.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sun.cs">
     <Files>
-      <File FileName="Assets\Planet.cs" Line="205" Column="3" />
-      <File FileName="Assets\DatePicker.cs" Line="124" Column="15" />
-      <File FileName="Assets\FlyingCam.cs" Line="1" Column="1" />
-      <File FileName="Assets\Math2f.cs" Line="1" Column="1" />
-      <File FileName="Assets\SolarSystem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Sun.cs" Line="34" Column="37" />
+      <File FileName="Assets\Planet.cs" Line="201" Column="20" />
+      <File FileName="Assets\DatePicker.cs" Line="8" Column="1" />
+      <File FileName="Assets\FlyingCam.cs" Line="86" Column="1" />
+      <File FileName="Assets\Math2f.cs" Line="17" Column="38" />
+      <File FileName="Assets\SolarSystem.cs" Line="15" Column="1" />
+      <File FileName="Assets\Sun.cs" Line="50" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="test-results" expanded="True" />
-            <Node name="Planet.cs" selected="True" />
+            <Node name="Sun.cs" selected="True" />
           </Node>
+          <Node name="Assembly-CSharp-firstpass" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -23,12 +24,8 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>planet</Value>
-          <Value>hour - (32*Period)</Value>
-          <Value>this</Value>
-          <Value>hours/4.0f </Value>
-          <Value>hours/Period</Value>
-          <Value>(hours/24)/365</Value>
+          <Value>span.TotalHours</Value>
+          <Value>CurrentTime</Value>
         </State>
       </Pad>
     </Pads>

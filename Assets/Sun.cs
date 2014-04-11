@@ -22,6 +22,8 @@ public class Sun : MonoBehaviour {
 	public static List<Planet> Planets = new List<Planet>();
 
 
+
+
 	public void addTime(float n){
 		timeAccelaration += n;
 		//TimeConstantCurrent += timeAccelaration;
@@ -69,8 +71,8 @@ public class Sun : MonoBehaviour {
 			}
 		}
 
-		if ( GUI.Button( new Rect(210,210, 100, 50) ,  "Set Date" ) ) {
-
+		if ( GUI.Button( new Rect(210,210, 100, 50) ,  "Reset Time" ) ) {
+			TimeConstantCurrent = 1.146052e-05f;
 		}
 		DatePicker.onGui();
 	}

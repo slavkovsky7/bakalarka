@@ -144,7 +144,11 @@ public class Planet : MonoBehaviour {
 		Sun.Planets.Add(this);
 	}
 
-	public void SetDate( float hours ){
+	public static float getMaxTime(){
+		return DatePicker.YEAR_COUNT * DatePicker.EARTH_PERIOD;
+	}
+	
+	public void SetDate( double hours ){
 
 		int years = (int) ( hours / Period );
 		int hour = (int)hours;  
@@ -178,14 +182,14 @@ public class Planet : MonoBehaviour {
 	}
 	
 
-	public float CurrentTick = 0;
-	public float CurrentTime = 0;
+	public double CurrentTick = 0;
+	public double CurrentTime = 0;
 
 	public void Advance()
 	{
 		if (RotateSpeed > 0)
 		{
-			float speed =  RotateSpeed * Sun.TimeConstant;
+			float speed =  RotateSpeed * (float)Sun.TimeConstant;
 			RotateAngle += speed ;
 			DayCounter  =  ( int) ( RotateAngle / 360.0f );
 			this.transform.Rotate( new Vector3(0,speed, 0));
@@ -194,7 +198,7 @@ public class Planet : MonoBehaviour {
 
 
 
-		OrbitalAngle += (OrbitalSpeed  * Sun.TimeConstant);
+		OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
 		YearCounter = (int) (OrbitalAngle / 360);
 
 		Vector3 center = parentObject.transform.position; 
@@ -207,7 +211,10 @@ public class Planet : MonoBehaviour {
 		ellipse.drawAroundPoint(  ( center - ellipse.getF1() ) );
 		CurrentTick += Sun.TimeConstant * 1;
 		CurrentTime = CurrentTick / hourPositions.getTicksPerHour();
-
+		if ( CurrentTime < 0 ){
+			CurrentTime = getMaxTime() - CurrentTime;
+			CurrentTick = CurrentTime * hourPositions.getTicksPerHour();
+		}
 		if ( isGlobalTime && Sun.TimeConstant != 0){
 			Sun.DatePicker.setDate(CurrentTime);
 		}

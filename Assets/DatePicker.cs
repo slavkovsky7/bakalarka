@@ -5,6 +5,11 @@ using System;
 public class DatePicker
 {
 
+	public static float EARTH_PERIOD = 8766.0f; 
+	public static int YEAR_COUNT = 196; 
+	public static int START_YEAR = 1904; 
+
+
 	public static string[] months = new string[] { "jan", "feb", "mar", "apr" , "may" , "jun", "jul" , "aug" , "sep", "oct", "nov", "dec"};
 	public static string[] longerMonths = new string[] { "jan", "mar", "may", "july", "aug", "oct", "dec" };
 
@@ -54,7 +59,7 @@ public class DatePicker
 	{
 		float w6 = rectangle.width / 6; 
 		this.rectangle = rectangle;
-		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(1904, 2101);
+		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(START_YEAR, START_YEAR + YEAR_COUNT );
 		this.monthPicker	= new SinglePicker( new Rect( 0		,0 ,w6 ,rectangle.height), months, null ).withInterval(0,months.Length);
 		this.dayPicker 		= new SinglePicker( new Rect( w6 	,0 ,w6 ,rectangle.height), null  , null );
 
@@ -77,9 +82,9 @@ public class DatePicker
 		this.minutePicker.setCurrentIndex(date.Minute);
 	}
 
-	public void setDate(float hours )
+	public void setDate(double hours )
 	{
-		TimeSpan t = TimeSpan.FromHours( (double) hours);
+		TimeSpan t = TimeSpan.FromHours( hours);
 		setDate( getEpoch().AddSeconds(t.TotalSeconds) );
 	}
 
@@ -87,7 +92,7 @@ public class DatePicker
 	{
 		DateTime date = getDate();
 		TimeSpan span= date.Subtract( getEpoch() ) ;
-		return (float)span.TotalHours;
+		return span.TotalHours;
 	}
 
 	public DateTime getDate()
@@ -100,7 +105,7 @@ public class DatePicker
 		return time;
 	}
 
-	private float lastDateHours = -1;
+	private double lastDateHours = -1;
 
 	public void onGui(){
 		GUI.BeginGroup( rectangle );
