@@ -2,21 +2,18 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sun.cs">
     <Files>
-      <File FileName="Assets\Planet.cs" Line="201" Column="20" />
-      <File FileName="Assets\DatePicker.cs" Line="8" Column="1" />
+      <File FileName="Assets\Planet.cs" Line="148" Column="26" />
+      <File FileName="Assets\DatePicker.cs" Line="9" Column="2" />
       <File FileName="Assets\FlyingCam.cs" Line="86" Column="1" />
       <File FileName="Assets\Math2f.cs" Line="17" Column="38" />
-      <File FileName="Assets\SolarSystem.cs" Line="15" Column="1" />
-      <File FileName="Assets\Sun.cs" Line="50" Column="46" />
+      <File FileName="Assets\Sun.cs" Line="75" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="test-results" expanded="True" />
             <Node name="Sun.cs" selected="True" />
           </Node>
-          <Node name="Assembly-CSharp-firstpass" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

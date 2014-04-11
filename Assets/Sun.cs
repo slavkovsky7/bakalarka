@@ -42,7 +42,44 @@ public class Sun : MonoBehaviour {
 
 		DatePicker = new DatePicker(new Rect(100,100, 300, 100 ) );
 	}
+
+	/*
+	private float x = 0;
+
+	public void addTime(float znamienko ){
+		float tmpX = x + 1.0f;
+		//TimeConstantCurrent += timeAccelaration;
+		//float accelaration = znamienko * ( 0.000001f*Mathf.Pow( (float)x ,2.
+		float t  = tmpX / 500;
+
+		float accelaration = znamienko * (0.000001f* Mathf.Pow(10, t)* Mathf.Pow((float)tmpX , 2.0f));
+		if (accelaration < 50.0f )
+		{
+			x = tmpX;
+		}
+
+		if (TimeConstantCurrent < 300.0f)
+		{
+			TimeConstantCurrent += accelaration;
+		}
+
+		Debug.Log( "e^" + x + " = accelaration = "  + accelaration);
+	}
 	
+
+	void Start () 
+	{
+		TimeConstant = TimeConstantCurrent;
+		plusButton.action  += delegate { addTime(+1.0f); } ;
+		plusButton.releaseAction += delegate{ x = 0; };
+
+		minusButton.action += delegate { addTime(-1.0f); } ;
+		minusButton.releaseAction += delegate{ x = 0; };
+
+		DatePicker = new DatePicker(new Rect(100,100, 300, 100 ) );
+	}
+	 */
+
 	void Update () 
 	{
 		TimeConstant = TimeConstantCurrent;
