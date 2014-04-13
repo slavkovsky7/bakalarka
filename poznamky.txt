@@ -45,7 +45,7 @@ http://en.wikipedia.org/wiki/Angular_velocity
 
 
 
-
+http://en.wikibooks.org/wiki/Cg_Programming/Unity/Textured_Spheres
 
 
 maximalny cas = 1165872

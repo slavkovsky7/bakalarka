@@ -6,7 +6,7 @@ public class DatePicker
 {
 
 	public static float EARTH_PERIOD = 8766.0f; 
-	public static int YEAR_COUNT = 196; 
+	public static int YEAR_COUNT = 192; 
 	public static int START_YEAR = 1904; 
 
 
@@ -50,6 +50,8 @@ public class DatePicker
 	private SinglePicker minutePicker;
 
 
+	private SinglePicker secondsPicker;
+
 	public static DateTime getEpoch()
 	{ 
 		return new DateTime(1904,1,1);
@@ -66,33 +68,51 @@ public class DatePicker
 		this.hourPicker = new SinglePicker(	  new Rect( 3*w6 ,0 ,w6 ,rectangle.height), null , null).withInterval(0,24);
 		this.minutePicker = new SinglePicker( new Rect( 4*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
 
+		this.secondsPicker = new SinglePicker( new Rect( 5*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
+
 		/*this.monthPicker.setCurrentIndex(0);
 		this.dayPicker.setCurrentIndex(1);
 		this.yearPicker.setCurrentIndex(1970);
 		this.hourPicker.setCurrentIndex(0);
 		this.minutePicker.setCurrentIndex(0);*/
-		setDate( DateTime.Now );
+		setDateToPickers( DateTime.Now );
 	}
 
-	public void setDate( DateTime date){
+	public void setDateToPickers(double hours )
+	{
+		TimeSpan t = TimeSpan.FromHours( hours + getAphelionDiff() );
+		setDateToPickers( getEpoch().AddSeconds(t.TotalSeconds) );
+	}
+	
+	public void setDateToPickers( DateTime date){
 		this.monthPicker.setCurrentIndex(date.Month - 1);
 		this.dayPicker.setCurrentIndex(date.Day);
 		this.yearPicker.setCurrentIndex(date.Year);
 		this.hourPicker.setCurrentIndex(date.Hour);
 		this.minutePicker.setCurrentIndex(date.Minute);
+		this.secondsPicker.setCurrentIndex(date.Second);
 	}
 
-	public void setDate(double hours )
+	//http://en.wikipedia.org/wiki/Apsis
+	public static double getAphelionDiff()
 	{
-		TimeSpan t = TimeSpan.FromHours( hours);
-		setDate( getEpoch().AddSeconds(t.TotalSeconds) );
+		DateTime d1 = new DateTime(START_YEAR,1 ,1,0,0,0); 
+		DateTime d2 = new DateTime(START_YEAR,7 ,4,0,13,0);
+		TimeSpan t = d2.Subtract(d1);
+		return t.TotalHours;
 	}
 
-	public double getDateInHours()
+	public static double getDateInHours(DateTime date )
 	{
-		DateTime date = getDate();
+		//DateTime date = getDate();
 		TimeSpan span= date.Subtract( getEpoch() ) ;
-		return span.TotalHours;
+		double result = span.TotalHours - getAphelionDiff();
+		if (result < 0)
+		{
+			Debug.Log("Pice");
+			return Planet.getMaxTime() + result ;
+		}
+		return result;
 	}
 
 	public DateTime getDate()
@@ -101,12 +121,10 @@ public class DatePicker
 		                             monthPicker.getCurrentIndex() + 1,
 		                             dayPicker.getCurrentIndex(),
 		                             hourPicker.getCurrentIndex(),
-		                             minutePicker.getCurrentIndex() , 0, DateTimeKind.Utc);
+		                             minutePicker.getCurrentIndex() , secondsPicker.getCurrentIndex(), DateTimeKind.Utc);
 		return time;
 	}
-
-	private double lastDateHours = -1;
-
+	
 	public void onGui(){
 		GUI.BeginGroup( rectangle );
 		GUI.Box ( new Rect(0,0, rectangle.width, rectangle.height) , "");
@@ -119,18 +137,7 @@ public class DatePicker
 		yearPicker.onGui();
 		hourPicker.onGui();
 		minutePicker.onGui();
-		if (Sun.TimeConstant == 0){
-			double dateHours = Sun.DatePicker.getDateInHours();
-			if (dateHours != lastDateHours)
-			{
-				Debug.Log("Date set");
-				foreach ( Planet planet in Sun.Planets ){
-					planet.CurrentTime = dateHours;
-					planet.SetDate(dateHours);
-				}
-			}
-			lastDateHours = dateHours;
-		}
+		secondsPicker.onGui();
 
 		GUI.EndGroup();
 	}
