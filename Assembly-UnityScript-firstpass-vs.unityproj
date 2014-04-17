@@ -64,6 +64,36 @@
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-04-05.xml" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+ <Reference Include="Emgu.CV">
+ <HintPath>Assets\Plugins\Emgu.CV.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.GPU">
+ <HintPath>Assets\Plugins\Emgu.CV.GPU.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.ML">
+ <HintPath>Assets\Plugins\Emgu.CV.ML.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.OCR">
+ <HintPath>Assets\Plugins\Emgu.CV.OCR.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Stitching">
+ <HintPath>Assets\Plugins\Emgu.CV.Stitching.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.UI">
+ <HintPath>Assets\Plugins\Emgu.CV.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.VideoStab">
+ <HintPath>Assets\Plugins\Emgu.CV.VideoStab.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.Util">
+ <HintPath>Assets\Plugins\Emgu.Util.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>Assets\Plugins\System.Drawing.dll</HintPath>
+ </Reference>
+ <Reference Include="ZedGraph">
+ <HintPath>Assets\Plugins\ZedGraph.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -248,14 +248,13 @@ public class Planet : MonoBehaviour {
 		}
 
 		Vector3 center = parentObject.transform.position; 
-		ellipse.drawAroundPoint(  ( center - ellipse.getF1() ) );
+		ellipse.drawAroundPoint(   center - ellipse.getF1() ,  TouchControl.ScaleFactor);
 
-
-			OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
-			YearCounter = (int) (OrbitalAngle / 360);
+		OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
+		YearCounter = (int) (OrbitalAngle / 360);
 			
 
-			Vector3 pos =  ( center - ellipse.getF1() )  + ellipse.getPosition(OrbitalAngle);
+		Vector3 pos =  ( center - ellipse.getF1() )  + ellipse.getPosition(OrbitalAngle, TouchControl.ScaleFactor);
 			//Debug.DrawLine(pos, this.transform.position, Color.red, 1000); 
 			this.gameObject.transform.position = pos;
 
@@ -291,5 +290,6 @@ public class Planet : MonoBehaviour {
 			Debug.DrawLine(Vector3.zero, V * 1000 , Color.red);
 		}
 		Advance();
+		//scaleByTouchScreen();
 	}
 }

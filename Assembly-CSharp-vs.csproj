@@ -54,6 +54,11 @@
      <Compile Include="Assets\SolarSystem.cs" />
      <Compile Include="Assets\Sun.cs" />
      <Compile Include="Assets\Tests.cs" />
+     <Compile Include="Assets\doublescreen-scripts\BackgroundVideo.cs" />
+     <Compile Include="Assets\doublescreen-scripts\BackgroundVideoTrans.cs" />
+     <Compile Include="Assets\doublescreen-scripts\ManualCameraCalibration.cs" />
+     <Compile Include="Assets\doublescreen-scripts\ScreenCameraGUI.cs" />
+     <Compile Include="Assets\doublescreen-scripts\TouchControl.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-03-09.xml" />
@@ -64,6 +69,36 @@
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV">
+ <HintPath>Assets\Plugins\Emgu.CV.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.GPU">
+ <HintPath>Assets\Plugins\Emgu.CV.GPU.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.ML">
+ <HintPath>Assets\Plugins\Emgu.CV.ML.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.OCR">
+ <HintPath>Assets\Plugins\Emgu.CV.OCR.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Stitching">
+ <HintPath>Assets\Plugins\Emgu.CV.Stitching.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.UI">
+ <HintPath>Assets\Plugins\Emgu.CV.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.VideoStab">
+ <HintPath>Assets\Plugins\Emgu.CV.VideoStab.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.Util">
+ <HintPath>Assets\Plugins\Emgu.Util.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>Assets\Plugins\System.Drawing.dll</HintPath>
+ </Reference>
+ <Reference Include="ZedGraph">
+ <HintPath>Assets\Plugins\ZedGraph.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

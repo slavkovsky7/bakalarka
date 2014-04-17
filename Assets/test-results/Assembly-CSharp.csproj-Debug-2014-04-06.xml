@@ -1,0 +1,2054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <UnitTestResult>
+      <TestDate>2014-04-06T00:07:51</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T00:08:08</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T10:54:38</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.14ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T10:54:44</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T11:40:12</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T11:40:38</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T11:54:47</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T11:55:57</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T12:04:53</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.16ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T12:06:16</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T12:06:42</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.12ms</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-04-06T16:26:35</TestDate>
+      <Passed>2</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.27ms</Message>
+    </UnitTestResult>
+  </Results>
+  <Tests>
+    <TestRecord Name="SolarTests">
+      <Results>
+        <UnitTestResult>
+          <TestDate>2014-04-06T00:07:51</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.10ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T00:08:08</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.10ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T10:54:38</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.11ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T10:54:44</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.10ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T11:40:12</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.09ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T11:40:38</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.09ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T11:54:47</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.09ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T11:55:57</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.09ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T12:04:53</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.14ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T12:06:16</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.10ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T12:06:42</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.10ms</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-04-06T16:26:35</TestDate>
+          <Passed>2</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.25ms</Message>
+        </UnitTestResult>
+      </Results>
+      <Tests>
+        <TestRecord Name="Tests">
+          <Results>
+            <UnitTestResult>
+              <TestDate>2014-04-06T00:07:51</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.10ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T00:08:08</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T10:54:38</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.11ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T10:54:44</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T11:40:12</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T11:40:38</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T11:54:47</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T11:55:57</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T12:04:53</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.13ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T12:06:16</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T12:06:42</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.09ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T12:09:17</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.14ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T12:11:52</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:05:43</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:12:59</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:13:27</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:14:12</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:14:28</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:18:23</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:23:25</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:23:56</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T14:24:23</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.12ms</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-04-06T16:26:35</TestDate>
+              <Passed>2</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.24ms</Message>
+            </UnitTestResult>
+          </Results>
+          <Tests>
+            <TestRecord Name="TestMercury">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:00:04</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>3379.119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:00:27</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:01:52</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+Aphelion = 33.79119
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:02:05</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:07:51</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>Area = 271.2968
+Aphelion = 29.33941
+Perihelion = 67.58239
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:08:08</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:21:26</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+areaPerihelion = 7772.081
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:22:27</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+areaPerihelion = 77.72081
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:23:10</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+areaPerihelion = 9783.954
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:23:41</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+areaPerihelion = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:23:43</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>Area = 135.6484
+areaPerihelion = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:34:48</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>minimalSpeed = (0.0, 0.4, 0.0)
+Area = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:35:04</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion = 14.6697
+Perihelion = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:36:15</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput>minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion = 0.05565893
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:38:11</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion = 0.05565893
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:39:14</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion = 0.05565893
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:40:19</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion = 0.05565893
+38.85883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:40:47</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Aphelion.v = 38.85883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:43:53</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Aphelion.v = 38.85883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:57:56</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T01:59:07</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:00:10</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 0.07345811
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:02:05</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 51.2855
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:02:43</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:02:57</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 0
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:03:39</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 42.53835
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T02:04:21</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.04ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T10:54:38</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T10:54:44</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>rA = (698.2, 0.0, 0.0)
+minimalSpeed = (0.0, 38.9, 0.0)
+Area = 135.6484
+Aphelion.w = 0.05565893
+Perihelion.w = 0.07345811
+Aphelion.v = 38.85883
+Perihelion.v = 33.79119
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:40:12</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion = 0.3885883
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:40:38</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion = 0.3885883
+perihelion = 0.5897676
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:54:47</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion = 0.3885883
+90 = 0.4684937
+perihelion = 0.5897676
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:55:57</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion = 38.85884
+90 = 46.84937
+perihelion = 58.97676
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:04:53</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.05ms</Message>
+                  <ConsoleOutput>aphelion = 38.85884
+90 = 59.44781
+perihelion = 99.93407
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:06:16</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>theta = 1.570796
+aphelion = 38.85884
+theta = 2.233916
+90 = 59.44781
+theta = 2.51034
+perihelion = 99.93407
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:06:42</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>theta = 90
+aphelion = 38.85884
+theta = 127.994
+90 = 59.44781
+theta = 143.8319
+perihelion = 99.93407
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:09:17</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.03ms</Message>
+                  <ConsoleOutput>VelocityDir = (0.0, 1.0, 0.0)
+theta = 90
+aphelion = 38.85884
+VelocityDir = (-0.9, -0.4, 0.0)
+theta = 127.994
+90 = 59.44781
+VelocityDir = (0.8, -0.6, 0.0)
+theta = 143.8319
+perihelion = 99.93407
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:11:52</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>VelocityDir = (0.0, 1.0, 0.0)
+theta = 90
+aphelion = 38.85884
+VelocityDir = (-1.0, 0.0, 0.0)
+theta = 101.8664
+90 = 47.87241
+VelocityDir = (0.0, -1.0, 0.0)
+theta = 90
+perihelion = 58.97676
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:05:43</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion = (0.0, 38.9, 0.0)
+90 = (-47.9, 0.0, 0.0)
+perihelion = (0.0, -59.0, 0.0)
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:12:59</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.06710408
+90 = (-47.9, 0.0, 0.0)
+perihelion = (0.0, -59.0, 0.0)
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:13:27</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.05565894
+90 = (-47.9, 0.0, 0.0)
+perihelion = (0.0, -59.0, 0.0)
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:14:12</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.06710408
+90 = (-47.9, 0.0, 0.0)
+perihelion.w = (0.0, -59.0, 0.0)
+aphelion.w = 0.1018451
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:14:28</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.06710408
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1018451
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:18:23</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.05565894
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1282086
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:23:25</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.05565894
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1282086
+VelocityDiv = 0.6588839
+AngularDiv = 0.434128
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:23:56</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.05565894
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1282086
+VelocityDiv = 1.517718
+AngularDiv = 2.303468
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:24:23</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.06710408
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1018451
+VelocityDiv = 1.517718
+AngularDiv = 1.517718
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T16:26:35</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                  <ConsoleOutput>aphelion.v = (0.0, 38.9, 0.0)
+aphelion.w = 0.06710408
+90 = (-47.9, 0.0, 0.0)
+aphelion.v = (0.0, -59.0, 0.0)
+aphelion.w = 0.1018451
+VelocityDiv = 1.517718
+AngularDiv = 1.517718
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+              </Results>
+              <Tests />
+            </TestRecord>
+            <TestRecord Name="TestFactorial">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:07:51</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T00:08:08</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T10:54:38</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T10:54:44</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:40:12</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:40:38</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:54:47</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T11:55:57</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:04:53</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:06:16</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:06:42</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:09:17</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T12:11:52</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:05:43</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:12:59</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:13:27</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:14:12</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:14:28</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:18:23</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:23:25</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:23:56</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T14:24:23</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-04-06T16:26:35</TestDate>
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.06ms</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+              </Results>
+              <Tests />
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>

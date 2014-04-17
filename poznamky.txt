@@ -48,4 +48,6 @@ http://en.wikipedia.org/wiki/Angular_velocity
 http://en.wikibooks.org/wiki/Cg_Programming/Unity/Textured_Spheres
 
 
+http://www.oera.net/How2/TextureMaps2.htm
+
 maximalny cas = 1165872

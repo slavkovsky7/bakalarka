@@ -85,14 +85,18 @@ namespace Bakalarka
 			this.semi_major = apsisDistance / ( 1 + e);
 			this.semi_minor  = semi_major*Mathf.Sqrt( 1 - e*e );
 		}
+
+		public Vector3 getPosition(float angle ){
+			return getPosition(angle, 1.0f);
+		}
 		
-		public Vector3 getPosition(float angle)
+		public Vector3 getPosition(float angle, float scale )
 		{
 			angle = Mathf.Deg2Rad * angle;
 			Vector3 result = new Vector3();
-			result.x =  semi_major * Mathf.Cos(angle)*U.x + semi_minor * Mathf.Sin(angle)*V.x;
-			result.y =  semi_major * Mathf.Cos(angle)*U.y + semi_minor * Mathf.Sin(angle)*V.y;
-			result.z =  semi_major * Mathf.Cos(angle)*U.z + semi_minor * Mathf.Sin(angle)*V.z;
+			result.x =  scale*semi_major * Mathf.Cos(angle)*U.x + scale*semi_minor * Mathf.Sin(angle)*V.x;
+			result.y =  scale*semi_major * Mathf.Cos(angle)*U.y + scale*semi_minor * Mathf.Sin(angle)*V.y;
+			result.z =  scale*semi_major * Mathf.Cos(angle)*U.z + scale*semi_minor * Mathf.Sin(angle)*V.z;
 			return result;
 		}
 		
@@ -145,12 +149,12 @@ namespace Bakalarka
 
 		public float getArea() {return Mathf.PI*semi_major*semi_minor;}
 		
-		public void drawAroundPoint( Vector3 point )
+		public void drawAroundPoint( Vector3 point, float scale )
 		{
 			for (int i = 0 ; i < 360 ; i++ )
 			{
-				Vector3 p1 = point + getPosition(i);
-				Vector3 p2 = point + getPosition( (i + 1) %  360);
+				Vector3 p1 = point + getPosition(i , scale);
+				Vector3 p2 = point + getPosition( (i + 1) %  360 , scale);
 				Debug.DrawLine(p1 , p2, Color.blue);
 			}
 		}

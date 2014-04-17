@@ -46,6 +46,39 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBChangeColorAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBDestroyObjectAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBLoadPrefabAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBLoadSceneAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBTestButtonLabelAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Actions\BBTurnOffTextureAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioClient.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioContainer.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioCursor.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioListener.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioObject.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioPoint.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\CSHARP-TUIO\BBTuioTime.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\GUI stuff\BBCrosshairController.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\GUI stuff\BBPressGUITextureAction.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\GUI stuff\BBTouchableGUIObject.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\OSC.NET\BBOSCBundle.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\OSC.NET\BBOSCMessage.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\OSC.NET\BBOSCPacket.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\OSC.NET\BBOSCReceiver.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\OSC.NET\BBOSCTransmitter.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Object Manipulation\BB3dCrosshairController.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Object Manipulation\BBBasicTouchManipulation.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Object Manipulation\BBSimpleTouchableObject.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\Object Manipulation\BBTouchableButton.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBIPhoneInput.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBIPhoneTouchManager.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBInputController.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBInputDelegate.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBTouchEvent.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\touch testing\BBStatusGUIText.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\utilities\BBNotificationServer.cs" />
+     <Compile Include="Assets\Plugins\uniTUIOCE\utilities\BBTouchManagerStarter.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
@@ -56,6 +89,36 @@
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-04-05.xml" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+ <Reference Include="Emgu.CV">
+ <HintPath>Assets\Plugins\Emgu.CV.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.GPU">
+ <HintPath>Assets\Plugins\Emgu.CV.GPU.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.ML">
+ <HintPath>Assets\Plugins\Emgu.CV.ML.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.OCR">
+ <HintPath>Assets\Plugins\Emgu.CV.OCR.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Stitching">
+ <HintPath>Assets\Plugins\Emgu.CV.Stitching.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.UI">
+ <HintPath>Assets\Plugins\Emgu.CV.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.VideoStab">
+ <HintPath>Assets\Plugins\Emgu.CV.VideoStab.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.Util">
+ <HintPath>Assets\Plugins\Emgu.Util.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>Assets\Plugins\System.Drawing.dll</HintPath>
+ </Reference>
+ <Reference Include="ZedGraph">
+ <HintPath>Assets\Plugins\ZedGraph.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

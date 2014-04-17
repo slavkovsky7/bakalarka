@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\doublescreen\Assets\scripts\BackgroundVideo.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\TouchControl.cs">
     <Files>
-      <File FileName="..\doublescreen\Assets\scripts\ScreenCameraGUI.cs" Line="1" Column="1" />
-      <File FileName="..\doublescreen\Assets\scripts\BackgroundVideo.cs" Line="11" Column="34" />
-      <File FileName="..\doublescreen\Assets\scripts\BackgroundVideoTrans.cs" Line="26" Column="16" />
-      <File FileName="..\doublescreen\Assets\ClipShader.shader" Line="1" Column="1" />
+      <File FileName="..\doublescreen\Assets\scripts\BackgroundVideoTrans.cs" Line="19" Column="3" />
+      <File FileName="Assets\doublescreen-scripts\ScreenCameraGUI.cs" Line="49" Column="21" />
+      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="194" Column="29" />
+      <File FileName="Assets\Planet.cs" Line="259" Column="38" />
+      <File FileName="Assets\Math2f.cs" Line="157" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
