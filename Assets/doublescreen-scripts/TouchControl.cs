@@ -16,6 +16,8 @@ public class TouchControl : MonoBehaviour
 
 
 	public static float ScaleFactor = 1.0f;
+	public static float RotationFactor = 0;
+	public bool IgnoreMouse = false;
 
 	class TouchData
 	{
@@ -51,11 +53,11 @@ public class TouchControl : MonoBehaviour
 			}
 		}
 
-		if ( Input.GetMouseButtonDown(0) )
+		if ( Input.GetMouseButtonDown(0) && !IgnoreMouse )
 		{
 			mouseClicked = true;
 		}
-		if ( Input.GetMouseButtonUp(0))
+		if ( Input.GetMouseButtonUp(0) && !IgnoreMouse )
 		{
 			Debug.Log("Mouse up");
 			mouseClicked = false;
@@ -84,8 +86,8 @@ public class TouchControl : MonoBehaviour
 			if (sceneObjects != null)
 			{
 				float moveX = -1 * 10 * (touchedPosition.x - m_MovePrevPosition.x);
-				float moveY = -1 * 100 * 0.5625f * (touchedPosition.y - m_MovePrevPosition.y);
-				Debug.Log("Moving ["+moveX+", "+moveY+"]");
+				float moveY = -1 * 10 * 0.5625f * (touchedPosition.y - m_MovePrevPosition.y);
+				//Debug.Log("Moving ["+moveX+", "+moveY+"]");
 				sceneObjects.transform.Translate(moveX, 0, moveY, Space.World);
 				
 				// check for out of bounds
@@ -127,23 +129,24 @@ public class TouchControl : MonoBehaviour
 			if (m_ZoomDistance > 0)
 			{
 				float dist = Mathf.Sqrt(Mathf.Pow(touch1.position.x - touch2.position.x, 2f) + Mathf.Pow(touch1.position.y - touch2.position.y, 2f));
-				scale = dist / m_ZoomDistance;
 				if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
 				m_ZoomDistance = dist;
 			}
+			Vector3 rayPoint = new Vector3(0.5f * (touch1.position.x+touch2.position.x), 0.5f * (touch1.position.y+touch2.position.y), 0);
+
 			// set size of camera
-			GameObject screenCamera = GameObject.Find("Screen Camera");
+			/*GameObject screenCamera = GameObject.Find("Screen Camera");
 			Ray ray = screenCamera.camera.ScreenPointToRay(new Vector3(0.5f * (touch1.position.x+touch2.position.x), 0.5f * (touch1.position.y+touch2.position.y), 0));
 			GameObject sceneObjects = GameObject.Find("Scene");
 			float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
 			if (newScale < 0.8f || newScale > 10.0f) newScale = sceneObjects.transform.localScale.x;
-				
+			ScaleFactor = scale;
 			// centring to center of two fingers
 			float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
 			float moveZ = -(ray.origin.z - sceneObjects.transform.localPosition.z) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
 			sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
-			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
-			
+			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);*/
+			zoom(rayPoint, scale);
 			
 			// ---------------ROTATING------------------
 			if (m_PrevAngle == -1f)
@@ -166,51 +169,55 @@ public class TouchControl : MonoBehaviour
 			if (Mathf.Abs(diff) < 0.01f) diff = 0f;
 			// if zooming, the rotate only with larger angles
 			if (scale != 1.0f && Mathf.Abs(diff) < 0.18f) diff = 0f;
-			sceneObjects.transform.RotateAround(ray.origin, Vector3.up, -360.0f*diff/2/Mathf.PI);
-		}
-		//Zooming with mouse
-		else if ( Input.GetAxis("Mouse ScrollWheel") != 0 )
-		{
+			rotate(rayPoint,  -360.0f*diff/2/Mathf.PI );
+			//sceneObjects.transform.RotateAround(ray.origin, Vector3.up,);
+		} else if ( Input.GetAxis("Mouse ScrollWheel") != 0 ){
+			//Mouse Zooming
 			float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
-			GameObject screenCamera = GameObject.Find("Screen Camera");
-			GameObject sceneObjects = GameObject.Find("Scene");
-
-
-			Ray ray = screenCamera.camera.ScreenPointToRay(new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0));
+			Vector3 rayPoint = new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0);
 			float scale = 1.0f + mouseScroll;
-			if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
+			zoom(rayPoint, scale);
 
-			float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
-			if (newScale < 0.8f || newScale > 10.0f) newScale = sceneObjects.transform.localScale.x;
-			
-			// centring to center of two fingers
-			float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
-			float moveZ = -(ray.origin.z - sceneObjects.transform.localPosition.z) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
-			ScaleFactor = newScale;
-			sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
-			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
-
-		}
-		else if ( Input.GetKey( "q" ) || Input.GetKey("e") )
-		{
+		}else if ( Input.GetKey( "q" ) || Input.GetKey("e") ){
 			float angle = 0.5f;
 			if (Input.GetKey("e"))
 				angle *= -1;
-			GameObject screenCamera = GameObject.Find("Screen Camera");
-			GameObject sceneObjects = GameObject.Find("Scene");
-			Ray ray = screenCamera.camera.ScreenPointToRay(new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0));
-			sceneObjects.transform.RotateAround(ray.origin, Vector3.up, angle);
-		}
-		else
-		{
+			rotate( new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0), angle );
+			//RotationFactor += angle;
+		}else{
 			m_ZoomDistance = 0f;
 			m_PrevAngle = -1f;
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Escape)) 
-		{
+		if (Input.GetKeyDown(KeyCode.Escape)){
         	Application.Quit();
     	}
+	}
+
+	private void rotate(Vector3 rayPoint , float angle)
+	{
+		GameObject screenCamera = GameObject.Find("Screen Camera");
+		GameObject sceneObjects = GameObject.Find("Scene");
+		Ray ray = screenCamera.camera.ScreenPointToRay(rayPoint);
+		sceneObjects.transform.RotateAround(ray.origin, Vector3.up, angle);
+	}
+
+	private void zoom(Vector3 rayPoint , float scale )
+	{
+		GameObject screenCamera = GameObject.Find("Screen Camera");
+		GameObject sceneObjects = GameObject.Find("Scene");
+		Ray ray = screenCamera.camera.ScreenPointToRay (rayPoint);
+		if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
+		
+		float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
+		if (newScale < 0.8f || newScale > 20.0f) newScale = sceneObjects.transform.localScale.x;
+		
+		// centring to center of two fingers
+		float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
+		float moveZ = -(ray.origin.z - sceneObjects.transform.localPosition.z) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
+		ScaleFactor = newScale;
+		sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
+		sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
 	}
 	
 	// draw current touches
