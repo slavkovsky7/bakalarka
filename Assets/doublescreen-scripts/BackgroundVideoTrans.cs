@@ -23,6 +23,8 @@ public class BackgroundVideoTrans : MonoBehaviour
 		// set dimension ratio of GUI texture to be equal to dimension ratio of video from webcam
 		GameObject backgroundCam = GameObject.Find("Projector Background Camera");
 		float ratio = 1;
+		if ( BackgroundVideo.m_webCamTexture == null)
+			return;
 		if (BackgroundVideo.m_webCamTexture.height > 0) 
 			ratio = BackgroundVideo.m_webCamTexture.width / (float)BackgroundVideo.m_webCamTexture.height;
 		float videoWidth = backgroundCam.camera.pixelWidth;

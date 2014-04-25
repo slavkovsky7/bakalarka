@@ -206,18 +206,22 @@ public class TouchControl : MonoBehaviour
 	{
 		GameObject screenCamera = GameObject.Find("Screen Camera");
 		GameObject sceneObjects = GameObject.Find("Scene");
-		Ray ray = screenCamera.camera.ScreenPointToRay (rayPoint);
-		if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
-		
-		float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
-		if (newScale < 0.8f || newScale > 20.0f) newScale = sceneObjects.transform.localScale.x;
-		
-		// centring to center of two fingers
-		float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
-		float moveZ = -(ray.origin.z - sceneObjects.transform.localPosition.z) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
-		ScaleFactor = newScale;
-		sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
-		sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
+		if (sceneObjects != null)
+		{
+			Ray ray = screenCamera.camera.ScreenPointToRay (rayPoint);
+			if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
+			
+			float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
+			if (newScale < 0.8f || newScale > 20.0f) newScale = sceneObjects.transform.localScale.x;
+			
+			// centring to center of two fingers
+			float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
+			float moveZ = -(ray.origin.z - sceneObjects.transform.localPosition.z) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
+			ScaleFactor = newScale;
+			sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
+			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
+	
+		}
 	}
 	
 	// draw current touches

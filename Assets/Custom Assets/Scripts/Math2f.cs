@@ -160,7 +160,30 @@ namespace Bakalarka
 				Debug.DrawLine(p1 , p2, Color.blue);
 			}
 		}
-		
+
+		public void drawAroundPoint( Vector3 point, float scale , float rotation , LineRenderer renderer , Transform t, bool isSelected)
+		{
+			if (renderer != null)
+			{		
+				renderer.material= new Material(Shader.Find("Particles/Additive"));		
+				renderer.SetVertexCount( 360+1 );
+				if (isSelected){
+					renderer.SetColors(new Color(1,0.3f,0.3f,0.3f), new Color(1,0.3f,0.3f,0.3f));
+					renderer.SetWidth(12,12);
+				}else{
+					renderer.SetColors(new Color(1,1,1,0.3f), new Color(1,1,1,0.3f));
+					renderer.SetWidth(7,7);
+				}
+				for (int i = 0 ; i <= 360 ; i++ )
+				{
+					Vector3 p1 = point + getPosition((float)i , 1.0f,  rotation  );
+					//Vector3 p2 = point + getPosition( (i + 1) %  360 , scale, rotation );
+					renderer.SetPosition(i, t.parent.transform.TransformPoint(  p1)  );			//Debug.DrawLine(p1 , p2, Color.blue);
+				}
+			}
+		}
+
+
 		public float getAverageOrbitalSpeed( float gravitParam ){return Mathf.Sqrt(gravitParam / semi_major);}
 
 		public float getPerimeter()

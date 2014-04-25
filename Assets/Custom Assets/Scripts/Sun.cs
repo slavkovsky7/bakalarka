@@ -25,6 +25,7 @@ public class Sun : MonoBehaviour {
 	private KeyButton minusButton;
 	private String TimeButtonString = "Pause";
 	public Camera screenCam;
+	public Camera projectorCam;
 	private Rect guiRect;
 
 	/*
@@ -72,7 +73,7 @@ public class Sun : MonoBehaviour {
 			TimeConstantCurrent += accelaration;
 		}
 
-		Debug.Log( "e^" + x + " = accelaration = "  + accelaration);
+		///Debug.Log( "e^" + x + " = accelaration = "  + accelaration);
 	}
 
 
@@ -80,9 +81,9 @@ public class Sun : MonoBehaviour {
 	void Start () 
 	{
 		//guiRect = 
-		plusButton = new KeyButton(new Rect(70,10,50,50), "+", KeyCode.KeypadPlus );
-		minusButton = new KeyButton(new Rect(10,10,50,50), "-", KeyCode.KeypadMinus );
-		datePicker = new DatePicker(new Rect(100, Screen.height - 100, 300, 100 ) );
+		plusButton = new KeyButton(new Rect(10,Screen.height - 115,50,50), "+", KeyCode.KeypadPlus );
+		minusButton = new KeyButton(new Rect(10,Screen.height - 60,50,50), "-", KeyCode.KeypadMinus );
+		datePicker = new DatePicker(new Rect(200, Screen.height - 115, 300, 100 ) );
 
 		TimeConstantCurrent = GetDefaultTimeConstant();
 		TimeConstant = GetDefaultTimeConstant();
@@ -91,7 +92,8 @@ public class Sun : MonoBehaviour {
 
 		minusButton.action += delegate { addTime(-1.0f); } ;
 		minusButton.releaseAction += delegate{ x = 0; };
-		
+		projectorCam.enabled = false;
+
 	}
 	
 	public void setPlanetsDate(DateTime date )
@@ -111,13 +113,17 @@ public class Sun : MonoBehaviour {
 
 	void Update () 
 	{
+		//Woo
+		if (projectorCam.enabled == false){
+			projectorCam.enabled = true;
+		}
 		TimeConstant = TimeConstantCurrent;
 		if (plusButton != null && minusButton != null) {
 			plusButton.PerformUpdate ();
 			minusButton.PerformUpdate ();
 		}
 		if ( !initialDateSet){
-			//setPlanetsDate(DateTime.Now);
+			setPlanetsDate(DateTime.Now);
 			initialDateSet = true;
 		}
 
@@ -135,7 +141,7 @@ public class Sun : MonoBehaviour {
 			plusButton.Perform ();
 			minusButton.Perform ();
 		}
-		if ( GUI.Button( new Rect(100,210, 100, 50) ,  TimeButtonString ) ) {
+		if ( GUI.Button( new Rect(70,Screen.height - 60, 100, 50) ,  TimeButtonString ) ) {
 			if (!isPaused ){
 				isPaused = true;
 				lastTimeConstantCurrent = TimeConstant;
@@ -152,7 +158,7 @@ public class Sun : MonoBehaviour {
 		}
 
 		if (!isPaused) {
-			if (GUI.Button (new Rect (210, 210, 100, 50), "Reset Time")) {
+			if (GUI.Button (new Rect (70, Screen.height - 115, 100, 50), "Reset Time")) {
 					TimeConstantCurrent = GetDefaultTimeConstant ();
 			}
 		}
@@ -164,3 +170,5 @@ public class Sun : MonoBehaviour {
 		return (0.02f * Planet.EARTH_TICKS_PER_HOUR) / 3600.0f;
 	}
 }
+
+

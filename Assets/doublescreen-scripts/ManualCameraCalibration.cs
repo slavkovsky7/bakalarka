@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 using Emgu.CV;
 using Emgu.CV.Util;
-using Emgu.CV.UI;
+//using Emgu.CV.UI;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 
@@ -36,7 +36,6 @@ public class ManualCameraCalibration : MonoBehaviour
 		m_calib_plane = GameObject.Find("Calibration Plane");
 		m_calib_sphere = GameObject.Find("Calibration Sphere");
 		m_scene = GameObject.Find("Scene");
-		
 		// prepare calibration mark vectors that will be used for semi-automatic calibration
 		int calib_grid_size = 2;
 		for (int i = 0; i < calib_grid_size; i++)
@@ -115,13 +114,15 @@ public class ManualCameraCalibration : MonoBehaviour
 			
 			// get mouse position inside projector view
 			GameObject projector_camera = GameObject.Find("Projector Camera");
+			//GameObject projector_sun_camera = GameObject.Find("Projector Sun Camera");
 			Rect rect = projector_camera.camera.pixelRect;
 			if (m_calibration_2D_points.Count < m_calib_samples.Count)
 				m_calibration_2D_points.Add(new Vector2(Input.mousePosition.x - rect.x, rect.height - (Input.mousePosition.y - rect.y)));
 			
 			if (m_calibration_3D_points.Count >= m_calib_samples.Count)
 			{				
-				CalibrateCamera(projector_camera, m_calibration_3D_points, m_calibration_2D_points);				
+				CalibrateCamera(projector_camera, m_calibration_3D_points, m_calibration_2D_points);
+				//CalibrateCamera(projector_sun_camera, m_calibration_3D_points, m_calibration_2D_points);
 			}
 		}
 		

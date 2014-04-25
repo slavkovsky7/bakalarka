@@ -11,7 +11,9 @@ public class ScreenCameraGUI : MonoBehaviour
 {
 	Texture2D m_controlTexture;
 	bool m_enableBlack;
-	
+
+	public float SceneScale = 1;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -82,7 +84,7 @@ public class ScreenCameraGUI : MonoBehaviour
 		// set ratio to calibration plane
 		GameObject calib_plane = GameObject.Find("Calibration Plane");
 		if (calib_plane != null)
-			calib_plane.transform.localScale = new Vector3(screen_camera_ratio, 1, 1);
+			calib_plane.transform.localScale = new Vector3(screen_camera_ratio*SceneScale, 1*SceneScale, 1*SceneScale);
 		
 		// set ratio in clip shaders for each object in scene
 		// clip shader is used to clip all object that are not over screen in projector view
