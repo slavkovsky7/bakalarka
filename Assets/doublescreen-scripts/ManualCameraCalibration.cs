@@ -11,11 +11,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 
 using Emgu.CV;
-using Emgu.CV.Util;
-//using Emgu.CV.UI;
 using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
-
 
 public class ManualCameraCalibration : MonoBehaviour 
 {
