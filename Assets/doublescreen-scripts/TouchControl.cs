@@ -17,8 +17,8 @@ public class TouchControl : MonoBehaviour
 
 	public static float ScaleFactor = 1.0f;
 	public static float RotationFactor = 0;
+	public static List<Rect> GuiRectangles = new List<Rect>();
 	public bool IgnoreMouse = false;
-
 	public float MoveMultiplier = 10.0f;
 
 	class TouchData
@@ -39,23 +39,27 @@ public class TouchControl : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		// remove bad touches
+
+	public static List<iPhoneTouch> getGoodIphoneTouches(){
 		int iCount = iPhoneInput.touchCount;
 		Camera cam = GameObject.Find("Screen Camera").camera;
-		ArrayList goodIphoneTouches = new ArrayList();
+		List<iPhoneTouch> goodIphoneTouches = new  List<iPhoneTouch>();
 		for (int itouch = 0; itouch < iCount; itouch++)
 		{
 			iPhoneTouch touch = (iPhoneTouch)iPhoneInput.GetTouch(itouch);
 			if (touch.position.x > 0.0f && touch.position.x < cam.pixelWidth &&
-				touch.position.y > 0.0f && touch.position.y < cam.pixelHeight)
+			    touch.position.y > 0.0f && touch.position.y < cam.pixelHeight)
 			{
 				goodIphoneTouches.Add(touch);
 			}
 		}
+		return goodIphoneTouches;
+	}
 
-
+	void Update () 
+	{
+		List<iPhoneTouch> goodIphoneTouches = getGoodIphoneTouches();
+	
 		if ( Input.GetMouseButtonDown(0) && !IgnoreMouse ){
 			mouseClicked = true;
 		}
@@ -76,6 +80,15 @@ public class TouchControl : MonoBehaviour
 			}else{
 				touchedPosition = Input.mousePosition;
 			}
+
+
+			Vector2 v = new Vector2( touchedPosition.x, Screen.height - touchedPosition.y);
+			foreach ( Rect r in GuiRectangles){
+				if (r.Contains(v)){
+					return;
+				}	
+			}
+
 			// initialization of movement
 			if (m_MovePrevPosition.x == -10000 && m_MovePrevPosition.y == -10000)
 			{
@@ -90,6 +103,7 @@ public class TouchControl : MonoBehaviour
 				float moveX = -1 * MoveMultiplier * (touchedPosition.x - m_MovePrevPosition.x);
 				float moveY = -1 * MoveMultiplier * 0.5625f * (touchedPosition.y - m_MovePrevPosition.y);
 				//Debug.Log("Moving ["+moveX+", "+moveY+"]");
+				//Mozno naopak prehodit
 				sceneObjects.transform.Translate(moveX, 0, moveY, Space.World);
 				
 				// check for out of bounds
@@ -165,7 +179,7 @@ public class TouchControl : MonoBehaviour
 			float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
 			Vector3 rayPoint = new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0);
 			float scale = 1.0f + mouseScroll;
-			Debug.Log("Zoomed with mouse wheel");
+			//Debug.Log("Zoomed with mouse wheel");
 			zoom(rayPoint, scale);
 
 		}else if ( Input.GetKey( "q" ) || Input.GetKey("e") ){
@@ -182,9 +196,10 @@ public class TouchControl : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape)){
         	Application.Quit();
     	}
+		
 	}
 
-	private void rotate(Vector3 rayPoint , float angle)
+	private static void rotate(Vector3 rayPoint , float angle)
 	{
 		GameObject screenCamera = GameObject.Find("Screen Camera");
 		GameObject sceneObjects = GameObject.Find("Scene");
@@ -192,7 +207,7 @@ public class TouchControl : MonoBehaviour
 		sceneObjects.transform.RotateAround(ray.origin, Vector3.up, angle);
 	}
 
-	private void zoom(Vector3 rayPoint , float scale )
+	private static void zoom(Vector3 rayPoint , float scale )
 	{
 		GameObject screenCamera = GameObject.Find("Screen Camera"); 
 		GameObject sceneObjects = GameObject.Find("Scene");
@@ -212,6 +227,13 @@ public class TouchControl : MonoBehaviour
 			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
 	
 		}
+	}
+
+	public static void ResetView(){
+		GameObject sceneObjects = GameObject.Find("Scene");
+		sceneObjects.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+		sceneObjects.transform.position = Vector3.zero;
+		ScaleFactor = 1.0f;
 	}
 
 	void OnGUI()

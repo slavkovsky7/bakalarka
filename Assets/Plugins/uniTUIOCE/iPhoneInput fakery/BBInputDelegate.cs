@@ -58,6 +58,7 @@ public class BBInputDelegate : MonoBehaviour {
 		anEvent.lastScreenPosition = anEvent.screenPosition;
 		anEvent.tuioPosition = new Vector2(cursor.getX(),(1.0f - cursor.getY()));
 		anEvent.screenPosition = new Vector3(cursor.getX() * cameraPixelWidth,(1.0f - cursor.getY()) * cameraPixelHeight,0.3f); 
+		//anEvent.screenPosition = new Vector3(cursor.getX() * Screen.width,(1.0f - cursor.getY()) * Screen.height,0.3f);
 		anEvent.lastTouchTime = anEvent.touchTime;
 		anEvent.touchTime = Time.time;
 		anEvent.didChange = true;

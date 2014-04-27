@@ -61,14 +61,16 @@ public class DatePicker
 	{
 		float w6 = rectangle.width / 6; 
 		this.rectangle = rectangle;
-		this.yearPicker 	= new SinglePicker( new Rect( 2*w6 	,0 ,w6 ,rectangle.height), null	  , null ).withInterval(START_YEAR, START_YEAR + YEAR_COUNT );
-		this.monthPicker	= new SinglePicker( new Rect( 0		,0 ,w6 ,rectangle.height), months, null ).withInterval(0,months.Length);
-		this.dayPicker 		= new SinglePicker( new Rect( w6 	,0 ,w6 ,rectangle.height), null  , null );
 
-		this.hourPicker = new SinglePicker(	  new Rect( 3*w6 ,0 ,w6 ,rectangle.height), null , null).withInterval(0,24);
-		this.minutePicker = new SinglePicker( new Rect( 4*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
-
-		this.secondsPicker = new SinglePicker( new Rect( 5*w6 ,0 ,w6 ,rectangle.height), null , null ).withInterval(0,60);
+		float x = rectangle.x;
+		float y = rectangle.y;
+		
+		this.monthPicker	= new SinglePicker( new Rect( x + 0		,y ,w6 ,rectangle.height), months, null ).withInterval(0,months.Length);
+		this.dayPicker 		= new SinglePicker( new Rect( x + w6 	,y ,w6 ,rectangle.height), null  , null );
+		this.yearPicker 	= new SinglePicker( new Rect( x + 2*w6 	,y ,w6 ,rectangle.height), null	  , null ).withInterval(START_YEAR, START_YEAR + YEAR_COUNT );
+		this.hourPicker		= new SinglePicker(	new Rect( x + 3*w6  ,y ,w6 ,rectangle.height), null , null).withInterval(0,24);
+		this.minutePicker 	= new SinglePicker( new Rect( x + 4*w6  ,y ,w6 ,rectangle.height), null , null ).withInterval(0,60);
+		this.secondsPicker = new SinglePicker( new Rect( x + 5*w6   ,y ,w6 ,rectangle.height), null , null ).withInterval(0,60);
 
 		/*this.monthPicker.setCurrentIndex(0);
 		this.dayPicker.setCurrentIndex(1);
@@ -124,10 +126,19 @@ public class DatePicker
 		                             minutePicker.getCurrentIndex() , secondsPicker.getCurrentIndex(), DateTimeKind.Utc);
 		return time;
 	}
-	
+
+	public void onUpdate(){
+		monthPicker.onUpdate();
+		yearPicker.onUpdate();
+		hourPicker.onUpdate();
+		minutePicker.onUpdate();
+		secondsPicker.onUpdate();
+		dayPicker.onUpdate();
+	}
+
 	public void onGui(){
-		GUI.BeginGroup( rectangle );
-		GUI.Box ( new Rect(0,0, rectangle.width, rectangle.height) , "");
+		//GUI.BeginGroup( rectangle );
+		GUI.Box ( new Rect(rectangle.x,rectangle.y, rectangle.width, rectangle.height) , "");
 
 		int startMonth = monthPicker.getCurrentIndex();
 		monthPicker.onGui();
@@ -139,7 +150,7 @@ public class DatePicker
 		minutePicker.onGui();
 		secondsPicker.onGui();
 
-		GUI.EndGroup();
+		//GUI.EndGroup();
 	}
 
 	private class SinglePicker
@@ -172,11 +183,11 @@ public class DatePicker
 
 
 			float h3 = rectangle.height/3;
-			this.plusButton = new KeyButton(new Rect(0,0, rectangle.width, h3), "+", KeyCode.None);
+			this.plusButton = new KeyButton(new Rect(rectangle.x,rectangle.y, rectangle.width, h3), "+", KeyCode.None);
 			this.plusButton.action += delegate { addCurrentIndex(1); };
 			this.plusButton.releaseAction += delegate { resetInterval(); };
 
-			this.minusButton = new KeyButton(new Rect(0, rectangle.height - h3, rectangle.width, h3 ), "-" , KeyCode.None);
+			this.minusButton = new KeyButton(new Rect(rectangle.x, rectangle.y + rectangle.height - h3, rectangle.width, h3 ), "-" , KeyCode.None);
 			this.minusButton.action += delegate { addCurrentIndex(-1); };
 			this.minusButton.releaseAction += delegate {resetInterval(); };
 
@@ -246,32 +257,37 @@ public class DatePicker
 			clickInterval = DEFAULT_INTERVAL;
 		}
 
+		public void onUpdate(){
+			plusButton.PerformUpdate();
+			minusButton.PerformUpdate();
+		}
+
 		public void onGui(){
 			float h = rectangle.height;
 			float w = rectangle.width; 
+			float x = rectangle.x;
+			float y = rectangle.y;
+
 			if (content != null )
 			{
 				labelText = content[currentIndex].ToString();
 			}else{
 				labelText = currentIndex.ToString();
 			}
-			GUI.BeginGroup( rectangle );
+			//GUI.BeginGroup( rectangle );
 
-			GUI.Box (new Rect (0,0,w,h), "");
+			GUI.Box (new Rect (x,y,w,h), "");
 
-			plusButton.Perform();
-			plusButton.PerformUpdate();
-
-			minusButton.Perform();
-			minusButton.PerformUpdate();
+			plusButton.PerformOnGui();
+			minusButton.PerformOnGui();
 
 			GUIStyle style = new GUIStyle();
 			style.fontSize = 20;
 			style.normal.textColor = GUI.skin.label.normal.textColor;
 			style.alignment = TextAnchor.MiddleCenter;
-			GUI.Label(new Rect(0, h/3, w, (h/3) ), labelText, style);
+			GUI.Label(new Rect(x, y + h/3, w, (h/3) ), labelText, style);
 
-			GUI.EndGroup();
+			//GUI.EndGroup();
 		}
 	}
 }

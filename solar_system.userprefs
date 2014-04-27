@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\ManualCameraCalibration.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Sun.cs">
     <Files>
-      <File FileName="Assets\doublescreen-scripts\ManualCameraCalibration.cs" Line="25" Column="36" />
-      <File FileName="Assets\doublescreen-scripts\ManualCameraCalibration.cs" Line="19" Column="12" />
-      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Plugins\uniTUIOCE\iPhoneInput fakery\BBIPhoneTouchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="200" Column="40" />
+      <File FileName="g:\WORKSPACE\bakalarka\solar_system\Assets\Custom Assets\Scripts\DatePicker.cs" Line="203" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\KeyButton.cs" Line="56" Column="11" />
+      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="48" Column="4" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="212" Column="20" />
+      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="89" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

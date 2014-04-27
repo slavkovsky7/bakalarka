@@ -9,9 +9,9 @@ public class Planet : MonoBehaviour {
 	
 	
 	public const float EARTH_TICKS_PER_HOUR = 2.062971f; 
-	
-	private static Planet selectedPlanet = null;
-	
+	public static Planet selectedPlanet = null;
+	public List<Planet> childObjects = new List<Planet>();
+
 	class PlanetPosition {
 		public float angle;
 		public float speed;
@@ -116,7 +116,7 @@ public class Planet : MonoBehaviour {
 	public int YearCounter = 0;
 	public float Period = 0; 
 	public float Perimeter = 0;
-	public GameObject parentObject = null;
+	public Planet parentObject = null;
 	public float Area;
 	
 	public Vector3 U = new Vector3(1,0,0);
@@ -138,7 +138,12 @@ public class Planet : MonoBehaviour {
 			sunLight.transform.forward = direction;
 		}
 	}
-	
+
+	public float getApsisDistance(){
+		return ellipse.getApsisDistance();
+	}
+
+
 	/*public void setApoapsisDate(Date date)
 	{
 		///DatePicker.getDateInHours(date);
@@ -185,11 +190,15 @@ public class Planet : MonoBehaviour {
 			
 		}
 		setPlanetTilt();
-		Sun.Planets.Add(this);
+		Sun.AddPlanet(this);
 		
 		//Init Renderere
 		renderer = this.gameObject.AddComponent<LineRenderer>();
 		renderer.useWorldSpace = true;
+
+		if (isMoon){
+			parentObject.childObjects.Add(this);
+		}
 	}
 	
 	
@@ -253,6 +262,8 @@ public class Planet : MonoBehaviour {
 	public double CurrentTick = 0;
 	public double CurrentTime = 0;
 	public bool isSun = false;
+	public bool isMoon = false;
+
 	public void Advance()
 	{
 		if (RotateSpeed > 0)

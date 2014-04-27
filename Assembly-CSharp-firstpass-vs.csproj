@@ -126,6 +126,7 @@
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\frag_ao.cginc" />
      <None Include="Assets\test-results\Assembly-CSharp.csproj-Debug-2014-04-05.xml" />
+     <None Include="Assets\camera.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
@@ -190,20 +191,20 @@
  <Reference Include="Emgu.CV.Stitching">
  <HintPath>Assets\Plugins\Emgu.CV.Stitching.dll</HintPath>
  </Reference>
+ <Reference Include="Emgu.CV.UI">
+ <HintPath>Assets\Plugins\Emgu.CV.UI.dll</HintPath>
+ </Reference>
  <Reference Include="Emgu.CV.VideoStab">
  <HintPath>Assets\Plugins\Emgu.CV.VideoStab.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.Util">
+ <HintPath>Assets\Plugins\Emgu.Util.dll</HintPath>
  </Reference>
  <Reference Include="System.Drawing">
  <HintPath>Assets\Plugins\System.Drawing.dll</HintPath>
  </Reference>
  <Reference Include="ZedGraph">
  <HintPath>Assets\Plugins\ZedGraph.dll</HintPath>
- </Reference>
- <Reference Include="Emgu.CV.UI">
- <HintPath>Assets\Plugins\Emgu.CV.UI.dll</HintPath>
- </Reference>
- <Reference Include="Emgu.Util">
- <HintPath>Assets\Plugins\Emgu.Util.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

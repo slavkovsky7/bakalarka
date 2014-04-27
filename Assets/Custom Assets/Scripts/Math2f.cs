@@ -52,7 +52,9 @@ namespace Bakalarka
 		
 		public float semi_major;
 		public float semi_minor;
-		
+
+		private float apsisDistance;
+
 		public Vector3 getF1( )
 		{
 			float F = Mathf.Sqrt( semi_major*semi_major  - semi_minor*semi_minor );
@@ -84,6 +86,11 @@ namespace Bakalarka
 			this.e = e;
 			this.semi_major = apsisDistance / ( 1 + e);
 			this.semi_minor  = semi_major*Mathf.Sqrt( 1 - e*e );
+			this.apsisDistance = apsisDistance;
+		}
+
+		public float getApsisDistance(){
+			return apsisDistance;
 		}
 
 		public Vector3 getPosition(float angle ){
