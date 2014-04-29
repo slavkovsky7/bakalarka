@@ -21,6 +21,7 @@ public class ManualCameraCalibration : MonoBehaviour
 	private List<Vector3> m_calibration_3D_points = new List<Vector3>();
 	private GameObject m_calib_plane;
 	private GameObject m_calib_sphere;
+	private GameObject m_space_plane;
 	private GameObject m_scene;
 	private bool m_calibrating = false;
 	private String m_status = "Press C for calibration...";
@@ -31,6 +32,7 @@ public class ManualCameraCalibration : MonoBehaviour
 		// get calibration objects for later use
 		m_calib_plane = GameObject.Find("Calibration Plane");
 		m_calib_sphere = GameObject.Find("Calibration Sphere");
+		m_space_plane = GameObject.Find("SpacePlane");
 		m_scene = GameObject.Find("Scene");
 		// prepare calibration mark vectors that will be used for semi-automatic calibration
 		int calib_grid_size = 2;
@@ -73,23 +75,30 @@ public class ManualCameraCalibration : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.C))
 		{
 			m_calibrating = !m_calibrating;
+			if (m_calibrating){
+				m_calib_plane.SetActive(true);
+				m_calib_sphere.SetActive(true);
+				m_scene.SetActive(false);
+				m_space_plane.SetActive(false);
+				this.GetComponent<GlowEffect>().enabled = false;
+			}
 		}
 		if (!m_calibrating)
 		{
 			m_calib_plane.SetActive(false);
 			m_calib_sphere.SetActive(false);
+			m_space_plane.SetActive(true);
 			m_scene.SetActive(true);
 			m_calibration_2D_points.Clear();
 			m_calibration_3D_points.Clear();
+			this.GetComponent<GlowEffect>().enabled = true;
 			m_status = "Press C for calibration...";
 			return;
 		}
 		
 		// if calibrating, hide scene, show only calibration plane & sphere
-		m_calib_plane.SetActive(true);
-		m_calib_sphere.SetActive(true);
-		m_scene.SetActive(false);
-		
+
+
 		// show calibration marker to be clicked somewhere inside
 		int calib_index = m_calibration_3D_points.Count;
 		if (calib_index < m_calib_samples.Count)
@@ -363,7 +372,7 @@ public class ManualCameraCalibration : MonoBehaviour
 		float fovy = 2 * Mathf.Atan(cameraSizeCV.Height / (2 * fy)) * 180.0f / Mathf.PI;
 		cameraGO.camera.fieldOfView = fovy;
 		m_status = "Camera calibrated!";
-		
+		m_scene.SetActive(true);
         return reprojectionError;
     }
 }

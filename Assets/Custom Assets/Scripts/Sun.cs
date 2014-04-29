@@ -28,42 +28,32 @@ public class Sun : MonoBehaviour {
 	public Camera projectorCam;
 	private Rect guiRect;
 
-	/*
+	float timeAccelaration = 0;
 	public void addTime(float n){
-		timeAccelaration += n;
+
+		float a = n * 0.001f;
+		if ( TimeConstantCurrent > -1.00f && TimeConstantCurrent < 1.00f ){
+			a *= 0.01f;
+		}
+
+		timeAccelaration += a;
 		//TimeConstantCurrent += timeAccelaration;
 		TimeConstantCurrent +=timeAccelaration;
 	}
-	
 
-	void Start () 
-	{
-		TimeConstant = TimeConstantCurrent;
-		plusButton.action  += delegate { addTime( 0.001f); } ;
-		plusButton.releaseAction += delegate{ timeAccelaration = 0; };
-
-		minusButton.action += delegate { addTime(-0.001f); } ;
-		minusButton.releaseAction += delegate{ timeAccelaration = 0; };
-
-		DatePicker = new DatePicker(new Rect(100,100, 300, 100 ) );
-	}
-*/
-
-	private float x = 0;
+	//private float x = 0;
 	private bool followingPlanet = false;
 
 
-	public void addTime(float znamienko ){
+	/*public void addTime(float znamienko ){
 		float tmpX = x + 1.0f;
 		//TimeConstantCurrent += timeAccelaration;
 		//float accelaration = znamienko * ( 0.000001f*Mathf.Pow( (float)x ,2.
 		float t  = tmpX / 500;
 		float a = 0.0001f;
 		if (znamienko < 0 && TimeConstantCurrent > -1.00f && TimeConstantCurrent < 1.00f ){
-			//a = a*Mathf.Pow(10, -Mathf.Min( 2.0f , (float) ( (int) ( 1 / TimeConstantCurrent)) ));
 			a *= 0.01f;
 		}
-		//Debug.Log("a =" + a);
 		float accelaration = znamienko * ( a * Mathf.Pow(10, t)* Mathf.Pow((float)tmpX , 2.0f));
 		if (accelaration < 50.0f )
 		{
@@ -74,9 +64,7 @@ public class Sun : MonoBehaviour {
 		{
 			TimeConstantCurrent += accelaration;
 		}
-
-		///Debug.Log( "e^" + x + " = accelaration = "  + accelaration);
-	}
+	}*/
 
 	public static void AddPlanet(Planet planet){
 		if (planet.isMoon ){
@@ -96,17 +84,20 @@ public class Sun : MonoBehaviour {
 	void Start () 
 	{
 		//guiRect = 
-		plusButton = new KeyButton(new Rect(10,Screen.height - 115,50,50), "+", KeyCode.KeypadPlus );
-		minusButton = new KeyButton(new Rect(10,Screen.height - 60,50,50), "-", KeyCode.KeypadMinus );
-		datePicker = new DatePicker(new Rect(200, Screen.height - 115, 300, 100 ) );
+		plusButton = new KeyButton(createGuiRect(10,Screen.height - 115,50,50), "+", KeyCode.KeypadPlus );
+		minusButton = new KeyButton(createGuiRect(10,Screen.height - 60,50,50), "-", KeyCode.KeypadMinus );
+		datePicker = new DatePicker(createGuiRect(200, Screen.height - 115, 300, 100 ) );
 
 		TimeConstantCurrent = GetDefaultTimeConstant();
 		TimeConstant = GetDefaultTimeConstant();
+
+
 		plusButton.action  += delegate { addTime(+1.0f); } ;
-		plusButton.releaseAction += delegate{ x = 0; };
+		plusButton.releaseAction += delegate{ timeAccelaration = 0; };
 
 		minusButton.action += delegate { addTime(-1.0f); } ;
-		minusButton.releaseAction += delegate{ x = 0; };
+		minusButton.releaseAction += delegate{ timeAccelaration = 0; };
+		
 		projectorCam.enabled = false;
 
 	}
@@ -157,7 +148,7 @@ public class Sun : MonoBehaviour {
 	public float hSliderValue = 0.0f;
 
 	private Rect createGuiRect( int x, int y, int w, int h){
-		Rect result = new Rect(0, 100, 300, 30);
+		Rect result = new Rect(x, y, w, h);
 		TouchControl.GuiRectangles.Add(result);
 		return result;
 	}
@@ -168,7 +159,8 @@ public class Sun : MonoBehaviour {
 			plusButton.PerformOnGui ();
 			minusButton.PerformOnGui ();
 		}
-		if ( GUI.Button( new Rect(70,Screen.height - 60, 100, 50) ,  TimeButtonString ) ) {
+
+		if ( GUI.Button(  createGuiRect(70,Screen.height - 60, 100, 50)  ,  TimeButtonString ) ) {
 			if (!isPaused ){
 				isPaused = true;
 				lastTimeConstantCurrent = TimeConstant;
@@ -185,18 +177,18 @@ public class Sun : MonoBehaviour {
 		}
 
 		if (!isPaused) {
-			if (GUI.Button (new Rect (70, Screen.height - 115, 100, 50), "Reset Time")) {
+			if (GUI.Button ( createGuiRect(70, Screen.height - 115, 100, 50), "Reset Time")) {
 					TimeConstantCurrent = GetDefaultTimeConstant ();
 			}
 		}
 	
-		if ( GUI.Button( new Rect(Screen.width/2 - 170,10, 85, 40) ,  "Reset View" ) ) {
+		if ( GUI.Button( createGuiRect(Screen.width/2 - 170,10, 85, 40) ,  "Reset View" ) ) {
 			TouchControl.ResetView();
 			followingPlanet = false;
 		}
 
 		if (followingPlanet){
-			if ( GUI.Button( new Rect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" ) ) {
+			if ( GUI.Button( createGuiRect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" ) ) {
 				followingPlanet = false;
 			}
 		}
@@ -204,7 +196,7 @@ public class Sun : MonoBehaviour {
 		int i = 0;
 		foreach (Planet planet in planets) {
 			int bWidth = 70;
-			if ( !planet.isMoon && GUI.Button( new Rect  ( i*bWidth, 10 , bWidth, 40 ) , planet.name ) ){
+			if ( !planet.isMoon && GUI.Button( createGuiRect  ( i*bWidth, 10 , bWidth, 40 ) , planet.name ) ){
 				followingPlanet = true;
 				Planet.selectedPlanet = planet;
 			}
@@ -215,7 +207,7 @@ public class Sun : MonoBehaviour {
 					int j = 0;
 					foreach ( Planet moon in  planet.childObjects){
 						j++;
-						if ( GUI.Button( new Rect  ( i*bWidth, 10 + j*35 , bWidth - 7, 35 ) , moon.name ) ) {
+						if ( GUI.Button(  createGuiRect( i*bWidth, 10 + j*35 , bWidth - 7, 35 ) , moon.name ) ) {
 							followingPlanet = true;
 							Planet.selectedPlanet = moon;
 						}
@@ -237,8 +229,9 @@ public class Sun : MonoBehaviour {
 	public void setPositionToPlanet(){
 		GameObject sceneObjects = GameObject.Find("Scene");
 		if (Planet.selectedPlanet != null){
-			Debug.Log("setPositionToPlanet = " + Planet.selectedPlanet.transform.localPosition);
-			sceneObjects.transform.position = -(TouchControl.ScaleFactor) *  Planet.selectedPlanet.transform.localPosition ;
+			//Debug.Log("setPositionToPlanet = " + Planet.selectedPlanet.transform.localPosition);
+			Vector3 tmpPos =  -(TouchControl.ScaleFactor) *  Planet.selectedPlanet.transform.localPosition;
+			sceneObjects.transform.position =  Quaternion.Euler ( sceneObjects.transform.localRotation.eulerAngles) * tmpPos;
 		}
 	}
 }

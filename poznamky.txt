@@ -56,3 +56,7 @@ maximalny cas = 1165872
 ====================
 tu je link na atmosferu
 http://scrawkblog.com/2013/04/13/gpu-gems-to-unity-atmospheric-scattering/
+
+
+
+http://astronomy.swin.edu.au/cosmos/A/Ascending+Node

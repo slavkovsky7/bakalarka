@@ -20,11 +20,13 @@ public class KeyButton
 	private bool buttonPressed;
 	private bool keyPressed;
 	
-	private Rect rectangle;
+	public Rect rectangle;
 	private string name;
 	public event Action action;
 	public event Action releaseAction;
 	private KeyCode keyCode;
+
+	private Vector2 v1 = Vector2.zero;
 
 	public KeyButton(Rect rectangle , string name, KeyCode keyCode)
 	{
@@ -41,33 +43,32 @@ public class KeyButton
 			releaseAction();
 		}
 		
-		if ( pressed ||  keyPressed || touched ) {
+		if ( keyPressed || touched ) {
 			action();
 		}
-		/*List<iPhoneTouch> goodIphoneTouches = TouchControl.getGoodIphoneTouches();
+
+		List<iPhoneTouch> goodIphoneTouches = TouchControl.getGoodIphoneTouches();
 		if (goodIphoneTouches.Count == 1){
 			iPhoneTouch touch = goodIphoneTouches[0];
-			Vector2 v1 = new Vector2 ( touch.position.x, touch.position.y );
-			Camera cam = GameObject.Find("Screen Camera").camera;
-			Debug.Log("v1 = " + v1 + ",cam.pixelWidth  = " + cam.pixelWidth + ",cam.pixelHeight  = " + cam.pixelHeight );
+			v1 = new Vector2 ( touch.position.x, Screen.height - touch.position.y );
+			//Camera cam = GameObject.Find("Screen Camera").camera;
+			//Debug.Log("v1 = " + v1 + ",cam.pixelWidth  = " + cam.pixelWidth + ",cam.pixelHeight  = " + cam.pixelHeight );
 			if ( !touched && rectangle.Contains(v1) ){
 				Debug.Log("TouchDown");
 				touched = true;
-			}else {
-				touched = false;
 			}
 		}else if ( touched && goodIphoneTouches.Count == 0 ){
 			Debug.Log("TouchUp");
 			touched = false;
 			releaseAction();
-		}*/
+		}
 
 		if (!touched){
 			Vector2 v = new Vector2 ( Input.mousePosition.x, Screen.height - Input.mousePosition.y );
 			if ( Input.GetMouseButtonDown(0) && rectangle.Contains(v) ){
 				Debug.Log("ButtonDown");
 				pressed = true;
-			}else if (pressed && Input.GetMouseButtonUp(0)){
+			}else if (pressed &&  ( Input.GetMouseButtonUp(0) || !rectangle.Contains(v) ) ){
 				Debug.Log("ButtonUp");
 				pressed = false;
 				releaseAction();
@@ -78,6 +79,9 @@ public class KeyButton
 	public void PerformOnGui()
 	{
 		GUI.Button( rectangle , name );
+		if (pressed){
+			action();
+		}
 	}
 }
 

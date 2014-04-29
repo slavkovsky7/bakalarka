@@ -135,7 +135,9 @@ public class Planet : MonoBehaviour {
 	{
 		if (sunLight != null){
 			Vector3 direction = (this.transform.localPosition - parentObject.transform.localPosition).normalized;
-			sunLight.transform.forward = direction;
+			sunLight.transform.transform.rotation = Quaternion.LookRotation(direction);
+			GameObject scene = GameObject.Find("Scene");
+			sunLight.transform.Rotate ( scene.transform.rotation.eulerAngles );
 		}
 	}
 

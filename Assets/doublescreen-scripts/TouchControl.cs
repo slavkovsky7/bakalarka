@@ -67,7 +67,7 @@ public class TouchControl : MonoBehaviour
 			//Debug.Log("Mouse up");
 			mouseClicked = false;
 		}
-
+		
 		if (goodIphoneTouches.Count == 1 || mouseClicked )
 		{
 			// ----------------MOVING-----------------
@@ -81,7 +81,7 @@ public class TouchControl : MonoBehaviour
 				touchedPosition = Input.mousePosition;
 			}
 
-
+			
 			Vector2 v = new Vector2( touchedPosition.x, Screen.height - touchedPosition.y);
 			foreach ( Rect r in GuiRectangles){
 				if (r.Contains(v)){
@@ -217,7 +217,7 @@ public class TouchControl : MonoBehaviour
 			if (Mathf.Abs(scale - 1.0f) < 0.008f) scale = 1.0f;
 			
 			float newScale = sceneObjects.transform.localScale.x + sceneObjects.transform.localScale.x * 0.3f * (scale - 1.0f);
-			if (newScale < 0.8f || newScale > 20.0f) newScale = sceneObjects.transform.localScale.x;
+			if (newScale < 0.1f || newScale > 20.0f) newScale = sceneObjects.transform.localScale.x;
 	
 			// centring to center of two fingers
 			float moveX = -(ray.origin.x - sceneObjects.transform.localPosition.x) * (newScale - sceneObjects.transform.localScale.x) / sceneObjects.transform.localScale.x;
@@ -233,6 +233,7 @@ public class TouchControl : MonoBehaviour
 		GameObject sceneObjects = GameObject.Find("Scene");
 		sceneObjects.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		sceneObjects.transform.position = Vector3.zero;
+		sceneObjects.transform.rotation = Quaternion.Euler ( new Vector3(0,0,0) );
 		ScaleFactor = 1.0f;
 	}
 

@@ -111,7 +111,6 @@ public class DatePicker
 		double result = span.TotalHours - getAphelionDiff();
 		if (result < 0)
 		{
-			Debug.Log("Pice");
 			return Planet.getMaxTime() + result ;
 		}
 		return result;
