@@ -33,7 +33,11 @@ public class Planet : MonoBehaviour {
 			this.period = (int)ellipse.getPeriod( gravityParam );
 			this.area = ellipse.getAreaVelocity(gravityParam);
 			float minSpeed = ellipse.getAngularVelocity( 0, area );
-			this.positions = getPositionsArray( 0 , minSpeed, 360.0f, 1.0f );
+			float timeModifier = 1.0f;
+			if (period > 100000f ){
+				timeModifier = period / 100000f;
+			}
+			this.positions = getPositionsArray( 0 , minSpeed, 360.0f, timeModifier );
 		}
 		
 		
@@ -44,17 +48,17 @@ public class Planet : MonoBehaviour {
 			//return ((float)positions.Length )  / period;
 		}
 		
-		private PlanetPosition[] getPositionsArray( float startAngle , float startSpeed, float endAngle , float timeModifier)
+		private PlanetPosition[] getPositionsArray( double startAngle , double startSpeed, double endAngle , double timeModifier)
 		{
 			List<PlanetPosition> positionsList = new List<PlanetPosition>();
-			float totalAngle = startAngle;
-			float currentSpeed = startSpeed;
-			positionsList.Add( new PlanetPosition(totalAngle, currentSpeed ) );
+			double totalAngle = startAngle;
+			double currentSpeed = startSpeed;
+			positionsList.Add( new PlanetPosition( (float)totalAngle, (float)currentSpeed ) );
 			while (totalAngle < endAngle)
 			{
 				totalAngle += currentSpeed*timeModifier;
-				positionsList.Add( new PlanetPosition(totalAngle, currentSpeed ) );
-				currentSpeed = ellipse.getAngularVelocity(totalAngle, area); 
+				positionsList.Add( new PlanetPosition( (float) totalAngle, (float)currentSpeed ) );
+				currentSpeed = ellipse.getAngularVelocity((float)totalAngle, (float)area); 
 			}
 			return positionsList.ToArray ();
 		}
@@ -74,6 +78,10 @@ public class Planet : MonoBehaviour {
 		{
 			hour = hour % (int)period;
 			int index = (int) ( (float)(hour) * getTicksPerHour() );
+			if (period > 100000f ){
+				float timeModifier = period / 100000f;
+				index  = (int)((float)index / timeModifier ); 
+			}
 			return positions[index];
 		}
 		
@@ -230,7 +238,7 @@ public class Planet : MonoBehaviour {
 	void OnMouseDown()
 	{
 		selectedPlanet = this;
-		Debug.Log("clicked on the planet " + this.name);
+		//Debug.Log("clicked on the planet " + this.name);
 	}
 	
 	public void SetDate( int years , int hour , int minute )
@@ -256,8 +264,8 @@ public class Planet : MonoBehaviour {
 			return;
 		InitPlanet();
 		//SetDate(CurrentHour, CurrentMinute );
-		Debug.Log( hourPositions.positions.Length + " "  + this.gameObject.name );
-		Debug.Log( hourPositions.getTicksPerHour() + " "  + this.gameObject.name );
+		//Debug.Log( hourPositions.positions.Length + " "  + this.gameObject.name );
+		//Debug.Log( hourPositions.getTicksPerHour() + " "  + this.gameObject.name );
 	}	
 	
 	
@@ -314,11 +322,6 @@ public class Planet : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if ( Inclination > 0 )
-		{
-			Debug.DrawLine(Vector3.zero,  U * 1000 , Color.red);
-			Debug.DrawLine(Vector3.zero, V * 1000 , Color.red);
-		}
 		Advance();
 		//scaleByTouchScreen();
 	}

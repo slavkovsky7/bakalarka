@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\TouchControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\ManualCameraCalibration.cs">
     <Files>
-      <File FileName="Assets\doublescreen-scripts\ManualCameraCalibration.cs" Line="85" Column="4" />
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\KeyButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="1" Column="1" />
-      <File FileName="Assets\doublescreen-scripts\ManualCameraCalibration.cs" Line="1" Column="1" />
-      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="220" Column="22" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="114" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="82" Column="11" />
+      <File FileName="g:\WORKSPACE\bakalarka\solar_system\Assets\Custom Assets\Scripts\KeyButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Shaders\ReflectiveTransparent.shader" Line="1" Column="1" />
+      <File FileName="Assets\doublescreen-scripts\ManualCameraCalibration.cs" Line="81" Column="17" />
+      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="1" Column="1" />
+      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="206" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

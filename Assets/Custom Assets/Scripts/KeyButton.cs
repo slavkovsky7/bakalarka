@@ -35,7 +35,7 @@ public class KeyButton
 		this.keyCode = keyCode;
 	}
 	
-	public void PerformUpdate(){
+	private void PerformUpdate(){
 		if (Input.GetKeyDown(keyCode)){
 			keyPressed = true;
 		}else if (Input.GetKeyUp( keyCode) ){
@@ -43,45 +43,85 @@ public class KeyButton
 			releaseAction();
 		}
 		
-		if ( keyPressed || touched ) {
+		if ( keyPressed ) {
 			action();
 		}
 
 		List<iPhoneTouch> goodIphoneTouches = TouchControl.getGoodIphoneTouches();
+
+		if ( Input.GetKey ( KeyCode.T ) ){
+			iPhoneTouch touch = new iPhoneTouch();
+			touch.position = Input.mousePosition;
+			goodIphoneTouches.Add( touch );
+		}
+
 		if (goodIphoneTouches.Count == 1){
 			iPhoneTouch touch = goodIphoneTouches[0];
 			v1 = new Vector2 ( touch.position.x, Screen.height - touch.position.y );
 			//Camera cam = GameObject.Find("Screen Camera").camera;
 			//Debug.Log("v1 = " + v1 + ",cam.pixelWidth  = " + cam.pixelWidth + ",cam.pixelHeight  = " + cam.pixelHeight );
+			GUI.Label(new Rect(v1.x-5, v1.y-5,20 ,20), "O");
 			if ( !touched && rectangle.Contains(v1) ){
 				Debug.Log("TouchDown");
 				touched = true;
 			}
-		}else if ( touched && goodIphoneTouches.Count == 0 ){
+		}
+		if ( touched && ( goodIphoneTouches.Count == 0  || !rectangle.Contains(v1) ) ){
 			Debug.Log("TouchUp");
 			touched = false;
 			releaseAction();
 		}
 
-		if (!touched){
-			Vector2 v = new Vector2 ( Input.mousePosition.x, Screen.height - Input.mousePosition.y );
-			if ( Input.GetMouseButtonDown(0) && rectangle.Contains(v) ){
-				Debug.Log("ButtonDown");
-				pressed = true;
-			}else if (pressed &&  ( Input.GetMouseButtonUp(0) || !rectangle.Contains(v) ) ){
-				Debug.Log("ButtonUp");
-				pressed = false;
-				releaseAction();
-			}
+		if (touched){
+			pressed = false;
+			return;
+		}
+
+		Vector2 v = new Vector2 ( Input.mousePosition.x, Screen.height - Input.mousePosition.y );
+		if ( !pressed && Input.GetMouseButtonDown(0) && rectangle.Contains(v) ){
+			Debug.Log("ButtonDown");
+			pressed = true;
+		}else if (pressed &&  ( Input.GetMouseButtonUp(0) || !rectangle.Contains(v) ) ){
+			Debug.Log("ButtonUp");
+			pressed = false;
+			releaseAction();
 		}
 	}
-	
-	public void PerformOnGui()
+
+	public void PerformOnGui(){
+		PerformUpdate();
+		PerformOnGui(false);
+	}
+
+	private bool PerformOnGui(bool singleClick)
 	{
+		PerformUpdate();
 		GUI.Button( rectangle , name );
-		if (pressed){
+		if (pressed || touched){
+			GUI.Box(rectangle, "");
+			if (singleClick && actionFirst){
+				return false;
+			}
 			action();
+			return true;
 		}
+		return false;
+	}
+
+	private static Dictionary<int,  KeyButton> staticButtons = new Dictionary<int,KeyButton>(); 
+	private bool actionFirst = false;
+
+	public static bool Button(Rect rect, string name, int id ){
+		KeyButton button = null;
+		if (staticButtons.ContainsKey(id) ){
+			button = staticButtons[id];
+		}else{
+			button = new KeyButton(rect, name, KeyCode.None );
+			button.action = delegate { button.actionFirst = true; };
+			button.releaseAction = delegate {button.actionFirst = false; };
+			staticButtons.Add(id, button);
+		}
+		return button.PerformOnGui(true);
 	}
 }
 

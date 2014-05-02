@@ -14,12 +14,14 @@ public class TouchControl : MonoBehaviour
 	Vector2 m_MovePrevPosition;
 	bool mouseClicked = false;
 
-
+	public static float OriginalY =0;
 	public static float ScaleFactor = 1.0f;
 	public static float RotationFactor = 0;
 	public static List<Rect> GuiRectangles = new List<Rect>();
 	public bool IgnoreMouse = false;
 	public float MoveMultiplier = 10.0f;
+
+	private GameObject m_space_plane;
 
 	class TouchData
 	{
@@ -36,6 +38,8 @@ public class TouchControl : MonoBehaviour
 		m_ZoomDistance = 0f;
 		m_PrevAngle = -1f;
 		m_MovePrevPosition = new Vector2(-10000, -10000);
+		OriginalY = GameObject.Find("Scene").transform.position.y; 
+		m_space_plane = GameObject.Find("SpacePlane");
 	}
 	
 	// Update is called once per frame
@@ -115,10 +119,10 @@ public class TouchControl : MonoBehaviour
 				{
 					// return to previous transformation
 					//TODO::toto robi blbosti
-					if (!mouseClicked)
-					{
+					//if (!mouseClicked)
+					//{
 						sceneObjects.transform.Translate(-moveX, 0, -moveY, Space.World);
-					}
+					//}
 				}
 			}
 
@@ -174,7 +178,7 @@ public class TouchControl : MonoBehaviour
 			if (scale != 1.0f && Mathf.Abs(diff) < 0.18f) diff = 0f;
 			rotate(rayPoint,  -360.0f*diff/2/Mathf.PI );
 			//sceneObjects.transform.RotateAround(ray.origin, Vector3.up,);
-		} else if ( Input.GetAxis("Mouse ScrollWheel") != 0 ){
+		} else if ( !IgnoreMouse && Input.GetAxis("Mouse ScrollWheel") != 0 ){
 			//Mouse Zooming
 			float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
 			Vector3 rayPoint = new Vector3( Input.mousePosition.x,  Input.mousePosition.y , 0);
@@ -182,7 +186,7 @@ public class TouchControl : MonoBehaviour
 			//Debug.Log("Zoomed with mouse wheel");
 			zoom(rayPoint, scale);
 
-		}else if ( Input.GetKey( "q" ) || Input.GetKey("e") ){
+		}else if ( !IgnoreMouse &&  ( Input.GetKey( "q" ) || Input.GetKey("e") ) ){
 			float angle = 0.5f;
 			if (Input.GetKey("e"))
 				angle *= -1;
@@ -196,15 +200,21 @@ public class TouchControl : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape)){
         	Application.Quit();
     	}
-		
+
+		GameObject scene = GameObject.Find("Scene");
+			if (scene != null) {
+			m_space_plane.transform.rotation = GameObject.Find("Scene").transform.rotation;
+		}
 	}
 
 	private static void rotate(Vector3 rayPoint , float angle)
 	{
 		GameObject screenCamera = GameObject.Find("Screen Camera");
 		GameObject sceneObjects = GameObject.Find("Scene");
-		Ray ray = screenCamera.camera.ScreenPointToRay(rayPoint);
-		sceneObjects.transform.RotateAround(ray.origin, Vector3.up, angle);
+		if ( sceneObjects != null ) {
+			Ray ray = screenCamera.camera.ScreenPointToRay(rayPoint);
+			sceneObjects.transform.RotateAround(ray.origin, Vector3.up, angle);
+		}
 	}
 
 	private static void zoom(Vector3 rayPoint , float scale )
@@ -232,7 +242,7 @@ public class TouchControl : MonoBehaviour
 	public static void ResetView(){
 		GameObject sceneObjects = GameObject.Find("Scene");
 		sceneObjects.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-		sceneObjects.transform.position = Vector3.zero;
+		sceneObjects.transform.position = new Vector3(0, OriginalY);
 		sceneObjects.transform.rotation = Quaternion.Euler ( new Vector3(0,0,0) );
 		ScaleFactor = 1.0f;
 	}

@@ -372,7 +372,6 @@ public class ManualCameraCalibration : MonoBehaviour
 		float fovy = 2 * Mathf.Atan(cameraSizeCV.Height / (2 * fy)) * 180.0f / Mathf.PI;
 		cameraGO.camera.fieldOfView = fovy;
 		m_status = "Camera calibrated!";
-		m_scene.SetActive(true);
         return reprojectionError;
     }
 }

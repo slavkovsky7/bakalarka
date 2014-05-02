@@ -99,6 +99,7 @@ public class Sun : MonoBehaviour {
 		minusButton.releaseAction += delegate{ timeAccelaration = 0; };
 		
 		projectorCam.enabled = false;
+		
 
 	}
 	
@@ -125,8 +126,8 @@ public class Sun : MonoBehaviour {
 		}
 		TimeConstant = TimeConstantCurrent;
 		if (plusButton != null && minusButton != null) {
-			plusButton.PerformUpdate ();
-			minusButton.PerformUpdate ();
+			//plusButton.PerformUpdate ();
+			//minusButton.PerformUpdate ();
 		}
 		if ( !initialDateSet){
 			setPlanetsDate(DateTime.Now);
@@ -145,13 +146,21 @@ public class Sun : MonoBehaviour {
 		}
 	}
 
-	public float hSliderValue = 0.0f;
 
 	private Rect createGuiRect( int x, int y, int w, int h){
 		Rect result = new Rect(x, y, w, h);
 		TouchControl.GuiRectangles.Add(result);
 		return result;
 	}
+
+	private const int TIME_BTN_ID = 1;
+	private const int RESET_TIME_BTN_ID = 2;
+	private const int RESET_VIEW_BTN_ID = 3;
+	private const int EXIT_BTN_ID = 4;
+	private const int UNLOCK_BTN_ID = 5;
+	private const int PLANET_BTNS = 100;
+	private const int MOONS_BTNS = 200;
+
 
 	private void OnGUI(){
 
@@ -160,7 +169,7 @@ public class Sun : MonoBehaviour {
 			minusButton.PerformOnGui ();
 		}
 
-		if ( GUI.Button(  createGuiRect(70,Screen.height - 60, 100, 50)  ,  TimeButtonString ) ) {
+		if ( KeyButton.Button(  createGuiRect(70,Screen.height - 60, 100, 50)  ,  TimeButtonString, TIME_BTN_ID ) ) {
 			if (!isPaused ){
 				isPaused = true;
 				lastTimeConstantCurrent = TimeConstant;
@@ -177,26 +186,32 @@ public class Sun : MonoBehaviour {
 		}
 
 		if (!isPaused) {
-			if (GUI.Button ( createGuiRect(70, Screen.height - 115, 100, 50), "Reset Time")) {
+			if (KeyButton.Button ( createGuiRect(70, Screen.height - 115, 100, 50), "Reset Time", RESET_TIME_BTN_ID)) {
 					TimeConstantCurrent = GetDefaultTimeConstant ();
 			}
 		}
 	
-		if ( GUI.Button( createGuiRect(Screen.width/2 - 170,10, 85, 40) ,  "Reset View" ) ) {
+		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,10, 85, 40) ,  "Reset View", RESET_VIEW_BTN_ID ) ) {
 			TouchControl.ResetView();
 			followingPlanet = false;
 		}
 
+		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 90, Screen.height - 50 , 85, 40) ,  "Exit" , EXIT_BTN_ID) ) {
+			Application.Quit();
+		}
+
+		//BBTouchableButton.Instantiate(  );
+
 		if (followingPlanet){
-			if ( GUI.Button( createGuiRect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" ) ) {
+			if ( KeyButton.Button( createGuiRect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" , UNLOCK_BTN_ID) ) {
 				followingPlanet = false;
 			}
 		}
 
 		int i = 0;
 		foreach (Planet planet in planets) {
-			int bWidth = 70;
-			if ( !planet.isMoon && GUI.Button( createGuiRect  ( i*bWidth, 10 , bWidth, 40 ) , planet.name ) ){
+			int bWidth = 80;
+			if ( !planet.isMoon && KeyButton.Button( createGuiRect  ( i*bWidth, 10 , bWidth, 40 ) , planet.name, PLANET_BTNS+i  ) ){
 				followingPlanet = true;
 				Planet.selectedPlanet = planet;
 			}
@@ -207,7 +222,7 @@ public class Sun : MonoBehaviour {
 					int j = 0;
 					foreach ( Planet moon in  planet.childObjects){
 						j++;
-						if ( GUI.Button(  createGuiRect( i*bWidth, 10 + j*35 , bWidth - 7, 35 ) , moon.name ) ) {
+						if ( KeyButton.Button(  createGuiRect( i*bWidth, 20 + j*30 , bWidth , 30 ) , moon.name, MOONS_BTNS + PLANET_BTNS*i + j) ) {
 							followingPlanet = true;
 							Planet.selectedPlanet = moon;
 						}
@@ -231,6 +246,7 @@ public class Sun : MonoBehaviour {
 		if (Planet.selectedPlanet != null){
 			//Debug.Log("setPositionToPlanet = " + Planet.selectedPlanet.transform.localPosition);
 			Vector3 tmpPos =  -(TouchControl.ScaleFactor) *  Planet.selectedPlanet.transform.localPosition;
+			tmpPos.y += TouchControl.OriginalY;
 			sceneObjects.transform.position =  Quaternion.Euler ( sceneObjects.transform.localRotation.eulerAngles) * tmpPos;
 		}
 	}

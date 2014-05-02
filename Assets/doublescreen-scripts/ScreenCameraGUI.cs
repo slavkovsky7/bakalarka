@@ -13,7 +13,6 @@ public class ScreenCameraGUI : MonoBehaviour
 	bool m_enableBlack;
 
 	public float SceneScale = 1;
-
 	// Use this for initialization
 	void Start () 
 	{

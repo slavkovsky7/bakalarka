@@ -257,8 +257,8 @@ public class DatePicker
 		}
 
 		public void onUpdate(){
-			plusButton.PerformUpdate();
-			minusButton.PerformUpdate();
+			//plusButton.PerformUpdate();
+			//minusButton.PerformUpdate();
 		}
 
 		public void onGui(){
