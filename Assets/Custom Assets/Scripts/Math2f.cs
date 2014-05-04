@@ -57,14 +57,14 @@ namespace Bakalarka
 
 		public Vector3 getF1( )
 		{
-			float F = Mathf.Sqrt( semi_major*semi_major  - semi_minor*semi_minor );
+			float F = (float)Math.Sqrt( semi_major*semi_major  - semi_minor*semi_minor );
 			Vector3 F1 = -F*U;
 			return F1;
 		}
 		
 		public Vector3 getF2( )
 		{
-			float F = Mathf.Sqrt( semi_major*semi_major  - semi_minor*semi_minor );
+			float F = (float)Math.Sqrt( semi_major*semi_major  - semi_minor*semi_minor );
 			Vector3 F1 = F*U;
 			return F1;
 		}
@@ -93,63 +93,70 @@ namespace Bakalarka
 			return apsisDistance;
 		}
 
-		public Vector3 getPosition(float angle ){
+		public Vector3 getPosition(double angle ){
 			return getPosition(angle, 1.0f, 0 );
 		}
 		
-		public Vector3 getPosition(float angle, float scale , float rotation )
+		public Vector3 getPosition(double angle, double scale , double rotation )
 		{
 			angle = Mathf.Deg2Rad * angle;
 			Vector3 result = new Vector3();
-			result.x =  scale*semi_major * Mathf.Cos(angle)*U.x + scale*semi_minor * Mathf.Sin(angle)*V.x;
-			result.y =  scale*semi_major * Mathf.Cos(angle)*U.y + scale*semi_minor * Mathf.Sin(angle)*V.y;
-			result.z =  scale*semi_major * Mathf.Cos(angle)*U.z + scale*semi_minor * Mathf.Sin(angle)*V.z;
+			result.x =  (float) ( scale*semi_major * Math.Cos(angle)*U.x + scale*semi_minor * Math.Sin(angle)*V.x );
+			result.y =  (float) ( scale*semi_major * Math.Cos(angle)*U.y + scale*semi_minor * Math.Sin(angle)*V.y );
+			result.z =  (float) ( scale*semi_major * Math.Cos(angle)*U.z + scale*semi_minor * Math.Sin(angle)*V.z );
 
-			result = Quaternion.AngleAxis (rotation, new Vector3(0,1,0)) * result;
+			result = Quaternion.AngleAxis ((float)rotation, new Vector3(0,1,0)) * result;
 			return result;
 		}
 		
-		public Vector3 getVelocityDirection( float angle )
+		public Vector3 getVelocityDirection( double angle )
 		{
 			angle = Mathf.Deg2Rad * angle;
 			Vector3 v = new Vector3();
-			v.x = -semi_major * Mathf.Sin(angle)*U.x + semi_minor * Mathf.Cos(angle)*V.x;
-			v.y = -semi_major * Mathf.Sin(angle)*U.y + semi_minor * Mathf.Cos(angle)*V.y;
-			v.z = -semi_major * Mathf.Sin(angle)*U.z + semi_minor * Mathf.Cos(angle)*V.z;
+			v.x = (float) ( -semi_major * Math.Sin(angle)*U.x + semi_minor * Math.Cos(angle)*V.x );
+			v.y = (float) ( -semi_major * Math.Sin(angle)*U.y + semi_minor * Math.Cos(angle)*V.y );
+			v.z = (float) ( -semi_major * Math.Sin(angle)*U.z + semi_minor * Math.Cos(angle)*V.z );
 			v.Normalize();
 			return v;
 		}
 		
-		public float getAreaVelocity(float gravitParam)
+		public double getAreaVelocity(double gravitParam)
 		{
 			Vector3 aphelion = getPosition(0) - getF1();
-			float minimumSpeed = getMinimumSpeed(gravitParam);
-			float area = ( aphelion.magnitude * minimumSpeed ) / 2;
+			double minimumSpeed = getMinimumSpeed(gravitParam);
+			double area = ( aphelion.magnitude * minimumSpeed ) / 2;
 			return area;
 		}
 
-		public float getAngularVelocity(float angle , float area)
+		public double getAngularVelocity(double angle , double area)
 		{ 
 			Vector3 v = getVelocity(angle, area);
 			Vector3 r = getPosition(angle);
-			float theta = Vector3.Angle(r, v)*Mathf.Deg2Rad;
-			float w = (v.magnitude * Mathf.Sin(theta) )  / r.magnitude;
+			double theta = Vector3.Angle(r, v)*Mathf.Deg2Rad;
+			double w = (v.magnitude * Math.Sin(theta) )  / r.magnitude;
 			return w;
 		}
 
-		public Vector3 getVelocity(float angle  , float area)
+		public double getFullArea(double gravitParam){
+			double area = getAreaVelocity(gravitParam);
+			double sw = getAngularVelocity(0, area);
+			double full = ( 360/sw ) * area;
+			return full;
+		}
+
+		public Vector3 getVelocity(double angle  , double area)
 		{
 			Vector3 r = getPosition(angle) - getF1();
-			float vAnsSinTheta = (2*area) / r.magnitude;
+			double vAnsSinTheta = (2*area) / r.magnitude;
 			Vector3 velocityDir = getVelocityDirection(angle);
-			float theta = Vector3.Angle(r, velocityDir)*Mathf.Deg2Rad;
-			float velocity =vAnsSinTheta / Mathf.Sin(theta);
+			double theta = Vector3.Angle(r, velocityDir)*Mathf.Deg2Rad;
+			float velocity = (float) ( vAnsSinTheta / Math.Sin(theta) );
 			return velocityDir*velocity;
 		}
 
-		public float getMinimumSpeed(float gravitParameter)
+		public double getMinimumSpeed(double gravitParameter)
 		{
-			float velocity =  Mathf.Sqrt( ((1 - e)*gravitParameter) / ( (1+e)*semi_major ) ); 
+			double velocity =  Math.Sqrt( ((1 - e)*gravitParameter) / ( (1+e)*semi_major ) ); 
 			return velocity;
 			//float angularVelocity = velocity / semi_major ;
 			//return angularVelocity;
@@ -164,16 +171,19 @@ namespace Bakalarka
 			{
 				Vector3 p1 = point + getPosition(i , scale,  rotation  );
 				Vector3 p2 = point + getPosition( (i + 1) %  360 , scale, rotation );
+				//Drawing.DrawLine(p1, p2, Color.red, 10, true);
+
 				Debug.DrawLine(p1 , p2, Color.blue);
 			}
 		}
 
+		private int vertexCount = 0;
 		public void drawAroundPoint( Vector3 point, float scale , float rotation , LineRenderer renderer , Transform t, bool isSelected)
 		{
 			if (renderer != null)
-			{		
-				renderer.material= new Material(Shader.Find("Particles/Additive"));		
-				renderer.SetVertexCount( 360+1 );
+			{	if (vertexCount == 0){
+					renderer.SetVertexCount(361);
+				}
 				if (isSelected){
 					renderer.SetColors(new Color(1,0.3f,0.3f,0.3f), new Color(1,0.3f,0.3f,0.3f));
 					renderer.SetWidth(12,12);
@@ -191,7 +201,7 @@ namespace Bakalarka
 		}
 
 
-		public float getAverageOrbitalSpeed( float gravitParam ){return Mathf.Sqrt(gravitParam / semi_major);}
+		public double getAverageOrbitalSpeed( double gravitParam ){return Math.Sqrt(gravitParam / semi_major);}
 
 		public float getPerimeter()
 		{
@@ -202,20 +212,20 @@ namespace Bakalarka
 		}
 
 
-		public float getPeriod(float gravitParam)
+		public double getPeriod(double gravitParam)
 		{
-			float v = getAverageOrbitalSpeed(gravitParam);
-			float s = getPerimeter();
-			float period = SCALE_PARAM*(s / (v*3600 ));
+			double v = getAverageOrbitalSpeed(gravitParam);
+			double s = getPerimeter();
+			double period = SCALE_PARAM*(s / (v*3600 ));
 			return period;
 		}
 
-		public float getGravitationParameter( float period )
+		public double getGravitationParameter( double period )
 		{
 			period = period / SCALE_PARAM;
-			float s = getPerimeter();
-			float v = s / (period*3600);
-			float result = semi_major * v*v;
+			double s = getPerimeter();
+			double v = s / (period*3600);
+			double result = semi_major * v*v;
 			return result;
 		}
 	}

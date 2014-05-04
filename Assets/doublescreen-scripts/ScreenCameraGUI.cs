@@ -24,8 +24,13 @@ public class ScreenCameraGUI : MonoBehaviour
 		
 		// change material shader for all objects in scene
 		// add clip shader to each renderable object, this will clip parts of objects that are not over touch screen in projectgor view
+
+		// set dimension ratio of Screen Camera for all objects that need it
+		SetScreenCameraRatios();
+
 		Shader clipShader = Shader.Find("Custom/ClipShader");
 		GameObject scene = GameObject.Find("Scene");
+
 		List<GameObject> objects = new List<GameObject>();
 		if (clipShader != null && scene != null)
 		{
@@ -52,8 +57,7 @@ public class ScreenCameraGUI : MonoBehaviour
 			}
 		}
 		
-		// set dimension ratio of Screen Camera for all objects that need it
-		SetScreenCameraRatios();
+
 	}
 	
 	// Update is called once per frame
@@ -74,7 +78,9 @@ public class ScreenCameraGUI : MonoBehaviour
 		if (m_enableBlack)
 			GUI.DrawTexture(new Rect(0, 0, camera.pixelWidth,camera.pixelHeight), m_controlTexture, ScaleMode.ScaleAndCrop, true, 0.0F);
 	}
-	
+
+	private 
+
 	void SetScreenCameraRatios()
 	{
 		// each frame, set propper aspect ratio of screen camera to each game object that needs it
@@ -84,7 +90,9 @@ public class ScreenCameraGUI : MonoBehaviour
 		GameObject calib_plane = GameObject.Find("Calibration Plane");
 		if (calib_plane != null)
 			calib_plane.transform.localScale = new Vector3(screen_camera_ratio*SceneScale, 1*SceneScale, 1*SceneScale);
-		
+		GameObject space_plane = GameObject.Find("SpacePlane");
+		if (space_plane != null )
+			space_plane.transform.localScale = new Vector3(screen_camera_ratio*SceneScale, 1*SceneScale, 1*SceneScale);
 		// set ratio in clip shaders for each object in scene
 		// clip shader is used to clip all object that are not over screen in projector view
 		List<GameObject> objects = new List<GameObject>();

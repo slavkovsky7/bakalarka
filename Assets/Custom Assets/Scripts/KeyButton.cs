@@ -21,14 +21,14 @@ public class KeyButton
 	private bool keyPressed;
 	
 	public Rect rectangle;
-	private string name;
+	private String name;
 	public event Action action;
 	public event Action releaseAction;
 	private KeyCode keyCode;
 
 	private Vector2 v1 = Vector2.zero;
 
-	public KeyButton(Rect rectangle , string name, KeyCode keyCode)
+	public KeyButton(Rect rectangle , String name, KeyCode keyCode)
 	{
 		this.rectangle = rectangle;
 		this.name = name;
@@ -111,7 +111,7 @@ public class KeyButton
 	private static Dictionary<int,  KeyButton> staticButtons = new Dictionary<int,KeyButton>(); 
 	private bool actionFirst = false;
 
-	public static bool Button(Rect rect, string name, int id ){
+	public static bool Button(Rect rect, String name, int id ){
 		KeyButton button = null;
 		if (staticButtons.ContainsKey(id) ){
 			button = staticButtons[id];
@@ -121,6 +121,7 @@ public class KeyButton
 			button.releaseAction = delegate {button.actionFirst = false; };
 			staticButtons.Add(id, button);
 		}
+		button.name = name;
 		return button.PerformOnGui(true);
 	}
 }

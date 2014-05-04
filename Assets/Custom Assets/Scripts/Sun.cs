@@ -6,11 +6,11 @@ using UnityEngine.Rendering;
 
 public class Sun : MonoBehaviour {
 
-	public static float TimeConstant = 0;
-	public float TimeConstantCurrent = 0;
+	public static double TimeConstant = 0;
+	public double TimeConstantCurrent = 0;
 	//private float timeAccelaration = 0;
 	private bool isPaused = false;
-	private float lastTimeConstantCurrent = 0;
+	private double lastTimeConstantCurrent = 0;
 
 	string[] pole = new string[]{"jan", "feb", "march"};
 	private static List<Planet> planets = new List<Planet>();
@@ -18,6 +18,7 @@ public class Sun : MonoBehaviour {
 	private bool initialDateSet = false;
 	private double lastDateHours = -1;
 
+	public static bool DrawOrbits = true;
 
 	//GUI
 	public static DatePicker datePicker = null;
@@ -130,7 +131,7 @@ public class Sun : MonoBehaviour {
 			//minusButton.PerformUpdate ();
 		}
 		if ( !initialDateSet){
-			setPlanetsDate(DateTime.Now);
+			//setPlanetsDate(DateTime.Now);
 			initialDateSet = true;
 		}
 		datePicker.onUpdate();
@@ -146,10 +147,12 @@ public class Sun : MonoBehaviour {
 		}
 	}
 
-
+	//TOTO je problem
 	private Rect createGuiRect( int x, int y, int w, int h){
 		Rect result = new Rect(x, y, w, h);
-		TouchControl.GuiRectangles.Add(result);
+		if ( !TouchControl.GuiRectangles.Contains(result)){
+			TouchControl.GuiRectangles.Add(result);
+		}
 		return result;
 	}
 
@@ -159,8 +162,10 @@ public class Sun : MonoBehaviour {
 	private const int EXIT_BTN_ID = 4;
 	private const int UNLOCK_BTN_ID = 5;
 	private const int PLANET_BTNS = 100;
+	private const int ORBITS_BTN_ID = 6;
 	private const int MOONS_BTNS = 200;
 
+	private String drawOrbitsBtnText = "Orbits Off";
 
 	private void OnGUI(){
 
@@ -195,7 +200,16 @@ public class Sun : MonoBehaviour {
 			TouchControl.ResetView();
 			followingPlanet = false;
 		}
-
+		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,55, 85, 40) ,  drawOrbitsBtnText , ORBITS_BTN_ID ) ) {
+			if (!DrawOrbits){
+				drawOrbitsBtnText = "Orbits On";
+				DrawOrbits = true;
+			}else{
+				DrawOrbits = false;
+				drawOrbitsBtnText = "Orbits Off";
+			}
+		}
+		
 		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 90, Screen.height - 50 , 85, 40) ,  "Exit" , EXIT_BTN_ID) ) {
 			Application.Quit();
 		}
@@ -205,6 +219,9 @@ public class Sun : MonoBehaviour {
 		if (followingPlanet){
 			if ( KeyButton.Button( createGuiRect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" , UNLOCK_BTN_ID) ) {
 				followingPlanet = false;
+				GameObject sceneObjects = GameObject.Find("Scene");
+				Vector3 pos = sceneObjects.transform.position;
+				sceneObjects.transform.position = new Vector3 ( pos.x, TouchControl.OriginalY, pos.z ) ;
 			}
 		}
 
@@ -231,7 +248,7 @@ public class Sun : MonoBehaviour {
 			}
 			i++;
 		}
-	
+
 		datePicker.onGui();
 	}
 

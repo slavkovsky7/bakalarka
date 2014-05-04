@@ -1,0 +1,42 @@
+Shader "Custom/ClipShader"
+{
+	Properties
+	{
+	  _MainTex ("Texture", 2D) = "white" {}
+	  _minX ("_minX",Float) = 0.0
+	  _maxX ("_maxX",Float) = 0.0
+	  _minZ ("_minZ",Float) = 0.0
+	  _maxZ ("_maxZ",Float) = 0.0
+	  _clip ("_clip",Float) = 0
+	}
+	SubShader 
+	{
+	  	Tags { "RenderType" = "Opaque" }
+	  	Cull Off
+	  	
+	  	CGPROGRAM
+	  	#pragma surface surf Lambert
+	  	
+	  	struct Input 
+	  	{
+	      	float2 uv_MainTex;
+	      	float3 worldPos;
+	  	};
+	 
+	  	sampler2D _MainTex;
+	  	float _minX,_maxX,_minZ,_maxZ,_clip;
+	  	void surf (Input IN, inout SurfaceOutput o)
+	  	{
+	      	if(_clip == 1)
+	      	{
+	      		if (IN.worldPos.x < _minX || IN.worldPos.x > _maxX || IN.worldPos.z < _minZ || IN.worldPos.z > _maxZ)
+	         		clip (-1);
+	      	}
+	
+	      o.Albedo = tex2D (_MainTex, IN.uv_MainTex).rgb;
+	  	}
+	  	
+	  	ENDCG
+	}
+	Fallback "Diffuse"
+}

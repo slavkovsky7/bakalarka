@@ -80,7 +80,7 @@ public class ManualCameraCalibration : MonoBehaviour
 				m_calib_sphere.SetActive(true);
 				m_scene.SetActive(false);
 				m_space_plane.SetActive(false);
-				this.GetComponent<GlowEffect>().enabled = false;
+				//this.GetComponent<GlowEffect>().enabled = false;
 			}
 		}
 		if (!m_calibrating)
@@ -91,7 +91,7 @@ public class ManualCameraCalibration : MonoBehaviour
 			m_scene.SetActive(true);
 			m_calibration_2D_points.Clear();
 			m_calibration_3D_points.Clear();
-			this.GetComponent<GlowEffect>().enabled = true;
+			//this.GetComponent<GlowEffect>().enabled = true;
 			m_status = "Press C for calibration...";
 			return;
 		}

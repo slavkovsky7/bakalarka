@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Custom Assets\Scripts\Atmosphere.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DatePicker.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Drawing.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\FlyingCam.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\KeyButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Math2f.cs" />
