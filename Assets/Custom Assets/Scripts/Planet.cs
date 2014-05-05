@@ -13,7 +13,7 @@ public class Planet : MonoBehaviour {
 	public static Planet selectedPlanet = null;
 	public List<Planet> childObjects = new List<Planet>();
 
-	class PlanetPosition {
+	/*class PlanetPosition {
 		public float angle;
 		public float speed;
 		public PlanetPosition( float angle , float speed ){
@@ -111,7 +111,7 @@ public class Planet : MonoBehaviour {
 		public float hourToTicks(float tick){
 			return tick / getTicksPerHour();
 		}*/
-	}
+	//}
 	
 	
 	
@@ -139,7 +139,7 @@ public class Planet : MonoBehaviour {
 	public Vector3 V = new Vector3(0,0,1);
 	
 	private Ellipse ellipse = null;
-	private PlanetPositions hourPositions;
+	//private PlanetPositions hourPositions;
 	private Quaternion originalRotation;
 	
 	public bool isGlobalTime = false;
@@ -193,21 +193,21 @@ public class Planet : MonoBehaviour {
 		AverageVelocity = ellipse.getAverageOrbitalSpeed(GravitParam);
 		
 		
-		hourPositions = new PlanetPositions (ellipse, GravitParam);
+		//hourPositions = new PlanetPositions (ellipse, GravitParam);
 		
 		
 		if (DayLength > 0)
 		{
 			//float f =  (float)hourPositions.positions.Length / ( Period / DayLength ) ;
 			//TOTO JE URCITE zle
-			double f =  hourPositions.getTicksPerHour() * DayLength;
-			RotateSpeed =   360.0f  / f ; 
+			//double f =  hourPositions.getTicksPerHour() * DayLength;
+			//RotateSpeed =   360.0f  / f ; 
 		}
 		
 		
 		if (OrbitalAngle > 0){
-			CurrentTick =  hourPositions.findIndexPlanetPosition(( OrbitalAngle % 360.0f)) ;
-			CurrentTime = hourPositions.ticksToHour(CurrentTick);
+			//CurrentTick =  hourPositions.findIndexPlanetPosition(( OrbitalAngle % 360.0f)) ;
+			//CurrentTime = hourPositions.ticksToHour(CurrentTick);
 			initialHour = CurrentTime;
 			
 		}
@@ -238,14 +238,15 @@ public class Planet : MonoBehaviour {
 	}
 	
 	public void SetDate( double hours ){
-		
-		hours += initialHour;
+
+		CurrentTime = hours;
+		/*hours += initialHour;
 		int years = (int) ( hours / Period );
 		int hour =  (int) ( hours );  
 		int minute = (int)((hours - (float)hour) * 60.0f ) ;
 		SetDate(years, hour, minute);
 		CurrentTime = hours ;//+ 30*Math2f.SEC_TO_HOUR;
-		CurrentTick = CurrentTime * hourPositions.getTicksPerHour();
+		CurrentTick = CurrentTime * hourPositions.getTicksPerHour();*/
 	}
 	
 	void OnMouseDown()
@@ -263,19 +264,19 @@ public class Planet : MonoBehaviour {
 		if (this.name == "Mercury"){
 			Debug.Log("Hook");
 		}
-		PlanetPosition pos = (minute > 0) ? hourPositions.getPlanetaryPosition( hour, minute, 60.0f ) : hourPositions.getPlanetaryPosition (hour);
+		//PlanetPosition pos = (minute > 0) ? hourPositions.getPlanetaryPosition( hour, minute, 60.0f ) : hourPositions.getPlanetaryPosition (hour);
 
 
 		//TODO::
 		//double a = hourPositions.positions[hourPositions.positions.Length -1].angle - 360;
 		//double d = ellipse.getAngularVelocity(a , Area ) ;
 		//double ostatok =  years*( a + d ) ;
-		OrbitalAngle = ( 360.0f*years) + pos.angle;// + ostatok;
-		OrbitalSpeed = pos.speed;
+		//OrbitalAngle = ( 360.0f*years) + pos.angle;// + ostatok;
+		//OrbitalSpeed = pos.speed;
 		
 		transform.localRotation = originalRotation;
 		
-		RotateAngle = RotateSpeed * ( ( hour + minute * Math2f.MIN_TO_HOUR ) * hourPositions.getTicksPerHour() ); 
+		//RotateAngle = RotateSpeed * ( ( hour + minute * Math2f.MIN_TO_HOUR ) * hourPositions.getTicksPerHour() ); 
 		
 		this.transform.Rotate( new Vector3(0, 0, Tilt), Space.Self );
 		this.transform.Rotate( new Vector3(0, (float)RotateAngle, 0),Space.Self );
@@ -349,7 +350,7 @@ public class Planet : MonoBehaviour {
 		
 		Vector3 center = parentObject.transform.localPosition; 
 		if (Sun.DrawOrbits){
-			ellipse.drawAroundPoint(   center - ellipse.getF1() ,  TouchControl.ScaleFactor,0, renderer,  this.transform, this == selectedPlanet);
+			ellipse.drawAroundPoint(   center - ellipse.getF2() ,  TouchControl.ScaleFactor,0, renderer,  this.transform, this == selectedPlanet);
 		}else{
 			renderer.SetVertexCount(0);
 		}
@@ -358,25 +359,26 @@ public class Planet : MonoBehaviour {
 		YearCounter = (int) (OrbitalAngle / 360);
 
 
-		Vector3 tmpPos = ellipse.getPosition (OrbitalAngle, 1.0f,0);
-		//Vector3 tmpPos = ellipse.getPosition2( ellipse.EccentricAnnomaly(CurrentTime, 5) ); 
-		Vector3 pos =  ( center  - ellipse.getF1() )  + tmpPos;
+		//Vector3 tmpPos = ellipse.getPosition (OrbitalAngle, 1.0f,0);
+		//Vector3 pos =  ( center  - ellipse.getF1() )  + tmpPos;
+		double meanAnomally =  CurrentTime / Period * 360.0;
+		Vector3 tmpPos = ellipse.getPosition2( ellipse.EccentricAnnomaly(meanAnomally, 5) ); 
+		Vector3 pos =  ( center   )  + tmpPos;
 		//Debug.DrawLine(pos, this.transform.position, Color.red, 1000); 
 		this.gameObject.transform.localPosition = pos;
 		
 		Velocity = ellipse.getVelocity(OrbitalAngle, Area).magnitude;
 		OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area );
 
-		CurrentTick += Sun.TimeConstant;
 		//toot je problem. TOto je kratsie ako OrbitalAngle  , tedxa pri 30.0111 mam len 0....01 time pricom by mal byt
-		CurrentTime = CurrentTick / hourPositions.getTicksPerHour();
+		CurrentTime += Sun.TimeConstant;
 		//CurrentTime += Sun.TimeConstant;
 
 
 		float maxTime =  getMaxTime();
 		if ( CurrentTime < 0 ){
-			CurrentTime = maxTime - CurrentTime;
-			CurrentTick = CurrentTime * hourPositions.getTicksPerHour();
+			CurrentTime = maxTime + CurrentTime;
+			//CurrentTick = CurrentTime * hourPositions.getTicksPerHour();
 		}  
 		if ( CurrentTime > maxTime ){
 			CurrentTime = CurrentTime % maxTime;

@@ -98,7 +98,7 @@ public class DatePicker
 	//http://en.wikipedia.org/wiki/Apsis
 	public static double getAphelionDiff()
 	{
-		//return 0;
+		return 0;
 		DateTime d1 = new DateTime(START_YEAR,1 ,1,0,0,0); 
 		DateTime d2 = new DateTime(START_YEAR,7 ,4,0,13,0);
 		TimeSpan t = d2.Subtract(d1);

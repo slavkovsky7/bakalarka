@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Planet.cs">
     <Files>
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="373" Column="5" />
-      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="202" Column="18" />
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="228" Column="13" />
-      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="115" Column="41" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="380" Column="27" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="259" Column="25" />
+      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="101" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

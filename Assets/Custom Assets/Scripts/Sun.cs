@@ -253,9 +253,10 @@ public class Sun : MonoBehaviour {
 	}
 
 
-	public static float GetDefaultTimeConstant()
+	public static double GetDefaultTimeConstant()
 	{
-		return (0.02f * Planet.EARTH_TICKS_PER_HOUR) / 3600.0f;
+		//return (0.02f * Planet.EARTH_TICKS_PER_HOUR) / 3600.0f;
+		return 1.0/50.0/3600.0;
 	}
 
 	public void setPositionToPlanet(){
