@@ -34,7 +34,7 @@ Platform assembly: G:\WORKSPACE\bakalarka\solar_system\release\ss_Data\Managed\S
 Loading G:\WORKSPACE\bakalarka\solar_system\release\ss_Data\Managed\System.Drawing.dll into Unity Child Domain
 Platform assembly: G:\WORKSPACE\bakalarka\solar_system\release\ss_Data\Managed\ZedGraph.dll (this message is harmless)
 Loading G:\WORKSPACE\bakalarka\solar_system\release\ss_Data\Managed\ZedGraph.dll into Unity Child Domain
-- Completed reload, in  0.082 seconds
+- Completed reload, in  0.384 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.

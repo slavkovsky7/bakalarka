@@ -108,6 +108,21 @@ namespace Bakalarka
 			result = Quaternion.AngleAxis ((float)rotation, new Vector3(0,1,0)) * result;
 			return result;
 		}
+
+		public Vector3 getPosition2( double eccentricAnomally ){
+			eccentricAnomally = eccentricAnomally* Mathf.Deg2Rad;
+			double C = Math.Cos(eccentricAnomally);
+			double S = Math.Sin(eccentricAnomally);
+			
+			double x = semi_major* (C - this.e); 
+			double y = semi_major* Math.Sqrt(1 - this.e*this.e)*S;
+			
+			Vector3 result = new Vector3();
+			result.x = (float)(U.x * x  + V.x*y);
+			result.y = (float)(U.y * x  + V.y*y);
+			result.z = (float)(U.z * x  + V.z*y);
+			return result;	
+		}
 		
 		public Vector3 getVelocityDirection( double angle )
 		{
@@ -127,6 +142,8 @@ namespace Bakalarka
 			double area = ( aphelion.magnitude * minimumSpeed ) / 2;
 			return area;
 		}
+
+
 
 		public double getAngularVelocity(double angle , double area)
 		{ 
@@ -228,6 +245,26 @@ namespace Bakalarka
 			double result = semi_major * v*v;
 			return result;
 		}
+
+		public double EccentricAnnomaly(double meanAnomally, double precision){
+			double K = Math.PI / 180.0;
+			int maxIter = 30;
+			int i = 0 ;
+			double delta = Math.Pow(10, -precision);
+			double E, F;
+			meanAnomally = meanAnomally/360;
+			meanAnomally = 2*Math.PI*( meanAnomally - Math.Floor(meanAnomally));
+			E = this.e < 0.8 ? meanAnomally : Math.PI;
+			F = E - this.e*Math.Sin(meanAnomally) - meanAnomally;
+			while ( Math.Abs(F) > delta && i < maxIter ){
+				E = E - F/ ( 1 - this.e*Math.Cos(E));
+				F = E - this.e* Math.Sin(E) - meanAnomally;
+				i++;
+			}
+			E = E/K;
+			return Math.Round(E*Math.Pow(10,precision))/ Math.Pow(10, precision);
+		}
+		
 	}
 }
 

@@ -1,17 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\DatePicker.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Planet.cs">
     <Files>
-      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="140" Column="3" />
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="327" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="76" Column="26" />
-      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="101" Column="5" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="373" Column="5" />
+      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="202" Column="18" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="228" Column="13" />
+      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="115" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="Assets\Custom Assets\Scripts\Planet.cs" line="283" offsetX="548" offsetY="4726" expression="CurrentTime" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

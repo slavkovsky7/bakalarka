@@ -176,11 +176,11 @@ public class Planet : MonoBehaviour {
 		ellipse = new Ellipse( U , V , distance , Eccentricity );
 		if (Period > 0 )
 		{
-			Period = Math.Round(Period);
+			//Period = Math.Round(Period);
 			GravitParam = ellipse.getGravitationParameter(Period);
 		}else{
 			Period = ellipse.getPeriod(GravitParam);
-			Period = Math.Round(Period);
+			//Period = Math.Round(Period);
 		}
 
 
@@ -266,10 +266,11 @@ public class Planet : MonoBehaviour {
 		PlanetPosition pos = (minute > 0) ? hourPositions.getPlanetaryPosition( hour, minute, 60.0f ) : hourPositions.getPlanetaryPosition (hour);
 
 
-		double a = hourPositions.positions[hourPositions.positions.Length -1].angle - 360;
-		double d = ellipse.getAngularVelocity(a , Area ) ;
-		double ostatok =  years*( a + d ) ;
-		OrbitalAngle = ( 360.0f*years) + pos.angle + ostatok;
+		//TODO::
+		//double a = hourPositions.positions[hourPositions.positions.Length -1].angle - 360;
+		//double d = ellipse.getAngularVelocity(a , Area ) ;
+		//double ostatok =  years*( a + d ) ;
+		OrbitalAngle = ( 360.0f*years) + pos.angle;// + ostatok;
 		OrbitalSpeed = pos.speed;
 		
 		transform.localRotation = originalRotation;
@@ -283,21 +284,23 @@ public class Planet : MonoBehaviour {
 	void Start () {
 		if (isSun)
 			return;
-		if  ( this.name  == "Ganymede"){
-			Debug.Log("pice");
-		}
 		InitPlanet();
 
-		/*
-		if ( this.name == "Mercury" ){
-			double w1 =  ellipse.getAngularVelocity(0, Area);
-			double w2 = ellipse.getAngularVelocity(0, (360/w1) * Area  );
 
+		/*if ( this.name == "Mercury" ){
+			for (int i = 0; i < 360; i++){
+				Vector3 pos = ellipse.getPosition2( ellipse.EccentricAnnomaly((double)i, 5) );
+			}
+		}*/
+		/*if ( this.name == "Mercury" ){
+			for (int i = 0; i < 360; i++){
+				Vector3 pos = ellipse.getPosition2( ellipse.EccentricAnnomaly((double)i, 5) );
+			}
 
 			double n = 10;  
 			Sun.TimeConstant = 1;
 			do{
-				Sun.TimeConstant = 1;
+				Sun.TimeConstant *= 1.1;
 				Advance();
 			}  while (360 -0.0001> OrbitalAngle );
 			double angle = OrbitalAngle;
@@ -310,7 +313,7 @@ public class Planet : MonoBehaviour {
 			TotalArea = 0;
 			double full = ellipse.getFullArea(GravitParam);
 			do{
-				Sun.TimeConstant *= 1.1;
+				Sun.TimeConstant = 1;
 				Advance();
 			}  while ( c > CurrentTime  );
 			double angle2 = OrbitalAngle;
@@ -325,8 +328,6 @@ public class Planet : MonoBehaviour {
 			}
 		}*/
   	}	
-	//private double TotalArea = 0;
-
 	public double CurrentTick = 0;
 	public double CurrentTime = 0;
 	public bool isSun = false;
@@ -353,24 +354,25 @@ public class Planet : MonoBehaviour {
 			renderer.SetVertexCount(0);
 		}
 
+		OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
+		YearCounter = (int) (OrbitalAngle / 360);
+
+
 		Vector3 tmpPos = ellipse.getPosition (OrbitalAngle, 1.0f,0);
-		Vector3 pos =  ( center - ellipse.getF1() )  + tmpPos;
+		//Vector3 tmpPos = ellipse.getPosition2( ellipse.EccentricAnnomaly(CurrentTime, 5) ); 
+		Vector3 pos =  ( center  - ellipse.getF1() )  + tmpPos;
 		//Debug.DrawLine(pos, this.transform.position, Color.red, 1000); 
 		this.gameObject.transform.localPosition = pos;
 		
 		Velocity = ellipse.getVelocity(OrbitalAngle, Area).magnitude;
-		OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area )* Sun.TimeConstant;
-		//TotalArea += Area*Sun.TimeConstant;
-		OrbitalAngle += OrbitalSpeed;
-		YearCounter = (int) (OrbitalAngle / 360);
-
+		OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area );
 
 		CurrentTick += Sun.TimeConstant;
 		//toot je problem. TOto je kratsie ako OrbitalAngle  , tedxa pri 30.0111 mam len 0....01 time pricom by mal byt
 		CurrentTime = CurrentTick / hourPositions.getTicksPerHour();
-		//CurrentTime = Sun.GetDefaultTimeConstant()*TotalArea;
+		//CurrentTime += Sun.TimeConstant;
 
-		//CurrentTime = TotalArea ;;/// ellipse.getFullArea(GravitParam) ;
+
 		float maxTime =  getMaxTime();
 		if ( CurrentTime < 0 ){
 			CurrentTime = maxTime - CurrentTime;
