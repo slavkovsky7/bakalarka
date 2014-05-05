@@ -18,7 +18,7 @@ public class TouchControl : MonoBehaviour
 	public static float ScaleFactor = 1.0f;
 	public static float RotationFactor = 0;
 	public static List<Rect> GuiRectangles = new List<Rect>();
-	public bool IgnoreMouse = false;
+	public static bool IgnoreMouse = false;
 	public float MoveMultiplier = 10.0f;
 
 	private GameObject m_space_plane;
@@ -64,6 +64,10 @@ public class TouchControl : MonoBehaviour
 	{
 		List<iPhoneTouch> goodIphoneTouches = getGoodIphoneTouches();
 	
+		if (IgnoreMouse) {
+			mouseClicked = false;
+		}
+
 		if ( Input.GetMouseButtonDown(0) && !IgnoreMouse ){
 			mouseClicked = true;
 		}
@@ -121,7 +125,7 @@ public class TouchControl : MonoBehaviour
 					//TODO::toto robi blbosti
 					//if (!mouseClicked)
 					//{
-						sceneObjects.transform.Translate(-moveX, 0, -moveY, Space.World);
+						//sceneObjects.transform.Translate(-moveX, 0, -moveY, Space.World);
 					//}
 				}
 			}
@@ -201,10 +205,10 @@ public class TouchControl : MonoBehaviour
         	Application.Quit();
     	}
 
-		GameObject scene = GameObject.Find("Scene");
+		/*GameObject scene = GameObject.Find("Scene");
 			if (scene != null) {
 			m_space_plane.transform.rotation = GameObject.Find("Scene").transform.rotation;
-		}
+		}*/
 	}
 
 	private static void rotate(Vector3 rayPoint , float angle)

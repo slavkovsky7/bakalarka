@@ -21,7 +21,7 @@ public class ManualCameraCalibration : MonoBehaviour
 	private List<Vector3> m_calibration_3D_points = new List<Vector3>();
 	private GameObject m_calib_plane;
 	private GameObject m_calib_sphere;
-	private GameObject m_space_plane;
+	//private GameObject m_space_plane;
 	private GameObject m_scene;
 	private bool m_calibrating = false;
 	private String m_status = "Press C for calibration...";
@@ -32,7 +32,7 @@ public class ManualCameraCalibration : MonoBehaviour
 		// get calibration objects for later use
 		m_calib_plane = GameObject.Find("Calibration Plane");
 		m_calib_sphere = GameObject.Find("Calibration Sphere");
-		m_space_plane = GameObject.Find("SpacePlane");
+		//m_space_plane = GameObject.Find("SpacePlane");
 		m_scene = GameObject.Find("Scene");
 		// prepare calibration mark vectors that will be used for semi-automatic calibration
 		int calib_grid_size = 2;
@@ -79,19 +79,21 @@ public class ManualCameraCalibration : MonoBehaviour
 				m_calib_plane.SetActive(true);
 				m_calib_sphere.SetActive(true);
 				m_scene.SetActive(false);
-				m_space_plane.SetActive(false);
-				//this.GetComponent<GlowEffect>().enabled = false;
+				//m_space_plane.SetActive(false);
+				this.GetComponent<GlowEffect>().enabled = false;
+				this.camera.clearFlags = CameraClearFlags.Depth;
 			}
 		}
 		if (!m_calibrating)
 		{
 			m_calib_plane.SetActive(false);
 			m_calib_sphere.SetActive(false);
-			m_space_plane.SetActive(true);
+			//m_space_plane.SetActive(true);
 			m_scene.SetActive(true);
+			this.camera.clearFlags = CameraClearFlags.Skybox;
 			m_calibration_2D_points.Clear();
 			m_calibration_3D_points.Clear();
-			//this.GetComponent<GlowEffect>().enabled = true;
+			this.GetComponent<GlowEffect>().enabled = true;
 			m_status = "Press C for calibration...";
 			return;
 		}
