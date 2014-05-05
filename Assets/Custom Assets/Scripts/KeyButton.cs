@@ -77,14 +77,17 @@ public class KeyButton
 			return;
 		}
 
-		Vector2 v = new Vector2 ( Input.mousePosition.x, Screen.height - Input.mousePosition.y );
-		if ( !pressed && Input.GetMouseButtonDown(0) && rectangle.Contains(v) ){
-			Debug.Log("ButtonDown");
-			pressed = true;
-		}else if (pressed &&  ( Input.GetMouseButtonUp(0) || !rectangle.Contains(v) ) ){
-			Debug.Log("ButtonUp");
-			pressed = false;
-			releaseAction();
+		if ( !TouchControl.IgnoreMouse )
+		{
+			Vector2 v = new Vector2 ( Input.mousePosition.x, Screen.height - Input.mousePosition.y );
+			if ( !pressed && Input.GetMouseButtonDown(0) && rectangle.Contains(v) ){
+				Debug.Log("ButtonDown");
+				pressed = true;
+			}else if (pressed &&  ( Input.GetMouseButtonUp(0) || !rectangle.Contains(v) ) ){
+				Debug.Log("ButtonUp");
+				pressed = false;
+				releaseAction();
+			}
 		}
 	}
 

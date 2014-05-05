@@ -165,7 +165,8 @@ public class Sun : MonoBehaviour {
 	private const int ORBITS_BTN_ID = 6;
 	private const int MOONS_BTNS = 200;
 
-	private String drawOrbitsBtnText = "Orbits Off";
+	private String drawOrbitsBtnText = "Orbits On";
+	private String btnMouseSwitchText = TouchControl.IgnoreMouse ? "Mouse Off": "Mouse on" ;
 
 	private void OnGUI(){
 
@@ -209,7 +210,17 @@ public class Sun : MonoBehaviour {
 				drawOrbitsBtnText = "Orbits Off";
 			}
 		}
-		
+
+		if ( GUI.Button( createGuiRect(Screen.width/2 - 2*90, Screen.height - 50 , 85, 40) ,  btnMouseSwitchText ) ) {
+			if (TouchControl.IgnoreMouse){
+				TouchControl.IgnoreMouse = false;
+				btnMouseSwitchText = "Mouse On";
+			}else{
+				TouchControl.IgnoreMouse = true;
+				btnMouseSwitchText = "Mouse Off";
+			}
+		}
+
 		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 90, Screen.height - 50 , 85, 40) ,  "Exit" , EXIT_BTN_ID) ) {
 			Application.Quit();
 		}
