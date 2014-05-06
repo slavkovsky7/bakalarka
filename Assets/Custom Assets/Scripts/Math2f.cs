@@ -193,14 +193,12 @@ namespace Bakalarka
 				Debug.DrawLine(p1 , p2, Color.blue);
 			}
 		}
-
-		private int vertexCount = 0;
-		public void drawAroundPoint( Vector3 point, float scale , float rotation , LineRenderer renderer , Transform t, bool isSelected)
+		
+		public void drawAroundPoint( Vector3 point, LineRenderer renderer , Transform t, bool isSelected)
 		{
 			if (renderer != null)
-			{	if (vertexCount == 0){
-					renderer.SetVertexCount(361);
-				}
+			{
+				renderer.SetVertexCount(361);
 				if (isSelected){
 					renderer.SetColors(new Color(1,0.3f,0.3f,0.3f), new Color(1,0.3f,0.3f,0.3f));
 					renderer.SetWidth(12,12);
@@ -210,7 +208,7 @@ namespace Bakalarka
 				}
 				for (int i = 0 ; i <= 360 ; i++ )
 				{
-					Vector3 p1 = point + getPosition((float)i , 1.0f,  rotation  );
+					Vector3 p1 = point + getPosition((double)i,  1.0f , 0 );
 					//Vector3 p2 = point + getPosition( (i + 1) %  360 , scale, rotation );
 					renderer.SetPosition(i, t.parent.transform.TransformPoint(  p1)  );			//Debug.DrawLine(p1 , p2, Color.blue);
 				}

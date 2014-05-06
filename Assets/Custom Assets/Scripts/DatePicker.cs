@@ -98,7 +98,7 @@ public class DatePicker
 	//http://en.wikipedia.org/wiki/Apsis
 	public static double getAphelionDiff()
 	{
-		return 0;
+		//return 0;
 		DateTime d1 = new DateTime(START_YEAR,1 ,1,0,0,0); 
 		DateTime d2 = new DateTime(START_YEAR,7 ,4,0,13,0);
 		TimeSpan t = d2.Subtract(d1);
@@ -153,6 +153,8 @@ public class DatePicker
 		//GUI.EndGroup();
 	}
 
+	public static bool TimeRunning = true;
+
 	private class SinglePicker
 	{
 		private string[] content;
@@ -172,7 +174,9 @@ public class DatePicker
 		private int intervalEnd;
 		private bool intervalSpecified = false;
 
-		private SinglePicker parentPicker = null;
+		public SinglePicker parentPicker = null;
+	
+
 
 		public SinglePicker( Rect rectangle , string[] content, SinglePicker parentPicker)
 		{
@@ -184,11 +188,11 @@ public class DatePicker
 
 			float h3 = rectangle.height/3;
 			this.plusButton = new KeyButton(new Rect(rectangle.x,rectangle.y, rectangle.width, h3), "+", KeyCode.None);
-			this.plusButton.action += delegate { addCurrentIndex(1); };
+			this.plusButton.action += delegate { if (!TimeRunning) addCurrentIndex(1); };
 			this.plusButton.releaseAction += delegate { resetInterval(); };
 
 			this.minusButton = new KeyButton(new Rect(rectangle.x, rectangle.y + rectangle.height - h3, rectangle.width, h3 ), "-" , KeyCode.None);
-			this.minusButton.action += delegate { addCurrentIndex(-1); };
+			this.minusButton.action += delegate { if (!TimeRunning) addCurrentIndex(-1); };
 			this.minusButton.releaseAction += delegate {resetInterval(); };
 
 			this.parentPicker = parentPicker;

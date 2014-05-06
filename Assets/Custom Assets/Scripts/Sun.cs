@@ -145,6 +145,14 @@ public class Sun : MonoBehaviour {
 		if ( followingPlanet ){
 			setPositionToPlanet();
 		}
+
+		//kreslime to tu lebo ak by sme to kreslili v Planet.Update tak matica sa zmeni najpr v planetach potom tu.
+		// Potom pri vysokych rychlostiach to vyzera nahovno
+		if (DrawOrbits){
+			foreach ( Planet p in planets){
+				p.DrawOrbit();
+			}
+		}
 	}
 
 	//TOTO je problem
@@ -182,12 +190,14 @@ public class Sun : MonoBehaviour {
 				TimeConstantCurrent = 0;
 				TimeConstant = 0;
 				TimeButtonString = "Resume";
+				DatePicker.TimeRunning = false;
 			}else {
 				isPaused = false;
 				TimeConstantCurrent = lastTimeConstantCurrent;
 				TimeConstant = lastTimeConstantCurrent;
 				lastTimeConstantCurrent = 0;
 				TimeButtonString = "Pause";
+				DatePicker.TimeRunning = true;
 			}
 		}
 
@@ -267,7 +277,7 @@ public class Sun : MonoBehaviour {
 	public static double GetDefaultTimeConstant()
 	{
 		//return (0.02f * Planet.EARTH_TICKS_PER_HOUR) / 3600.0f;
-		return 1.0/50.0/3600.0;
+		return 1.0/50.0/3600;
 	}
 
 	public void setPositionToPlanet(){
