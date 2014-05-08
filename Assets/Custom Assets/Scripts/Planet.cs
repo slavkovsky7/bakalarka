@@ -98,6 +98,11 @@ public class Planet : MonoBehaviour {
 			initialHour = CurrentTime;
 			
 		}
+
+		if (isMoon){
+			Tilt += parentObject.Tilt;
+		}
+	
 		setPlanetTilt();
 		Sun.AddPlanet(this);
 		
@@ -106,12 +111,28 @@ public class Planet : MonoBehaviour {
 		renderer.useWorldSpace = true;
 		renderer.material= new Material(Shader.Find("Particles/Additive"));		
 
+		if (this.name == "Io" || this.name == "Ganymede" || this.name == "Calisto" || this.name == "Europa" )
+		{
+			Debug.Log("Hook");
+		}
 		if (isMoon){
-			parentObject.childObjects.Add(this);
+			parentObject.AddMoon(this);
 		}
 	}
 	
-	
+
+	private void AddMoon(Planet moon)
+	{
+		int i = 0;
+		foreach (Planet p in childObjects ){
+			if (moon.getApsisDistance() < p.getApsisDistance()){
+				break;
+			}
+			i++;
+		}
+		childObjects.Insert(i, moon);
+	}
+
 	
 	private void setPlanetTilt()
 	{
@@ -137,8 +158,10 @@ public class Planet : MonoBehaviour {
 	}
 
 	void Start () {
-		if (isSun)
+		if (isSun){
+			Sun.SunAsPlanet = this;
 			return;
+		}
 		InitPlanet();
   	}	
 	
@@ -147,9 +170,22 @@ public class Planet : MonoBehaviour {
 	public bool isMoon = false;
 	
 
-	public void DrawOrbit(){
-		Vector3 center = parentObject.transform.localPosition; 
-		ellipse.drawAroundPoint(   center - ellipse.getF2() , renderer,  this.transform, this == selectedPlanet);
+	public void DrawOrbit(bool draw){
+		if (draw){
+			Vector3 center = parentObject.transform.localPosition; 
+			ellipse.drawAroundPoint(   center - ellipse.getF2() , renderer,  this.transform, this == selectedPlanet);
+		}else{
+			renderer.SetVertexCount(0);
+		}
+	}
+
+	public Vector3 getFuturePosition(int ticks){
+		if (isSun){
+			return Vector3.zero;
+		}
+		Vector3 center = parentObject.getFuturePosition(ticks); 
+		double meanAnomally =  (( CurrentTime + Sun.TimeConstant*(double)ticks ) / Period ) * 360.0;
+		return center + ellipse.getPosition2( ellipse.EccentricAnnomaly(meanAnomally, 5) ); 
 	}
 
 	public void Advance()
@@ -170,24 +206,26 @@ public class Planet : MonoBehaviour {
 		if (!isSun){
 			Vector3 center = parentObject.transform.localPosition; 
 		
-			OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
+			//OrbitalAngle += (OrbitalSpeed  * (float)Sun.TimeConstant);
 			YearCounter = (int) (OrbitalAngle / 360);
 
 
 			//Vector3 tmpPos = ellipse.getPosition (OrbitalAngle, 1.0f,0);
 			//Vector3 pos =  ( center  - ellipse.getF1() )  + tmpPos;
+
 			double meanAnomally =  CurrentTime / Period * 360.0;
 			Vector3 tmpPos = ellipse.getPosition2( ellipse.EccentricAnnomaly(meanAnomally, 5) ); 
 			Vector3 pos =   center  + tmpPos;
 			//Debug.DrawLine(pos, this.transform.position, Color.red, 1000); 
 			this.gameObject.transform.localPosition = pos;
 			
-			Velocity = ellipse.getVelocity(OrbitalAngle, Area).magnitude;
-			OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area );
+			//Velocity = ellipse.getVelocity(OrbitalAngle, Area).magnitude;
+			//OrbitalSpeed = ellipse.getAngularVelocity(OrbitalAngle, Area );
 
 			rotateLight();
 		}
-		//toot je problem. TOto je kratsie ako OrbitalAngle  , tedxa pri 30.0111 mam len 0....01 time pricom by mal byt
+
+		//dat do metody
 		CurrentTime += Sun.TimeConstant;
 
 

@@ -221,6 +221,12 @@ public class TouchControl : MonoBehaviour
 		}
 	}
 
+	public static void zoom(float scale){
+		GameObject sceneObjects = GameObject.Find("Scene");
+		ScaleFactor = scale;
+		sceneObjects.transform.localScale = new Vector3(scale, scale, scale);
+	}
+
 	private static void zoom(Vector3 rayPoint , float scale )
 	{
 		GameObject screenCamera = GameObject.Find("Screen Camera"); 
@@ -239,7 +245,6 @@ public class TouchControl : MonoBehaviour
 			ScaleFactor = newScale;
 			sceneObjects.transform.localScale = new Vector3(newScale, newScale, newScale);
 			sceneObjects.transform.Translate(moveX, 0, moveZ, Space.World);
-	
 		}
 	}
 

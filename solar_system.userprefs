@@ -1,18 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Planet.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\ScreenCameraGUI.cs">
     <Files>
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="145" Column="18" />
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="1" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="102" Column="2" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="215" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="90" Column="1" />
+      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="255" Column="34" />
+      <File FileName="Assets\doublescreen-scripts\ScreenCameraGUI.cs" Line="77" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="Assets\doublescreen-scripts\BackgroundVideo.cs" line="21" offsetX="428" offsetY="306" expression="WebCamTexture.devices.Length" liveUpdate="False" />
-    <Watch file="Assets\doublescreen-scripts\BackgroundVideo.cs" line="21" offsetX="428" offsetY="306" expression="WebCamTexture" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

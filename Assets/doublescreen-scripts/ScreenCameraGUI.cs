@@ -16,6 +16,7 @@ public class ScreenCameraGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		//GetComponent<Skybox>().material.shader = Shader.Find("RenderFX/Skybox Rotation");
 		// create small black texture, will be used as black background on user request
 		m_controlTexture = new Texture2D(1, 1, TextureFormat.RGB24, false);
 		m_controlTexture.SetPixel(0, 0, new Color(0.0f, 0.0f, 0.0f, 1.0f));
@@ -59,14 +60,14 @@ public class ScreenCameraGUI : MonoBehaviour
 		
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
 		// set dimension ratio of Screen Camera for all objects that need it
 		// for now, it is not necessary to call it each frame
 		//SetScreenCameraRatios();
-		
+		//RotateSkybox();
 		// press B to enable / disable black Screen Camera
 		if (Input.GetKeyUp(KeyCode.B))
 			m_enableBlack = !m_enableBlack;
