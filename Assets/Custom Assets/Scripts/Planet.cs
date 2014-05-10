@@ -168,7 +168,10 @@ public class Planet : MonoBehaviour {
 	public double CurrentTime = 0;
 	public bool isSun = false;
 	public bool isMoon = false;
-	
+
+	public void SetCurrenTime(double currentTime){
+		CurrentTime = currentTime;
+	}
 
 	public void DrawOrbit(bool draw){
 		if (draw){
@@ -193,7 +196,10 @@ public class Planet : MonoBehaviour {
 		this.transform.localRotation = Quaternion.Euler( new Vector3(0,0, Tilt));
 		if (DayLength > 0)
 		{
-			RotateAngle = (CurrentTime / DayLength) *360 ;
+			RotateAngle =  ((CurrentTime / DayLength) *360 ) % 360.0 ;
+			if (this.name == "Earth"){
+				Debug.Log("Hook");
+			}
 			//RotateAngle += 0.1 ;
 			DayCounter  =  ( int) ( RotateAngle / 360.0f );
 			//this.transform.localRotation = Quaternion.AngleAxis((float)RotateAngle, TiltVector);

@@ -1,16 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\doublescreen-scripts\ScreenCameraGUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Sun.cs">
     <Files>
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="102" Column="2" />
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="215" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="90" Column="1" />
-      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="255" Column="34" />
-      <File FileName="Assets\doublescreen-scripts\ScreenCameraGUI.cs" Line="77" Column="5" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="192" Column="35" />
+      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="43" Column="19" />
+      <File FileName="Assets\doublescreen-scripts\TouchControl.cs" Line="10" Column="1" />
+      <File FileName="Assets\Custom Assets\Scripts\DatePicker.cs" Line="141" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\Custom Assets\Scripts\Sun.cs" line="413" offsetX="700" offsetY="6970" expression="easePositions._items" liveUpdate="False" />
+    <Watch file="Assets\Custom Assets\Scripts\Sun.cs" line="413" offsetX="700" offsetY="6970" expression="easePositions._items" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
