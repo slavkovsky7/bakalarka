@@ -80,6 +80,8 @@ public class ScreenCameraGUI : MonoBehaviour
 			GUI.DrawTexture(new Rect(0, 0, camera.pixelWidth,camera.pixelHeight), m_controlTexture, ScaleMode.ScaleAndCrop, true, 0.0F);
 	}
 
+	public static float Screen_camera_ratio;
+
 	private 
 
 	void SetScreenCameraRatios()
@@ -91,6 +93,7 @@ public class ScreenCameraGUI : MonoBehaviour
 		GameObject calib_plane = GameObject.Find("Calibration Plane");
 		if (calib_plane != null)
 			calib_plane.transform.localScale = new Vector3(screen_camera_ratio*SceneScale, 1*SceneScale, 1*SceneScale);
+		Screen_camera_ratio = screen_camera_ratio;
 		//GameObject space_plane = GameObject.Find("SpacePlane");
 		//if (space_plane != null )
 			//space_plane.transform.localScale = new Vector3(screen_camera_ratio*SceneScale, 1*SceneScale, 1*SceneScale);

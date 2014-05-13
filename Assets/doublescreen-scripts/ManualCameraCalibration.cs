@@ -15,6 +15,8 @@ using Emgu.CV.CvEnum;
 
 public class ManualCameraCalibration : MonoBehaviour 
 {
+
+	private const float MOVE_WITH = 10*0.3f;
 	
 	private List<Vector2> m_calib_samples = new List<Vector2>();
 	private List<Vector2> m_calibration_2D_points = new List<Vector2>();
@@ -82,6 +84,9 @@ public class ManualCameraCalibration : MonoBehaviour
 				//m_space_plane.SetActive(false);
 				this.GetComponent<GlowEffect>().enabled = false;
 				this.camera.clearFlags = CameraClearFlags.Depth;
+			}else{
+				this.camera.clearFlags = CameraClearFlags.Skybox;
+				this.GetComponent<GlowEffect>().enabled = true;
 			}
 		}
 		if (!m_calibrating)
@@ -90,11 +95,9 @@ public class ManualCameraCalibration : MonoBehaviour
 			m_calib_sphere.SetActive(false);
 			//m_space_plane.SetActive(true);
 			m_scene.SetActive(true);
-			this.camera.clearFlags = CameraClearFlags.Skybox;
 			m_calibration_2D_points.Clear();
 			m_calibration_3D_points.Clear();
-			this.GetComponent<GlowEffect>().enabled = true;
-			m_status = "Press C for calibration...";
+						m_status = "Press C for calibration...";
 			return;
 		}
 		
@@ -171,19 +174,19 @@ public class ManualCameraCalibration : MonoBehaviour
 			// get intersection of dir vector and xz plane
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
-				camera.transform.Translate(-0.03f, 0.0f, 0.0f, Space.Self);
+				camera.transform.Translate(-MOVE_WITH, 0.0f, 0.0f, Space.Self);
 			}
 			if (Input.GetKey(KeyCode.RightArrow))
 			{
-				camera.transform.Translate(0.03f, 0.0f, 0.0f, Space.Self);
+				camera.transform.Translate(MOVE_WITH, 0.0f, 0.0f, Space.Self);
 			}
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
-				camera.transform.Translate(0.0f, -0.03f, 0.0f, Space.Self);
+				camera.transform.Translate(0.0f, -MOVE_WITH, 0.0f, Space.Self);
 			}
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				camera.transform.Translate(0.0f, 0.03f, 0.0f, Space.Self);
+				camera.transform.Translate(0.0f, MOVE_WITH, 0.0f, Space.Self);
 			}
 		}
 		
@@ -193,11 +196,11 @@ public class ManualCameraCalibration : MonoBehaviour
 			// get intersection of dir vector and xz plane
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
-				camera.transform.Translate(0.0f, 0.0f, -0.03f, Space.Self);
+				camera.transform.Translate(0.0f, 0.0f, -MOVE_WITH, Space.Self);
 			}
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				camera.transform.Translate(0.0f, 0.0f, 0.03f, Space.Self);
+				camera.transform.Translate(0.0f, 0.0f, MOVE_WITH, Space.Self);
 			}
 		}
 		

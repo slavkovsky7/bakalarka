@@ -182,13 +182,14 @@ public class Sun : MonoBehaviour {
 	private const int ORBITS_BTN_ID = 6;
 	private const int MOONS_BTNS = 200;
 	private const int PLANET_BTN_NAMES_ID = 7;
-
+	private const int SWITCH_SKYBOX_BTN = 8;
 
 	private String showPlanetNamesText = "Names On";
 	private String drawOrbitsBtnText = "Orbits On";
 	private String btnMouseSwitchText = TouchControl.IgnoreMouse ? "Mouse Off": "Mouse on" ;
+	private String skyboxBtnText = "Skybox On";
 
-
+	private  bool skyboxEnabled = true;
 	bool showInfo = false;
 	private void showPlanetInfo(){
 		int w = 300;
@@ -270,7 +271,17 @@ public class Sun : MonoBehaviour {
 			}
 		}
 
-		
+		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 3*90, Screen.height - 50 , 85, 40) ,  skyboxBtnText , SWITCH_SKYBOX_BTN ) ) {
+			if (!skyboxEnabled){
+				skyboxBtnText = "Skybox On";
+				skyboxEnabled = true;
+			}else{
+				skyboxEnabled = false;
+				skyboxBtnText = "Skybox Off";
+			}
+			switchSkybox(skyboxEnabled);
+		}
+
 		if ( GUI.Button( createGuiRect(Screen.width/2 - 2*90, Screen.height - 50 , 85, 40) ,  btnMouseSwitchText ) ) {
 			if (TouchControl.IgnoreMouse){
 				TouchControl.IgnoreMouse = false;
@@ -369,6 +380,28 @@ public class Sun : MonoBehaviour {
 		}
 		return Math.Round(showNumber, 2) + perWhat+"/s";
 	}
+	//******************8switch skybox**************************
+	public GameObject blackPlane = null;
+	public GameObject calibPlane;
+	public void switchSkybox(bool enabled){
+		Camera projectCam = projectorCam.GetComponent<Camera>();
+		//GameObject blackPlane = GameObject.Find("Projector Camera/BlackPlane");
+		if (enabled) {
+			blackPlane.SetActive (false);
+			projectCam.clearFlags = CameraClearFlags.Skybox;
+			projectorCam.GetComponent<GlowEffect>().enabled = true;
+		} else {
+			blackPlane.SetActive (true);
+		
+			blackPlane.transform.position = calibPlane.transform.position;
+			blackPlane.transform.localScale = calibPlane.transform.localScale;
+			blackPlane.transform.rotation = calibPlane.transform.rotation;
+
+			projectCam.clearFlags = CameraClearFlags.Depth;
+			projectorCam.GetComponent<GlowEffect>().enabled = false;
+		}
+	}
+
 
 	//**************************Easing**************************
 
