@@ -57,9 +57,21 @@ public class Planet : MonoBehaviour {
 	public float getApsisDistance(){
 		return ellipse.getApsisDistance();
 	}
+
+
+	GUIText guiText;
 	
 	void InitPlanet()
 	{
+		//Font
+		GameObject text = new GameObject("GuiText." + this.name);
+		text.layer = 13;
+		guiText = (GUIText)text.AddComponent(typeof(GUIText));
+		guiText.fontSize = isMoon ? 11 : 13;
+		guiText.text = this.name;
+
+
+		//Ostatok
 		originalRotation = this.transform.localRotation;
 		U = (Quaternion.Euler( 0, 0,-Inclination) * U ).normalized;
 		
@@ -249,6 +261,16 @@ public class Planet : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+		if (guiText != null){
+			if (Sun.ShowPlanetNames){
+				guiText.enabled = true;
+				Camera screenCam = GameObject.Find("Screen Camera").GetComponent<Camera>();
+				Vector3 tmp = screenCam.WorldToViewportPoint(this.transform.position);
+				guiText.transform.position = tmp;
+			}else{
+				guiText.enabled = false;
+			}
+		}
 		Advance();
 		//scaleByTouchScreen();
 	}

@@ -1,0 +1,18 @@
+\select@language {slovak}
+\contentsline {chapter}{\numberline {1}Preh\IeC {\v l}ad}{12}
+\contentsline {section}{\numberline {1.1}Eclipse}{12}
+\contentsline {section}{\numberline {1.2}ADT}{12}
+\contentsline {section}{\numberline {1.3}OpenGL ES}{13}
+\contentsline {section}{\numberline {1.4}jPCT-AE}{13}
+\contentsline {section}{\numberline {1.5}Presn\IeC {\'e} vektorov\IeC {\'e} text\IeC {\'u}ry pre 3D vizualiz\IeC {\'a}cie v re\IeC {\'a}lnom \IeC {\v c}ase}{14}
+\contentsline {subsection}{\numberline {1.5.1}\IeC {\'U}vod}{14}
+\contentsline {subsection}{\numberline {1.5.2}Algoritmus}{16}
+\contentsline {subsection}{\numberline {1.5.3}Predspracovanie}{16}
+\contentsline {subsubsection}{Delenie kriviek}{17}
+\contentsline {subsubsection}{Zis\IeC {\v t}ovanie vlastnost\IeC {\'\i } prekr\IeC {\'y}vaj\IeC {\'u}cich bunku}{18}
+\contentsline {subsubsection}{Roz\IeC {\v s}\IeC {\'\i }renie bunky}{19}
+\contentsline {subsubsection}{\IeC {\v S}trukt\IeC {\'u}ra ur\IeC {\'y}ch\IeC {\v l}ova\IeC {\v c}a}{20}
+\contentsline {subsection}{\numberline {1.5.4}Shaderov\IeC {\'y} v\IeC {\'y}po\IeC {\v c}et}{21}
+\contentsline {subsubsection}{Skladanie cesty}{21}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et vzdialenosti}{23}
+\contentsline {chapter}{\numberline {2}Cie\IeC {\v l} pr\IeC {\'a}ce}{26}

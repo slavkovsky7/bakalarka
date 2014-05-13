@@ -1,0 +1,77 @@
+
+1.) Technologie
+ 1.1)Rozsirena realita
+ 1.2) Mars
+ 1.3) TIOU multitouch
+ 1.4) Unity
+
+
+2.)Podobne riesenia
+  - solar system scope
+  - space engine
+  - doplnit o ostatne s rozsirenou realitou, uz mi novotny poslal
+
+
+=================================
+3.) Navrh prace
+
+	2) Specifikacia aplikacie
+
+	3.)Struktura sceny
+	  1.)Komponenty MARSU
+		  - prva kamera  
+		  - druha kamera
+		  - skybox
+		  - stol prvy 
+		  - stol druhy
+		  - kalibracia
+		  - ze tam je kamera ktora snima cloveka
+	  2.) Slnecna sustava
+	      - slnko ,planety mesiac , v akom vzdahu su
+	      - osvetlenie
+	      - ze tam budu orbity
+	      - spomenut ako funguju svetla
+	3.Interakcia s aplikaciou, uzivatelske rozhranie
+		- ze sa da pohybovat
+		- ze sa da rotovat
+		- ze sa da zoomovat
+		- easing , vysvelit co je kvadraticky a nejake dalsie priklady
+		- ze sa da hybat cas
+		- nastavit datum
+		- vsetko co sa da vypnut a zapnut, v podstat vsetky buttony.
+
+=================================
+
+4.)Fyzika za tym
+  3.1).Kepler
+	  3.1.1) Prvy keplerov zakon 
+	  	- co je elipsa
+	  	- jej vzorec
+	  	- vzorec do 3 rozmerov
+	  	- ekcentricita
+	  	- semi_major, semi_minor, f1, f2
+	  3.1.2) Keplerov zakon
+	    - co to je ako sa pouziva
+	  3.1.3) Keplerov zakon
+	    - gravitacny parameter
+	    - vypocet periody
+	    - vypocet gravitacneho parametera podla periody
+	  3.1.4) Keplerova rovnica
+	    - mean anomally
+
+  3.2) Orbitalne charakteristiky  
+    - rychlost
+    - inclination , ake druhy, ekliptika
+    - tilt
+    - perioda 
+    - obvod orbitu
+    - dlzka dna
+    - true anomally, mozno ako to prekonvertovat do uhla
+    - mean anomally
+    - perihelion 
+    - aphelion
+
+==================================
+4.) Implementacia
+	  - vymenovat skripty
+	  ""

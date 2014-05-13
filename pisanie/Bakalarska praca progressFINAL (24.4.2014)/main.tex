@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper,oneside]{bachelor} %{book} mi nechcelo kompilovat kvoli slovencine nejakym zazrakom
+
+\usepackage[slovak]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{parskip}
+
+\setlength{\parindent}{15pt}
+
+\renewcommand\baselinestretch{1.5}
+
+% konstanty
+\def\mftitle{Herný editor vzhľadu karosérii áut}
+\def\mfthesistype{Bakalárska práca}
+\def\mfauthor{Adam Dudík}
+\def\mfadvisor{Prof. RNDr. Roman Ďurikovič, PhD.}
+\def\mfplacedate{Bratislava, 2014}
+
+\ifx\pdfoutput\undefined\relax\else\pdfinfo{ /Title (\mftitle) /Author (\mfauthor) /Creator (PDFLaTeX) } \fi
+
+%koniec nastaveni a tu uz zacina obsah
+\begin{document}
+
+%\frontmatter
+
+\thispagestyle{empty}
+
+\noindent
+\begin{minipage}{\textwidth}
+\begin{center}
+\uppercase{Univerzita Komenského v Bratislave \\
+Fakulta matematiky, fyziky a informatiky}
+\end{center}
+\end{minipage}
+
+\vfill
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\centerline{\textbf{\LARGE\MakeUppercase{\mftitle}}}
+\smallskip
+\centerline{\mfthesistype}
+\end{minipage}
+\end{center}
+\vfill
+2014 \hfill
+\mfauthor
+\eject 
+% koniec obalu
+
+\thispagestyle{empty}
+
+\begin{minipage}{\textwidth}
+\begin{center}
+\uppercase{Univerzita Komenského v Bratislave \\
+Fakulta matematiky, fyziky a informatiky}
+\end{center}
+\end{minipage}
+
+\vfill
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\centerline{\textbf{\MakeUppercase{\mftitle}}}
+\smallskip
+\centerline{\mfthesistype}
+\end{minipage}
+\end{center}
+\vfill
+\begin{tabular}{l l}
+Registračné číslo: &  \\
+Študijný program: & aplikovaná informatika\\
+Študijný odbor: & 2511 aplikovaná informatika\\
+Školiace pracovisko: & Katedra Informatiky\\
+Školiteľ: & \mfadvisor
+\end{tabular}
+\vfill
+\mfplacedate \hfill
+\mfauthor
+\eject 
+
+\thispagestyle{empty}
+
+{~}\vspace{12cm}
+
+\noindent
+\begin{minipage}{0.25\textwidth}~\end{minipage}
+\begin{minipage}{0.75\textwidth}
+Čestne prehlasujem, že túto bakalársku prácu som vypracoval samostatne s použitím uvedených zdrojov a radami môjho školiteľa.
+\newline \newline
+\end{minipage}
+\vfill
+~ \hfill {\hbox to 6cm{\dotfill}} \\
+\mfplacedate \hfill Adam Dudík
+\vfill\eject 
+% koniec prehlasenia
+
+\chapter*{Poďakovanie}\label{chap:dakovanie}
+Chcel by som poďakovať vedúcemu mojej bakalárskej práce Prof. RNDr. Romanovi Ďurikovičovi, PhD. za rady a pripomienky pri vypracovávaní tejto práce.
+\vfill\eject 
+% koniec podakovania
+
+\chapter*{Abstrakt}\label{chap:abstrakt_sk}
+Naštudovať si knižnice OpenGL ES pre prostredie Android, preštudovať metódy renderingu v reálnom čase, pochopyť princíp textúrovania a modelovania lesku. Implementovať jednoduchý renderer 3D modelu auta s užívateľským výberom lakov a textúr.
+
+~\\
+Kľúčové slová: OpenGL ES, Android, rendering v reálnom čase, textúrovanie, lesk, 3D model
+\vfill\eject 
+
+\chapter*{Abstract}\label{chap:abstrakt_en}
+Study OpenGL ES libraries Android environment, study methods of real-time rendering, understand principles of texturing and gloss modeling. Implement basic renderer of a car 3D model with user's choice of paint and textures.\textbf{
+}
+~\\
+Keywords: OpenGL ES, Android, real-time rendering, texturing, gloss, 3D model
+\vfill\eject 
+% koniec abstraktov
+
+\input 00predhovor.tex
+
+\tableofcontents
+
+\listoffigures
+
+%\mainmatter
+
+\input 01uvod.tex
+\input 02prehlad.tex
+\input 03ciel.tex
+
+%\backmatter
+
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{references}
+
+
+\end{document}

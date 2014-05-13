@@ -29,6 +29,7 @@ public class Sun : MonoBehaviour {
 	public Camera screenCam;
 	public Camera projectorCam;
 	private Rect guiRect;
+	public static  bool ShowPlanetNames = true;
 
 	float timeAccelaration = 0;
 	public void addTime(float n){
@@ -180,7 +181,10 @@ public class Sun : MonoBehaviour {
 	private const int PLANET_BTNS = 100;
 	private const int ORBITS_BTN_ID = 6;
 	private const int MOONS_BTNS = 200;
+	private const int PLANET_BTN_NAMES_ID = 7;
 
+
+	private String showPlanetNamesText = "Names On";
 	private String drawOrbitsBtnText = "Orbits On";
 	private String btnMouseSwitchText = TouchControl.IgnoreMouse ? "Mouse Off": "Mouse on" ;
 
@@ -190,7 +194,7 @@ public class Sun : MonoBehaviour {
 		int w = 300;
 		int h = 300;
 		int x = Screen.width / 2 - h - 10, y = Screen.height / 2 - w / 2;
-		if (Planet.selectedPlanet != null){
+		if (followedPlanet != null){
 			if (showInfo){
 				GUI.Box(  new Rect(x,y,w,h) , "");
 				string text = " - blablabla asdasd \n - blablabla blablabla \n - blablabla "; 
@@ -201,7 +205,7 @@ public class Sun : MonoBehaviour {
 
 				GUI.Label( new Rect(x + 10, y + 35 , w , h) , text, style);
 			}
-			if ( KeyButton.Button(new Rect(x,y,w,30), Planet.selectedPlanet.name ,432321) ){
+			if ( KeyButton.Button(new Rect(x,y,w,30), followedPlanet.name ,432321) ){
 				showInfo = !showInfo;
 			}
 		}
@@ -245,6 +249,7 @@ public class Sun : MonoBehaviour {
 			TouchControl.ResetView();
 			followingPlanet = false;
 		}
+
 		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,55, 85, 40) ,  drawOrbitsBtnText , ORBITS_BTN_ID ) ) {
 			if (!DrawOrbits){
 				drawOrbitsBtnText = "Orbits On";
@@ -254,6 +259,17 @@ public class Sun : MonoBehaviour {
 				drawOrbitsBtnText = "Orbits Off";
 			}
 		}
+
+		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,100, 85, 40) ,  showPlanetNamesText , PLANET_BTN_NAMES_ID ) ) {
+			if (!ShowPlanetNames){
+				showPlanetNamesText = "Names On";
+				ShowPlanetNames = true;
+			}else{
+				ShowPlanetNames = false;
+				showPlanetNamesText = "Names Off";
+			}
+		}
+
 		
 		if ( GUI.Button( createGuiRect(Screen.width/2 - 2*90, Screen.height - 50 , 85, 40) ,  btnMouseSwitchText ) ) {
 			if (TouchControl.IgnoreMouse){
@@ -363,7 +379,7 @@ public class Sun : MonoBehaviour {
 	private bool unlocking = false;
 
 	private void setEaseToObject(Planet p ){
-		if ( followedPlanet != p )
+		if ( followedPlanet != p && !unlocking)
 		{
 			followingPlanet = true;
 			Planet.selectedPlanet = p;

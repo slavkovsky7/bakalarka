@@ -1,0 +1,26 @@
+\begin{thebibliography}{QMK08}
+
+\bibitem[Fou]{fou}
+The~Eclipse Foundation.
+\newblock Eclipse, http://help.eclipse.org/kepler/index.jsp.
+
+\bibitem[Gro]{gro}
+Khronos Group.
+\newblock Opengl es, http://www.khronos.org/opengles/.
+
+\bibitem[Ols]{ols}
+Egon Olsen.
+\newblock jpct-ae, http://www.jpct.net/jpct-ae/index.html.
+
+\bibitem[Pro]{pro}
+Android Open~Source Project.
+\newblock Android development tools,
+  http://developer.android.com/tools/sdk/eclipse-adt.html.
+
+\bibitem[QMK08]{qmk08}
+Zheng Qin, Michael~D. McCool, and Craig Kaplan.
+\newblock Precise vector textures for real-time 3d rendering.
+\newblock In {\em Proceedings of the 2008 symposium on Interactive 3D graphics
+  and games}, I3D '08, pages 199--206, New York, NY, USA, 2008. ACM.
+
+\end{thebibliography}
