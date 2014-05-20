@@ -115,7 +115,7 @@ namespace Bakalarka
 			double S = Math.Sin(eccentricAnomally);
 			
 			double x = semi_major* (C - this.e); 
-			double y = semi_major* Math.Sqrt(1 - this.e*this.e)*S;
+			double y = semi_minor*S;
 			
 			Vector3 result = new Vector3();
 			result.x = (float)(U.x * x  + V.x*y);
@@ -229,22 +229,27 @@ namespace Bakalarka
 
 		public double getPeriod(double gravitParam)
 		{
-			double v = getAverageOrbitalSpeed(gravitParam);
+			/*double v = getAverageOrbitalSpeed(gravitParam);
 			double s = getPerimeter();
 			double period = SCALE_PARAM*(s / (v*3600 ));
-			return period;
+			return period;*/
+			double result =  2*Math.PI*Math.Sqrt( Math.Pow( semi_major, 3.0 ) / gravitParam );
+			return  (result*SCALE_PARAM) / 3600;
 		}
 
 		public double getGravitationParameter( double period )
 		{
-			period = period / SCALE_PARAM;
+			/*period = period / SCALE_PARAM;
 			double s = getPerimeter();
 			double v = s / (period*3600);
 			double result = semi_major * v*v;
-			return result;
+			return result;*/
+			double d = 3600 / SCALE_PARAM;
+			double result =  (4*Math.PI*Math.PI*Math.Pow( semi_major, 3 ) ) / Math.Pow(period*d,2.0);
+			return  result;
 		}
 
-		public double EccentricAnnomaly(double meanAnomally, double precision){
+		/*public double EccentricAnnomaly(double meanAnomally, double precision){
 			double K = Math.PI / 180.0;
 			int maxIter = 30;
 			int i = 0 ;
@@ -261,8 +266,24 @@ namespace Bakalarka
 			}
 			E = E/K;
 			return Math.Round(E*Math.Pow(10,precision))/ Math.Pow(10, precision);
-		}
+		}*/
 		
+
+		public double EccentricAnnomaly(double meanAnomally, double precision){
+			double M = meanAnomally*Mathf.Deg2Rad;
+			int maxIter = 30;
+			double delta = Math.Pow(10, -precision);
+
+			double E0 = M + e * Math.Sin(M) * (1 + e * Math.Cos(M));
+			double E1 = E0 - (E0 - e * Math.Sin(E0) - M) / ( 1 - e * Math.Cos(E0));
+			int i = 0;
+			while ( Math.Abs(E0 - E1) > delta && i < maxIter ){
+				E0 = E1;
+				E1 = E0 - (E0 - e * Math.Sin(E0) - M) / ( 1 - e * Math.Cos(E0));
+				i++;
+			}
+			return E1 * Mathf.Rad2Deg;
+		}
 	}
 }
 

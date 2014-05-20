@@ -60,3 +60,20 @@ http://scrawkblog.com/2013/04/13/gpu-gems-to-unity-atmospheric-scattering/
 
 
 http://astronomy.swin.edu.au/cosmos/A/Ascending+Node
+
+
+
+
+============= literatura ================
+
+
+1.) Unity Fundamentals
+2.) Mars od novotneho
+3.) TMAR - http://www.hitlabnz.org/administrator/components/com_jresearch/files/publications/2008-TMARExtensionofaTabletopInterfaceUsingMobileAugmentedReality.pdf
+4.)http://www.1mobile.com/augmented-reality-solar-system-671880.html - Slne+cna sustava augmented reality
+5.) Dat link na solar_system_scope http://www.solarsystemscope.com/
+
+
+6.) Keplerove zakony
+
+http://www.physicsclassroom.com/class/circles/Lesson-4/Kepler-s-Three-Laws

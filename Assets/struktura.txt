@@ -50,28 +50,32 @@
 	  	- vzorec do 3 rozmerov
 	  	- ekcentricita
 	  	- semi_major, semi_minor, f1, f2
+
 	  3.1.2) Keplerov zakon
 	    - co to je ako sa pouziva
 	  3.1.3) Keplerov zakon
 	    - gravitacny parameter
 	    - vypocet periody
 	    - vypocet gravitacneho parametera podla periody
+
+    	- true anomally, mozno ako to prekonvertovat do uhla
+    	- mean anomally
+
 	  3.1.4) Keplerova rovnica
 	    - mean anomally
 
-  3.2) Orbitalne charakteristiky  
+  3.2) Keplerov orbit 
     - rychlost
-    - inclination , ake druhy, ekliptika
     - tilt
     - perioda 
     - obvod orbitu
     - dlzka dna
-    - true anomally, mozno ako to prekonvertovat do uhla
-    - mean anomally
+
+    - inclination , ake druhy, ekliptika
     - perihelion 
     - aphelion
-
+	- nejako domysliet ako dat doprace ze sa to pocita z apsisu , semimajor a semi minor
 ==================================
 4.) Implementacia
 	  - vymenovat skripty
-	  ""
+	  - tie sracky na neskor
