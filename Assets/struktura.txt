@@ -14,32 +14,27 @@
 
 =================================
 3.) Navrh prace
-
-	2) Specifikacia aplikacie
-
-	3.)Struktura sceny
-	  1.)Komponenty MARSU
-		  - prva kamera  
-		  - druha kamera
-		  - skybox
-		  - stol prvy 
-		  - stol druhy
-		  - kalibracia
-		  - ze tam je kamera ktora snima cloveka
-	  2.) Slnecna sustava
-	      - slnko ,planety mesiac , v akom vzdahu su
-	      - osvetlenie
-	      - ze tam budu orbity
-	      - spomenut ako funguju svetla
-	3.Interakcia s aplikaciou, uzivatelske rozhranie
-		- ze sa da pohybovat
-		- ze sa da rotovat
-		- ze sa da zoomovat
-		- easing , vysvelit co je kvadraticky a nejake dalsie priklady
-		- ze sa da hybat cas
-		- nastavit datum
-		- vsetko co sa da vypnut a zapnut, v podstat vsetky buttony.
-
+	2.)Struktura sceny
+		- planety, slnko , mesiac, ich hierarchia , previazanosti, jednotlive komponenty  ako sa fyzika aplikuje na objekty
+		- popisat svetlo v scene ako funguje a preco je to tak urobene
+		- vysvetlit kamery , ze sa skaluje ortogonalna a tak, preco sa scena skalujespomenut background kamery a vrstvy,
+		- podrobne opisat kalibraciu, kalibracnu rovinu , projekcnu kameru a ze sa da zapnut blackPlane
+		- shader pre saturnov prstenec
+		- akym sposobom je nainstalovane TUIO
+		- skybox a jeho rotovanie
+		- ako sa kreslia orbity cez line renderer
+	3.)
+		- vysvetlit co je TUIO a ako funguje multitouch , ze je na windowse jeden a TUIO je druhy
+		- dotykove gesta
+			- translacia
+			- zoom
+			- rotacia
+		- ze applikacia funguje aj s mysou a ze sa da vypnut
+		- centrovanie na planetu , kvadraticky easing
+		- povedat o nevyhodach UNITY pri rieseni GUI s dotykovym displayom opisat riesenie cez keybutton
+		- ze sa da nastavit datum ako to funguje , opisat datepicker a tak
+		- zrychlenie a nastavenie casu opisat , ze tam je nieco ako currenttime a casova konstatnta , ako som ju vypocital 
+		- popisy pre planety a ostatne mensie kompnenety 
 =================================
 
 4.)Fyzika za tym
@@ -65,16 +60,8 @@
 	    - mean anomally
 
   3.2) Keplerov orbit 
-    - rychlost
-    - tilt
-    - perioda 
-    - obvod orbitu
-    - dlzka dna
 
-    - inclination , ake druhy, ekliptika
-    - perihelion 
-    - aphelion
-	- nejako domysliet ako dat doprace ze sa to pocita z apsisu , semimajor a semi minor
+
 ==================================
 4.) Implementacia
 	  - vymenovat skripty

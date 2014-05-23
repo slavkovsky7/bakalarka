@@ -22,16 +22,16 @@ public class Planet : MonoBehaviour {
 	public float Inclination = 0;
 	
 	public float Eccentricity = 0;
-	public double OrbitalSpeed = 0;
-	public double OrbitalAngle = 0;
+	private double OrbitalSpeed = 0;
+	private double OrbitalAngle = 0;
 	public double GravitParam = 0;
-	public float Velocity = 0;
-	public double AverageVelocity = 0;
-	public int YearCounter = 0;
+	private float Velocity = 0;
+	private double AverageVelocity = 0;
+	private int YearCounter = 0;
 	public double Period = 0; 
-	public float Perimeter = 0;
+	private float Perimeter = 0;
 	public Planet parentObject = null;
-	public double Area;
+	private double Area;
 	
 	public Vector3 U = new Vector3(1,0,0);
 	public Vector3 V = new Vector3(0,0,1);
