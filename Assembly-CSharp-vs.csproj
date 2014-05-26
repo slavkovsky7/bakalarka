@@ -53,6 +53,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\KeyButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Math2f.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Planet.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\PlanetInfos.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\SolarSystem.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Sun.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Tests.cs" />

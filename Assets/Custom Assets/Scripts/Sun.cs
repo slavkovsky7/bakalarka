@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
@@ -192,26 +192,43 @@ public class Sun : MonoBehaviour {
 	private  bool skyboxEnabled = true;
 	bool showInfo = false;
 	private void showPlanetInfo(){
-		int w = 300;
-		int h = 300;
-		int x = Screen.width / 2 - h - 10, y = Screen.height / 2 - w / 2;
+		int w = 400;
+		int h = 500;
+		int x = getScreenCamWidth() - w - 10, y = Screen.height / 2 - w / 2;
 		if (followedPlanet != null){
 			if (showInfo){
-				GUI.Box(  new Rect(x,y,w,h) , "");
-				string text = " - blablabla asdasd \n - blablabla blablabla \n - blablabla "; 
+				string info = PlanetInfos.Get(followedPlanet.name);
+				if (info != null){
+					GUI.Box(  new Rect(x,y,w,h) , "");
+					GUIStyle style = new GUIStyle();
+					style.fontSize = 15;
+					style.normal.textColor = GUI.skin.label.normal.textColor;
 
-				GUIStyle style = new GUIStyle();
-				style.fontSize = 20;
-				style.normal.textColor = GUI.skin.label.normal.textColor;
-
-				GUI.Label( new Rect(x + 10, y + 35 , w , h) , text, style);
+					GUI.Label( new Rect(x + 10, y + 35 , w , h) , info, style);
+				}
 			}
-			if ( KeyButton.Button(new Rect(x,y,w,30), followedPlanet.name ,432321) ){
+			if ( KeyButton.Button(new Rect(x,y,w - 100,30), followedPlanet.name ,432321) ){
 				showInfo = !showInfo;
+			}
+
+			if (followingPlanet){
+				if ( KeyButton.Button( createGuiRect(x + w - 100 , y, 100, 30) ,  "Unlock" , UNLOCK_BTN_ID) ) {
+					//followingPlanet = false;
+					//GameObject sceneObjects = GameObject.Find("Scene");
+					//Vector3 pos = sceneObjects.transform.position;
+					//This is it
+					//sceneObjects.transform.position = new Vector3 ( pos.x, TouchControl.OriginalY, pos.z ) ;
+					resetEase();
+					//followedPlanet = null;
+					unlocking = true;
+				}
 			}
 		}
 	}
 
+	public static int getScreenCamWidth(){
+		return Screen.width / 2;
+	}
 
 	private void OnGUI(){
 
@@ -246,12 +263,12 @@ public class Sun : MonoBehaviour {
 			}
 		}
 	
-		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,10, 85, 40) ,  "Reset View", RESET_VIEW_BTN_ID ) ) {
+		if ( KeyButton.Button( createGuiRect(getScreenCamWidth() - 170,10, 85, 40) ,  "Reset View", RESET_VIEW_BTN_ID ) ) {
 			TouchControl.ResetView();
 			followingPlanet = false;
 		}
 
-		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,55, 85, 40) ,  drawOrbitsBtnText , ORBITS_BTN_ID ) ) {
+		if ( KeyButton.Button( createGuiRect(getScreenCamWidth() - 170,55, 85, 40) ,  drawOrbitsBtnText , ORBITS_BTN_ID ) ) {
 			if (!DrawOrbits){
 				drawOrbitsBtnText = "Orbits On";
 				DrawOrbits = true;
@@ -261,7 +278,7 @@ public class Sun : MonoBehaviour {
 			}
 		}
 
-		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 170,100, 85, 40) ,  showPlanetNamesText , PLANET_BTN_NAMES_ID ) ) {
+		if ( KeyButton.Button( createGuiRect(getScreenCamWidth() - 170,100, 85, 40) ,  showPlanetNamesText , PLANET_BTN_NAMES_ID ) ) {
 			if (!ShowPlanetNames){
 				showPlanetNamesText = "Names On";
 				ShowPlanetNames = true;
@@ -271,7 +288,7 @@ public class Sun : MonoBehaviour {
 			}
 		}
 
-		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 3*90, Screen.height - 50 , 85, 40) ,  skyboxBtnText , SWITCH_SKYBOX_BTN ) ) {
+		if ( KeyButton.Button( createGuiRect(getScreenCamWidth() - 3*90, Screen.height - 50 , 85, 40) ,  skyboxBtnText , SWITCH_SKYBOX_BTN ) ) {
 			if (!skyboxEnabled){
 				skyboxBtnText = "Skybox On";
 				skyboxEnabled = true;
@@ -282,7 +299,7 @@ public class Sun : MonoBehaviour {
 			switchSkybox(skyboxEnabled);
 		}
 
-		if ( GUI.Button( createGuiRect(Screen.width/2 - 2*90, Screen.height - 50 , 85, 40) ,  btnMouseSwitchText ) ) {
+		if ( GUI.Button( createGuiRect(getScreenCamWidth()- 2*90, Screen.height - 50 , 85, 40) ,  btnMouseSwitchText ) ) {
 			if (TouchControl.IgnoreMouse){
 				TouchControl.IgnoreMouse = false;
 				btnMouseSwitchText = "Mouse On";
@@ -292,24 +309,15 @@ public class Sun : MonoBehaviour {
 			}
 		}
 
-		if ( KeyButton.Button( createGuiRect(Screen.width/2 - 90, Screen.height - 50 , 85, 40) ,  "Exit" , EXIT_BTN_ID) ) {
+		if ( KeyButton.Button( createGuiRect(getScreenCamWidth() - 90, Screen.height - 50 , 85, 40) ,  "Exit" , EXIT_BTN_ID) ) {
 			Application.Quit();
 		}
 
 		//BBTouchableButton.Instantiate(  );
 		//Treba dorobit unloack ease
-		if (followingPlanet){
-			if ( KeyButton.Button( createGuiRect(Screen.width/2 - 80,10, 70, 40) ,  "Unlock" , UNLOCK_BTN_ID) ) {
-				//followingPlanet = false;
-				//GameObject sceneObjects = GameObject.Find("Scene");
-				//Vector3 pos = sceneObjects.transform.position;
-				//This is it
-				//sceneObjects.transform.position = new Vector3 ( pos.x, TouchControl.OriginalY, pos.z ) ;
-				resetEase();
-				//followedPlanet = null;
-				unlocking = true;
-			}
-		}
+
+
+
 		GUIStyle style = new GUIStyle();
 		style.fontSize = 50;
 		style.normal.textColor = GUI.skin.label.normal.textColor;
@@ -350,7 +358,8 @@ public class Sun : MonoBehaviour {
 	{
 		//return (0.02f * Planet.EARTH_TICKS_PER_HOUR) / 3600.0f;
 		return 1.0/50.0/3600;
-	}
+	}
+
 	private String getTimeModifierAsString(){
 		double timeModifier = Sun.TimeConstant / GetDefaultTimeConstant();
 		string perWhat = "";
@@ -378,7 +387,7 @@ public class Sun : MonoBehaviour {
 		if (minus){
 			showNumber *= -1;
 		}
-		return Math.Round(showNumber, 2) + perWhat+"/s";
+		return Math.Round(showNumber, 2) + perWhat+" : s";
 	}
 	//******************8switch skybox**************************
 	public GameObject blackPlane = null;

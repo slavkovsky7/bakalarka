@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Math2f.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Assets\Scripts\Sun.cs">
     <Files>
-      <File FileName="Assets\Plugins\uniTUIOCE\utilities\BBTouchManagerStarter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Planet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Custom Assets\Scripts\Math2f.cs" Line="112" Column="30" />
+      <File FileName="Assets\Custom Assets\Scripts\Sun.cs" Line="196" Column="14" />
+      <File FileName="Assets\Custom Assets\Scripts\PlanetInfos.cs" Line="26" Column="69" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
